@@ -1,6 +1,15 @@
 
 .collumns {
-    height: 2000px;
+    height: 90vh;
+}
+
+.colLeft{
+    display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.colLeft img{
+    max-width: 100%;
+    height: auto;
 }
