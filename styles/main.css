@@ -1,0 +1,68 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body {
+    display: flex;
+    background-color: rgb(236, 236, 236);
+}
+
+nav {
+    min-height: 100vh;
+    width: 300px;
+    /* background-color: blue; */
+}
+
+nav ul {
+    max-width: 175px;
+    margin: auto;
+    margin-top: 3rem;
+}
+
+nav ul li {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+main {
+    display: grid;
+    width: 100%;
+    grid-template-areas:
+    'a a b'
+    'c c b'
+    'c c b';
+    background-color: white;
+    gap: 1rem;
+    margin: 1.5rem 1.5rem 1.5rem 0;
+    padding: 1.5rem;
+    border-radius: 0 2rem 2rem 0;
+    border-left: .625rem black solid;
+}
+
+main section {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    background-color: rgb(234, 234, 234);
+}
+
+main .saldo {
+    /* background-color: darkorange; */
+    grid-area: a;
+}
+
+main .transferencias {
+    /* background-color: brown; */
+    grid-area: b;
+}
+
+main .tarjetas {
+    /* background-color: chartreuse; */
+    grid-area: c;
+}
