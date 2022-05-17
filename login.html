@@ -5,38 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="styles/custom.css">
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#">Features</a>
-              <a class="nav-link" href="#">Pricing</a>
-              <a class="nav-link disabled">Disabled</a>
-            </div>
+  <nav class="navbar bg-light">
+    <div class="container-fluid">
+      <a href="#" class="navbar-brand">
+        <img src="img/Asset 2.svg" alt="ITBA Bank" height="35">
+      </a>
+      <div class="">
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Centros de ayuda</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Turnos Online</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Beneficios</a>
+          </li>
+        </ul>
+      </div>
+      <div class="">
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Ingresa</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Registrate</a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+  <main class="container collumns">
+      <div class="row">
+          <div class="col-9 colL">
+              <img src="https://universidadeshoy.com.ar/uploads/noticias/5/2021/08/20210820080011_itba.jpg" alt="">
           </div>
-        </div>
-      </nav>
-    <main class="container ">
-        <div class="row collumns">
-            <div class="col-9 colL">
-                <img src="https://universidadeshoy.com.ar/uploads/noticias/5/2021/08/20210820080011_itba.jpg" alt="">
-            </div>
-            <div class="col-3 d:flex justify-content-center align-items-center">
-                <input type="text" placeholder="Email" class="form-control mb-4"/>
-                <input type="text" placeholder="Usuario" class="form-control mb-4"/>
-                <input type="password" placeholder="Contraseña" class="form-control mb-4"/>
-                <button type="button" class="btn btn-secondary m-2">Iniciar Sesion</button>
-            </div>
-        </div>
-    </main>
+          <div class="col-3 d-flex flex-column justify-content-center align-items-center">
+              <input type="text" placeholder="Email" class="form-control mb-4"/>
+              <input type="text" placeholder="Usuario" class="form-control mb-4"/>
+              <input type="password" placeholder="Contraseña" class="form-control mb-4"/>
+              <button type="button" class="btn btn-secondary m-2">Iniciar Sesion</button>
+          </div>
+      </div>
+
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
