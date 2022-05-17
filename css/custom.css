@@ -1,32 +1,31 @@
-
 .collumns {
     height: 90vh;
 }
 
-.colLeft{
+.colLeft {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.colLeft img{
+.colLeft img {
     max-width: 100%;
     height: auto;
 }
 
-.links{
+.links {
     font-family: 'Fira Sans', sans-serif;
     color: black;
     font-weight: bold;
 }
 
-.panelLogin{
+.panelLogin {
     border-radius: 1rem;
     margin: 80px 0px;
     background-color: rgb(234, 234, 234);
 }
 
-.titulo{
+.titulo {
     font-family: 'Source Code Pro', monospace;
     color: black;
     font-weight: bold;
@@ -35,11 +34,11 @@
     margin-top: 15px;
 }
 
-.subrayado{
+.subrayado {
     margin-top: 0;
     max-width: 80%;
 }
 
-.registrate{
+.registrate {
     color: white;
 }
