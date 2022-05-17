@@ -21,9 +21,8 @@
 }
 
 .panelLogin{
-    margin-top: 80px;
-    margin-bottom: 80px;
     border-radius: 1rem;
+    margin: 80px 0px;
     background-color: rgb(234, 234, 234);
 }
 
@@ -32,10 +31,13 @@
     color: black;
     font-weight: bold;
     font-size: 17pt;
+    margin-bottom: 0;
+    margin-top: 15px;
 }
 
 .subrayado{
-    margin-top: -2.5rem;
+    margin-top: 0;
+    max-width: 80%;
 }
 
 .registrate{
