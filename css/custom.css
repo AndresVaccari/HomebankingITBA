@@ -13,3 +13,31 @@
     max-width: 100%;
     height: auto;
 }
+
+.links{
+    font-family: 'Fira Sans', sans-serif;
+    color: black;
+    font-weight: bold;
+}
+
+.panelLogin{
+    margin-top: 80px;
+    margin-bottom: 80px;
+    border-radius: 1rem;
+    background-color: rgb(234, 234, 234);
+}
+
+.titulo{
+    font-family: 'Source Code Pro', monospace;
+    color: black;
+    font-weight: bold;
+    font-size: 17pt;
+}
+
+.subrayado{
+    margin-top: -2.5rem;
+}
+
+.registrate{
+    color: white;
+}
