@@ -1,3 +1,7 @@
+header{
+    box-shadow: 0 0 10px #686464;
+}
+
 .collumns {
     height: 90vh;
 }
@@ -26,19 +30,30 @@
 }
 
 .titulo {
+    display: flex;
     font-family: 'Source Code Pro', monospace;
     color: black;
     font-weight: bold;
     font-size: 17pt;
     margin-bottom: 0;
     margin-top: 15px;
+    justify-content: center;
 }
 
 .subrayado {
-    margin-top: 0;
-    max-width: 80%;
+    display: flex;
+    margin: auto;
+    max-width: 100%;
 }
 
 .registrate {
     color: white;
+}
+
+.texto {
+    font-size: small;
+}
+
+.imagenPrincipal{
+    border-radius: 20px;
 }
