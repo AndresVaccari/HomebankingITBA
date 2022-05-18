@@ -90,3 +90,9 @@ footer #social a{
 footer #social img{
     width: 30px;
 }
+
+.fondo{
+    background: url(../img/fondo\ loging.svg);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
