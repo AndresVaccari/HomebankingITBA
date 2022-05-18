@@ -127,7 +127,7 @@ main .tarjetas {
 
 .tarjeta .delantera {
 	width: 100%;
-	background: url(../img/bg-tarjeta/bg-tarjeta-02.jpg);
+	background: url(../img/tarjeta.svg);
 	background-size: cover;
 }
 
