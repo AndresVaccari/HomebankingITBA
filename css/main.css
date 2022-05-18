@@ -111,14 +111,14 @@ main .tarjetas {
 	z-index: 2;
 } 
 
-.tarjeta.active {
+/* .tarjeta.active {
 	transform: rotateY(180deg);
-}
+} */
 
 .tarjeta > div {
 	padding: 30px;
 	border-radius: 15px;
-	min-height: 315px;
+	min-height: 315px; /*315px*/
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -133,7 +133,7 @@ main .tarjetas {
 
 .delantera .logo-marca {
 	text-align: right;
-	min-height: 50px;
+	min-height: 5px; /*50*/
 }
 
 .delantera .logo-marca img {
@@ -147,7 +147,7 @@ main .tarjetas {
 .delantera .grupo .label {
 	font-size: 16px;
 	color: #1b2127;
-	margin-bottom: 5px;
+	margin-bottom: 5px; /*le cambie de 5px*/
 }
 
 .delantera .grupo .numero,
@@ -161,7 +161,8 @@ main .tarjetas {
 .delantera .flexbox {
 	display: flex;
 	justify-content: space-between;
-	margin-top: 20px;
+	margin-top: 30px; /*30*/
+    margin-right: 150px;
 }
 
 footer{
