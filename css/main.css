@@ -28,6 +28,11 @@ nav ul li {
     font-size: 1.5rem;
     font-weight: bold;
 }
+nav .logo {
+    width: 50%;
+    margin-left: 50px;
+    margin-top: 20px;
+}
 
 main {
     display: flex;
