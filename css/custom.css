@@ -1,4 +1,4 @@
-header{
+header {
     box-shadow: 0 0 10px #686464;
 }
 
@@ -40,6 +40,20 @@ header{
     justify-content: center;
 }
 
+.fraseTitulo {
+    font-family: 'Fira Sans', sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: 35pt;
+}
+
+.fraseSubtitulo {
+    font-family: 'Fira Sans', sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: 17pt;
+}
+
 .subrayado {
     display: flex;
     margin: auto;
@@ -54,6 +68,6 @@ header{
     font-size: small;
 }
 
-.imagenPrincipal{
+.imagenPrincipal {
     border-radius: 20px;
 }
