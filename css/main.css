@@ -53,16 +53,18 @@ main .right {
     margin-left: 1rem;
 }
 
-main section {
-    /* width: 100%;
-    /* height: 100%; */
+main .boxContainer {
+    height: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgb(234, 234, 234);
 }
 
 main .saldo {
     /* background-color: darkorange; */
     width: 100%;
     margin-bottom: 1rem;
-    height: initial !important;
+    height: initial;
 }
 
 main .transferencias {
@@ -72,13 +74,6 @@ main .transferencias {
 
 main .tarjetas {
     /* background-color: chartreuse; */
-}
-
-main .boxContainer {
-    height: 100%;
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: rgb(234, 234, 234);
 }
 
 .balanceContainer {
