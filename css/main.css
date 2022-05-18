@@ -83,4 +83,18 @@ main .tarjetas {
 
 .balanceContainer .account {
     flex: 1 1 0px;
+    margin: .25rem 0;
+}
+
+.balanceContainer .account:not(:last-child) {
+    margin-right: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+    main .saldo .balanceContainer {
+        flex-direction: column;
+    }
+    .balanceContainer .account:not(:last-child) {
+        margin-right: 0;
+    }
 }
