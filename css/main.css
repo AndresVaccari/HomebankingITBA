@@ -6,7 +6,7 @@
     list-style-type: none;
 }
 
-body {
+#principal {
     display: flex;
     background-color: rgb(236, 236, 236);
 }
@@ -99,3 +99,22 @@ main .tarjetas {
         margin-right: 0;
     }
 }
+
+footer{
+    width: 100%;
+    margin: auto; 
+    height: 120px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+footer #social a{
+    padding: 10px;/*lo pongo aca porque quiero separar los a, no las img*/
+}
+
+footer #social img{
+    width: 30px;
+}
+
