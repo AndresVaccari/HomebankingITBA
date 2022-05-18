@@ -76,7 +76,8 @@ header {
 .fondo {
     background: url(../img/fondo\ loging.svg);
     background-repeat: no-repeat;
-    background-size: auto 100%;
+    background-size: auto 85%;
+    background-position: bottom left;
     height: 100vh;
 }
 
