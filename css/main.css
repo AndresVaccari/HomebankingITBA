@@ -99,17 +99,17 @@ main .tarjetas {
         margin-right: 0;
     }
 }
-.tarjeta {
+ .tarjeta {
 	width: 100%;
 	max-width: 550px;
 	position: relative;
 	color: #fff;
-	transition: .3s ease all;
+	/* transition: .3s ease all;
 	transform: rotateY(0deg);
-	transform-style: preserve-3d;
+	transform-style: preserve-3d; */
 	cursor: pointer;
 	z-index: 2;
-}
+} 
 
 .tarjeta.active {
 	transform: rotateY(180deg);
@@ -146,14 +146,14 @@ main .tarjetas {
 
 .delantera .grupo .label {
 	font-size: 16px;
-	color: #7d8994;
+	color: #1b2127;
 	margin-bottom: 5px;
 }
 
 .delantera .grupo .numero,
 .delantera .grupo .nombre,
 .delantera .grupo .expiracion {
-	color: #fff;
+	color: #000000;
 	font-size: 22px;
 	text-transform: uppercase;
 }
