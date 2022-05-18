@@ -74,6 +74,7 @@ main .transferencias {
 
 main .tarjetas {
     /* background-color: chartreuse; */
+    width: 100%;
 }
 
 .balanceContainer {
