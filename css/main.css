@@ -65,3 +65,16 @@ main .tarjetas {
     /* background-color: chartreuse; */
     grid-area: c;
 }
+
+main .boxContainer {
+    padding: 1rem;
+}
+
+.balanceContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.balanceContainer .account {
+    flex: 1 1 0px;
+}
