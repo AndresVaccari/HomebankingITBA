@@ -112,7 +112,7 @@ main .tarjetas {
     }
 }
  .tarjeta {
-	width: 100%;
+	width: 85%;
 	max-width: 550px;
 	position: relative;
 	color: #fff;
