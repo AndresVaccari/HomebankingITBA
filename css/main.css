@@ -89,11 +89,17 @@ main .tarjetas {
 
 .balanceContainer .account {
     flex: 1 1 0px;
-    margin: .25rem 0;
+    margin: .25rem .25rem;
+    font-size: small;
+    text-align: center;
 }
 
 .balanceContainer .account:not(:last-child) {
     margin-right: 1rem;
+}
+
+.balanceContainer .mainBalance{
+    font-size: 2rem;
 }
 
 @media screen and (max-width: 800px) {
@@ -121,9 +127,9 @@ main .tarjetas {
 } */
 
 .tarjeta > div {
-	padding: 30px;
+	padding: 25px;
 	border-radius: 15px;
-	min-height: 315px; /*315px*/
+	min-height: 280px; /*315px*/
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -188,3 +194,66 @@ footer #social img{
     width: 30px;
 }
 
+/*Modificaciones*/
+.menu{
+    color: black;
+}
+
+.menu:hover{
+    transform: scale(2);
+    transition:0.6s;
+    color:gray;
+}
+
+.menuInicio{
+    background-color: rgb(196, 192, 192);
+    border-radius: 10px;
+    padding: 10px;
+    padding-right: 80px;
+}
+
+.tarjeta:hover{
+    transform: scale(1.02);
+    transition:0.6s;
+}
+
+#expiracion {
+    padding-left: 10px;
+}
+
+/*Transferencias*/
+.botonesTransf{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.botonesTransf a{
+    background: transparent;
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: .75rem;
+    margin: .5rem;
+    color: black;
+    font-size: medium;
+}
+
+.botonesTransf a:hover{
+    background: black;
+    color:white;
+}
+
+.tituloLista{
+    margin: 0.5rem 0;
+}
+
+.lista{
+    display: flex;
+    align-items:center;
+    margin: 1rem 0;
+}
+
+.lista img{
+    width: 1.5rem;
+    margin-right: 1rem;
+}
