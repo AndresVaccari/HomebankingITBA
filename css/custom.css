@@ -1,9 +1,9 @@
-header{
+header {
     box-shadow: 0 0 10px #686464;
 }
 
 .collumns {
-    height: 90vh;
+    height: 90%;
 }
 
 .colLeft {
@@ -40,6 +40,21 @@ header{
     justify-content: center;
 }
 
+.fraseTitulo {
+    font-family: 'Fira Sans', sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: 35pt;
+    line-height: 45pt;
+}
+
+.fraseSubtitulo {
+    font-family: 'Fira Sans', sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: 17pt;
+}
+
 .subrayado {
     display: flex;
     margin: auto;
@@ -50,10 +65,62 @@ header{
     color: white;
 }
 
-.texto {
-    font-size: small;
+.conoceMas:hover{
+    color: blue;
 }
 
-.imagenPrincipal{
-    border-radius: 20px;
+.fondo {
+    background: url(../img/fondo\ loging.svg);
+    background-repeat: no-repeat;
+    background-size: auto 85%;
+    background-position: bottom left;
+    height: 100vh;
+}
+
+.fondoIndex {
+    height: 100vh;
+}
+
+footer {
+    width: 100%;
+    margin: auto;
+    height: 120px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+footer #social a {
+    padding: 10px;
+    /*lo pongo aca porque quiero separar los a, no las img*/
+}
+
+footer #social img {
+    width: 30px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .colLeft {
+        display: none;
+    }
+}
+
+.imgRedes:hover {
+    transform: scale(1.1);
+    transition:0.6s;
+}
+
+.texto{
+    font-size: smaller;
+}
+
+.iniciarSesion{
+    text-decoration: none;
+    color:white;
+}
+
+.iniciarSesion:hover{
+    color:white;
 }

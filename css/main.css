@@ -6,7 +6,7 @@
     list-style-type: none;
 }
 
-body {
+#principal {
     display: flex;
     background-color: rgb(236, 236, 236);
 }
@@ -28,40 +28,163 @@ nav ul li {
     font-size: 1.5rem;
     font-weight: bold;
 }
+nav .logo {
+    width: 50%;
+    margin-left: 50px;
+    margin-top: 20px;
+}
 
 main {
-    display: grid;
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    grid-template-areas:
-        'a a b'
-        'c c b'
-        'c c b';
     background-color: white;
-    gap: 1rem;
+    /* gap: 1rem; */
     margin: 1.5rem 1.5rem 1.5rem 0;
     padding: 1.5rem;
     border-radius: 0 2rem 2rem 0;
     border-left: .625rem black solid;
 }
 
-main section {
-    width: 100%;
+main .left {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0px;
+}
+
+main .right {
+    display: flex;
+    flex: 1 1 0px;
+    margin-left: 1rem;
+}
+
+main .boxContainer {
     height: 100%;
+    padding: 1rem;
     border-radius: 1rem;
     background-color: rgb(234, 234, 234);
 }
 
 main .saldo {
     /* background-color: darkorange; */
-    grid-area: a;
+    width: 100%;
+    margin-bottom: 1rem;
+    height: initial;
 }
 
 main .transferencias {
     /* background-color: brown; */
-    grid-area: b;
+    width: 100%;
 }
 
 main .tarjetas {
     /* background-color: chartreuse; */
-    grid-area: c;
+    width: 100%;
 }
+
+.balanceContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.balanceContainer .account {
+    flex: 1 1 0px;
+    margin: .25rem 0;
+}
+
+.balanceContainer .account:not(:last-child) {
+    margin-right: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+    main .saldo .balanceContainer {
+        flex-direction: column;
+    }
+    .balanceContainer .account:not(:last-child) {
+        margin-right: 0;
+    }
+}
+ .tarjeta {
+	width: 100%;
+	max-width: 550px;
+	position: relative;
+	color: #fff;
+	/* transition: .3s ease all;
+	transform: rotateY(0deg);
+	transform-style: preserve-3d; */
+	cursor: pointer;
+	z-index: 2;
+} 
+
+/* .tarjeta.active {
+	transform: rotateY(180deg);
+} */
+
+.tarjeta > div {
+	padding: 30px;
+	border-radius: 15px;
+	min-height: 315px; /*315px*/
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	box-shadow: 0 10px 10px 0 rgba(90,116,148,0.3);
+}
+
+.tarjeta .delantera {
+	width: 100%;
+	background: url(../img/tarjeta.svg);
+	background-size: cover;
+}
+
+.delantera .logo-marca {
+	text-align: right;
+	min-height: 5px; /*50*/
+}
+
+.delantera .logo-marca img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	max-width: 80px;
+}
+
+
+.delantera .grupo .label {
+	font-size: 16px;
+	color: #1b2127;
+	margin-bottom: 5px; /*le cambie de 5px*/
+}
+
+.delantera .grupo .numero,
+.delantera .grupo .nombre,
+.delantera .grupo .expiracion {
+	color: #000000;
+	font-size: 22px;
+	text-transform: uppercase;
+}
+
+.delantera .flexbox {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 30px; /*30*/
+    margin-right: 150px;
+}
+
+footer{
+    width: 100%;
+    margin: auto; 
+    height: 120px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+footer #social a{
+    padding: 10px;/*lo pongo aca porque quiero separar los a, no las img*/
+}
+
+footer #social img{
+    width: 30px;
+}
+
