@@ -103,14 +103,7 @@ main .tarjetas {
     font-size: 2rem;
 }
 
-@media screen and (max-width: 800px) {
-    main .saldo .balanceContainer {
-        flex-direction: column;
-    }
-    .balanceContainer .account:not(:last-child) {
-        margin-right: 0;
-    }
-}
+
  .tarjeta {
 	width: 85%;
 	max-width: 550px;
@@ -257,4 +250,16 @@ footer #social img{
 .lista img{
     width: 1.5rem;
     margin-right: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+    main .saldo .balanceContainer {
+        flex-direction: column;
+    }
+    .balanceContainer .account:not(:last-child) {
+        margin-right: 0;
+    }
+    #principal nav {
+        width: 0;
+    }
 }
