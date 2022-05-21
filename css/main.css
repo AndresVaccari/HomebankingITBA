@@ -134,12 +134,12 @@ main .tarjetas {
 
 .tarjeta .delantera {
     width: 100%;
-    background: url(../img/tarjeta.svg);
+    background: url(../img/fondo\ tarjeta.svg);
     background-size: cover;
 }
 
 .delantera .logo-marca {
-    text-align: right;
+    text-align: left;
     min-height: 5px;
     /*50*/
 }
@@ -148,15 +148,25 @@ main .tarjetas {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    max-width: 50px;
+}
+.delantera .logo-visa{
+    position: relative;
+    object-position: right;
+    text-align: right;
+    min-height: 5px;
+}
+.delantera .logo-visa img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     max-width: 80px;
 }
-
 
 .delantera .grupo .label {
     font-size: 16px;
     color: #1b2127;
     margin-bottom: 5px;
-    /*le cambie de 5px*/
 }
 
 .delantera .grupo .numero,
@@ -172,7 +182,7 @@ main .tarjetas {
     justify-content: space-between;
     margin-top: 30px;
     /*30*/
-    margin-right: 150px;
+    margin-right: 5px; /*150*/
 }
 
 footer {
