@@ -27,6 +27,7 @@ header {
     border-radius: 1rem;
     margin: 80px 0px;
     background-color: rgb(234, 234, 234);
+    
 }
 
 .titulo {
@@ -105,16 +106,12 @@ footer #social img {
     .colLeft {
         display: none;
     }
+    .panelLogin {
+        max-width: 75%;
+    }
 }
 
-.panelLogin {
-    max-width: 75%;
-}
 
-.collumns {
-    justify-content: center;
-    align-content: center;
-}
 
 .imgRedes:hover {
     transform: scale(1.1);
