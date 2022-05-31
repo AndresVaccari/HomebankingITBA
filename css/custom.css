@@ -107,6 +107,15 @@ footer #social img {
     }
 }
 
+.panelLogin {
+    max-width: 75%;
+}
+
+.collumns {
+    justify-content: center;
+    align-content: center;
+}
+
 .imgRedes:hover {
     transform: scale(1.1);
     transition:0.6s;
