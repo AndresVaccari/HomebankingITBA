@@ -1,3 +1,22 @@
+header {
+    box-shadow: 0 0 10px #686464;
+}
+
+.collumns {
+    height: 90%;
+}
+
+.colLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.colLeft img {
+    max-width: 100%;
+    height: auto;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +27,7 @@
 
 body {
     background: #FAFAFA;
-    font-family: arial, helvetica, sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     font-size: 16px;
 }
 
@@ -19,11 +38,13 @@ body {
 }
 
 .principal {
-    background: #F44336;
-    border-top: 20px solid #D32F2F;
+    border-radius: 1rem;
+    margin: 50px 350px;
+    background: #dad8d8;
+    border-top: 20px solid #dad8d8;
     color: #fff;
     padding: 50px 0;
-    width: 100%;
+    width: 50%;
 }
 
 .principal .formulario {
@@ -43,12 +64,13 @@ body {
 }
 
 .principal .formulario .boton {
-    background: none;
-    border: 1px solid #D32F2F;
+    background: #6f6c6c;
+    border: 1px solid #908e8e;
     color: #fff;
     display: inline-block;
     font-size: 16px;
-    padding: 15px;
+    padding: 10px;
+    border-radius: 0.5rem;
 }
 
 .principal .formulario .boton:hover {
@@ -73,4 +95,21 @@ body {
 
 .tareas .lista li a:hover {
     text-decoration: line-through;
+}
+
+.titulo {
+    display: flex;
+    font-family: 'Source Code Pro', monospace;
+    color: black;
+    font-weight: medium;
+    font-size: 17pt;
+    margin-bottom: 0px;
+    margin-top: 15px;
+    align-items: flex-start;
+}
+
+.subrayado {
+    display: flex;
+    margin: auto;
+    max-width: 100%;
 }
