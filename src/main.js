@@ -18,6 +18,7 @@
                 tareaInput.setAttribute("placeholder", "Datos incompletos");
                 gastoInput.setAttribute("placeholder", "Datos incompletos");
                 tareaInput.className = "error";
+                gastoInput.className = "error";
                 return false;
             }
             
@@ -30,7 +31,7 @@
             gastoInput.value = "";
 
             total+= parseInt(gasto);
-            gastoTotal.innerHTML = "Total: " + "<span id='total'>" + total + "</span>";
+            gastoTotal.innerHTML = "Total: " + total;
             
             for (let i = 0; i < lista.children.length; i++) {
                 lista.children[i].addEventListener("click", function() {
