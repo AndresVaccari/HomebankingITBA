@@ -1,59 +1,42 @@
 <!DOCTYPE html>
 
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
 
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/styles.css" />
 
     <!-- <link rel="stylesheet" href="https://necolas.github.io/normalize.css/3.0.2/normalize.css"> -->
 
     <title>Dividir gastos</title>
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <div class="principal">
+      <div class="wrap">
+        <form class="formulario" action="">
+          <input type="text" id="tareaInput" placeholder="Nombre" />
 
-        <div class="wrap">
+          <input type="text" id="gastoInput" placeholder="Gasto" />
 
-            <form class="formulario" action="">
-
-                <input type="text" id="tareaInput" placeholder="Nombre">
-
-                <input type="text" id="gastoInput" placeholder="Gasto">
-
-                <input type="button" class="boton" id="btn-agregar" value="Enviar">
-
-            </form>
-
-        </div>
-
+          <input type="button" class="boton" id="btn-agregar" value="Enviar" />
+        </form>
+      </div>
     </div>
 
-
-
     <div class="tareas">
+      <div class="wrap">
+        <ul class="lista" id="lista"></ul>
 
-        <div class="wrap">
-
-            <ul class="lista" id="lista">
-
-            </ul>
-
-            <section id='Total'></section>
-
-        </div>
-
+        <section id="gastoTotal">Total:</section>
+      </div>
     </div>
 
     <script src="src/main.js"></script>
-
-</body>
-
+  </body>
 </html>
