@@ -24,9 +24,8 @@
                 return false;
             } 
             if (isNaN(gasto)) {
-                tareaInput.setAttribute("placeholder", "Debe ingresar un numero");
+                gastoInput.value = "";
                 gastoInput.setAttribute("placeholder", "Debe ingresar un numero");
-                tareaInput.className = "error";
                 gastoInput.className = "error";
                 return false;
             }
