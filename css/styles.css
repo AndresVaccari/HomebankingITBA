@@ -63,7 +63,7 @@ body {
     color: red;
 }
 
-/* - Tareas - */
+/* - Nombres - */
 .listaGastos {
     display: flex;
     flex-direction: column;
@@ -74,20 +74,20 @@ body {
     border-radius: 0.5rem;    
 }
 
-.tareas .lista {
+.nombres .lista {
     list-style: none;
 }
 
-.tareas .lista li {
+.nombres .lista li {
     border-bottom: 1px solid #B6B6B6;
 }
 
-.tareas .lista li a {
+.nombres .lista li a {
     color: #212121;
     text-decoration: none;
 }
 
-/* .tareas .lista li a:hover {
+/* .nombres .lista li a:hover {
  text-decoration: line-through; 
 } */
 

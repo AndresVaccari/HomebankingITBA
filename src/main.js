@@ -1,25 +1,25 @@
 (
     function() {
         let lista = document.getElementById("lista"),
-            tareaInput = document.getElementById("tareaInput"),
+            nombreInput = document.getElementById("nombreInput"),
             gastoInput = document.getElementById("gastoInput"),
             gastoTotal = document.getElementById("gastoTotal"),
             gastoDividido = document.getElementById("gastoDividido"),
             total = 0;
             contador = 0;
-            btnNuevaTarea = document.getElementById("btn-agregar");
-        
-        let agregarTarea = function() {
-            let tarea = tareaInput.value,
+            btnNuevoNombre = document.getElementById("btn-agregar");
+
+        let agregarNombre = function() {
+            let nombre = nombreInput.value,
                 gasto = gastoInput.value,
-                nuevaTarea = document.createElement("li"),
+                nuevoNombre = document.createElement("li"),
                 enlace = document.createElement("a"),
-                contenido = document.createTextNode(tarea + ": " + gasto);
+                contenido = document.createTextNode(nombre + ": " + gasto);
             
-            if (tarea === "" || gasto === "") {
-                tareaInput.setAttribute("placeholder", "Datos incompletos");
+            if (nombre === "" || gasto === "") {
+                nombreInput.setAttribute("placeholder", "Datos incompletos");
                 gastoInput.setAttribute("placeholder", "Datos incompletos");
-                tareaInput.className = "error";
+                nombreInput.className = "error";
                 gastoInput.className = "error";
                 return false;
             } 
@@ -32,11 +32,11 @@
             
             enlace.appendChild(contenido);
             enlace.setAttribute("href", "#");
-            nuevaTarea.appendChild(enlace);
-            lista.appendChild(nuevaTarea);
-            nuevaTarea.classList.add("list-group-item");
+            nuevoNombre.appendChild(enlace);
+            lista.appendChild(nuevoNombre);
+            nuevoNombre.classList.add("list-group-item");
 
-            tareaInput.value = "";
+            nombreInput.value = "";
             gastoInput.value = "";
 
             total+= parseInt(gasto);
@@ -65,14 +65,14 @@
         };
 
         let comprobarInput = function() {
-            tareaInput.className = "";
+            nombreInput.className = "";
             gastoInput.className = "";
-            tareaInput.setAttribute("placeholder", "Nombre");
+            nombreInput.setAttribute("placeholder", "Nombre");
             gastoInput.setAttribute("placeholder", "Gasto");
         };
 
-        btnNuevaTarea.addEventListener("click", agregarTarea);
-        tareaInput.addEventListener("click", comprobarInput);
+        btnNuevoNombre.addEventListener("click", agregarNombre);
+        nombreInput.addEventListener("click", comprobarInput);
         gastoInput.addEventListener("click", comprobarInput);
 
     } ()
