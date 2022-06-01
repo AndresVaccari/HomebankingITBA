@@ -41,8 +41,8 @@
 
             total+= parseInt(gasto);
             contador++;
-            gastoDividido.innerHTML = "Cada uno tendra que pagar: $" + (total / contador);
-            gastoTotal.innerHTML = "Total: $" + total;
+            gastoDividido.innerHTML = "<b>Cada uno tendra que pagar</b>: $" + (total / contador);
+            gastoTotal.innerHTML = "<b>Total</b>: $" + total;
             
             for (let i = 0; i < lista.children.length; i++) {
                 lista.children[i].addEventListener("click", function() {
@@ -50,11 +50,11 @@
                     total-= parseInt(totalAEliminar);
                     contador--;
                     if (total != 0) {
-                        gastoDividido.innerHTML = "Cada uno tendra que pagar: $" + (total / contador);
-                        gastoTotal.innerHTML = "Total: $" + total;
+                        gastoDividido.innerHTML = "<b>Cada uno tendra que pagar</b>: $" + (total / contador);
+                        gastoTotal.innerHTML = "<b>Total</b>: $" + total;
                     } else {
-                        gastoDividido.innerHTML = "No hay nadie";
-                        gastoTotal.innerHTML = "Total: $" + 0;
+                        gastoDividido.innerHTML = "<b>No hay nadie</b>";
+                        gastoTotal.innerHTML = "<b>Total</b>: $" + 0;
                     }
                     
                     this.parentNode.removeChild(this);
