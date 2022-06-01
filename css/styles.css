@@ -63,22 +63,7 @@ body {
     color: red;
 }
 
-.principal .formulario .boton {
-    background: #6f6c6c;
-    border: 1px solid #908e8e;
-    color: #fff;
-    display: inline-block;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 0.5rem;
-}
-
-.principal .formulario .boton:hover {
-    border: 1px solid #fff;
-}
-
 /* - Tareas - */
-
 .listaGastos {
     display: flex;
     flex-direction: column;
