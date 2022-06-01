@@ -78,6 +78,17 @@ body {
 }
 
 /* - Tareas - */
+
+.listaGastos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background: #c9c9c9;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 0.5rem;    
+}
+
 .tareas .lista {
     list-style: none;
 }
@@ -88,14 +99,12 @@ body {
 
 .tareas .lista li a {
     color: #212121;
-    display: block;
-    padding: 20px 0;
     text-decoration: none;
 }
 
-.tareas .lista li a:hover {
-    text-decoration: line-through;
-}
+/* .tareas .lista li a:hover {
+ text-decoration: line-through; 
+} */
 
 .titulo {
     display: flex;

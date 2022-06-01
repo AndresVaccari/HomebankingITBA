@@ -34,6 +34,7 @@
             enlace.setAttribute("href", "#");
             nuevaTarea.appendChild(enlace);
             lista.appendChild(nuevaTarea);
+            nuevaTarea.classList.add("list-group-item");
 
             tareaInput.value = "";
             gastoInput.value = "";
