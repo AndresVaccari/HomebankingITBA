@@ -61,7 +61,6 @@
                 });
             }
 
-
         };
 
         let comprobarInput = function() {
