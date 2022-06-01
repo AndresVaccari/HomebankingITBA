@@ -39,12 +39,13 @@ body {
 
 .principal {
     border-radius: 1rem;
-    margin: 50px 350px;
-    background: #dad8d8;
-    border-top: 20px solid #dad8d8;
-    color: #fff;
+    margin: 50px 230px;
+    /* background: #dad8d8; */
+    /* border-top: 20px solid #dad8d8; */
+    /* color: #fff; */
     padding: 50px 0;
     width: 50%;
+    box-shadow: 0 0 10px #686464;
 }
 
 .principal .formulario {
@@ -63,31 +64,31 @@ body {
     color: red;
 }
 
-/* - Tareas - */
+/* - Nombres - */
 .listaGastos {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    background: #c9c9c9;
+    /* background: #c9c9c9; */
     font-size: 16px;
     padding: 10px;
-    border-radius: 0.5rem;    
+    border-radius: 0.5rem; 
 }
 
-.tareas .lista {
+.nombres .lista {
     list-style: none;
 }
 
-.tareas .lista li {
+.nombres .lista li {
     border-bottom: 1px solid #B6B6B6;
 }
 
-.tareas .lista li a {
+.nombres .lista li a {
     color: #212121;
     text-decoration: none;
 }
 
-/* .tareas .lista li a:hover {
+/* .nombres .lista li a:hover {
  text-decoration: line-through; 
 } */
 
@@ -106,4 +107,23 @@ body {
     display: flex;
     margin: auto;
     max-width: 100%;
+}
+
+main{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.list-group-item{
+    margin-bottom:1rem;
+}
+
+.list-group-item::before{
+    font-weight: bold;
+}
+
+#gastoDividido{
+    margin-top: 1rem;
 }
