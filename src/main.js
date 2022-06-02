@@ -38,30 +38,28 @@
 
             nombreInput.value = "";
             gastoInput.value = "";
-
+            
             total+= parseInt(gasto);
             contador++;
             gastoDividido.innerHTML = "<b>Cada uno tendra que pagar</b>: $" + (total / contador);
             gastoTotal.innerHTML = "<b>Total</b>: $" + total;
             
-            for (let i = 0; i < lista.children.length; i++) {
-                lista.children[i].addEventListener("click", function() {
-                    let totalAEliminar = parseInt(lista.children[i].textContent.split(":")[1]);
-                    total-= parseInt(totalAEliminar);
-                    contador--;
-                    if (total != 0) {
-                        gastoDividido.innerHTML = "<b>Cada uno tendra que pagar</b>: $" + (total / contador);
-                        gastoTotal.innerHTML = "<b>Total</b>: $" + total;
-                    } else {
-                        gastoDividido.innerHTML = "<b>No hay nadie</b>";
-                        gastoTotal.innerHTML = "<b>Total</b>: $" + 0;
-                    }
-                    
-                    this.parentNode.removeChild(this);
-                });
-            }
-
+            lista.children[contador - 1].addEventListener("click", function() {
+                let totalAEliminar = parseInt(this.innerText.split(":")[1]);
+                console.log(totalAEliminar);
+                total-= totalAEliminar;
+                contador--;
+                if (total != 0) {
+                    gastoDividido.innerHTML = "<b>Cada uno tendra que pagar</b>: $" + (total / contador);
+                    gastoTotal.innerHTML = "<b>Total</b>: $" + total;
+                } else {
+                    gastoDividido.innerHTML = "<b>No hay nadie</b>";
+                    gastoTotal.innerHTML = "<b>Total</b>: $" + 0;
+                }
+                this.parentNode.removeChild(this);
+            });
         };
+
 
         let comprobarInput = function() {
             nombreInput.className = "";
