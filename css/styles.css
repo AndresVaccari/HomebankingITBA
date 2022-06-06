@@ -108,9 +108,8 @@ body {
 }
 
 .subrayado {
-    display: flex;
-    height: 10px;
-    width: 100%;
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
 .imgSubrayado {
