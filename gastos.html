@@ -40,25 +40,26 @@
       </nav>
     </header>
 
-    <main>
+    <main class="d-flex flex-column align-items-center justify-content-center">
       <div class="principal alert-secondary rounded-50">
         <div class="wrap">
           <p class="align-self-start titulo wow animate__animated animate__fadeIn">APP DE GASTOS</p>
-          <img class="subrayado rounded" src="img/Barrita colores.svg" alt="">
+          <div class="subrallado">
+            <img class="imgSubrayado rounded" width="100%" height="10px" src="img/Barrita colores.svg" alt="">
+          </div>
           <form class="formulario" action="">
             <input type="text" id="nombreInput" class="form-control"  placeholder="Nombre"/>
             <input type="text" id="gastoInput" class="form-control"  placeholder="Gasto"/>
             <input type="button" class="boton btn btn-secondary" id="btn-enviar" value="Enviar" />
           </form>
         </div>
-     </div>
-
+      </div>
       <div class="nombres">
         <div class="wrap listaGastos alert-secondary rounded-50">
             <ol class="list-group list-group-numbered lista" id="lista"></ol>
 
-          <section id="gastoTotal"></section>
-          <section id="gastoDividido"></section>
+          <section id="gastoTotal"><b>Total:</b> $0</section>
+          <section id="gastoDividido"><b>No hay nadie</b></section>
        </div>
       </div>
     </main>
