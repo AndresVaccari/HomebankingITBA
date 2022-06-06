@@ -7,7 +7,7 @@
             gastoDividido = document.getElementById("gastoDividido"),
             total = 0;
             contador = 0;
-            btnNuevoNombre = document.getElementById("btn-agregar");
+            btnEnviar = document.getElementById("btn-enviar");
 
         let agregarNombre = function() {
             let nombre = nombreInput.value,
@@ -28,6 +28,11 @@
                 gastoInput.setAttribute("placeholder", "Debe ingresar un numero");
                 gastoInput.className = "error";
                 return false;
+            } else if (parseInt(gasto) <= 0) {
+                gastoInput.value = "";
+                gastoInput.setAttribute("placeholder", "El gasto debe ser mayor a 0");
+                gastoInput.className = "error";
+                return false;
             }
             
             enlace.appendChild(contenido);
@@ -39,12 +44,7 @@
             nombreInput.value = "";
             gastoInput.value = "";
             
-            total+= parseInt(gasto);
-            contador++;
-            gastoDividido.innerHTML = "<b>Cada uno tendra que pagar</b>: $" + (total / contador);
-            gastoTotal.innerHTML = "<b>Total</b>: $" + total;
-            
-            lista.children[contador - 1].addEventListener("click", function() {
+            lista.children[contador].addEventListener("click", function() {
                 let totalAEliminar = parseInt(this.innerText.split(":")[1]);
                 console.log(totalAEliminar);
                 total-= totalAEliminar;
@@ -58,6 +58,11 @@
                 }
                 this.parentNode.removeChild(this);
             });
+
+            total+= parseInt(gasto);
+            contador++;
+            gastoDividido.innerHTML = "<b>Cada uno tendra que pagar</b>: $" + (total / contador);
+            gastoTotal.innerHTML = "<b>Total</b>: $" + total;
         };
 
 
@@ -68,7 +73,7 @@
             gastoInput.setAttribute("placeholder", "Gasto");
         };
 
-        btnNuevoNombre.addEventListener("click", agregarNombre);
+        btnEnviar.addEventListener("click", agregarNombre);
         nombreInput.addEventListener("click", comprobarInput);
         gastoInput.addEventListener("click", comprobarInput);
 
