@@ -10,11 +10,12 @@ const tiposDolar = ["Dolar Oficial", "Dolar Blue", "Dolar turista"];
   data.forEach((tipo) => {
     if (tiposDolar.includes(tipo.casa.nombre)) {
       const li = document.createElement("li");
-      const a = document.createElement("a");
-      const texto = document.createTextNode(tipo.casa.nombre);
-      a.appendChild(texto);
-      a.setAttribute("href", "#");
-      li.appendChild(a);
+      const p = document.createElement("p");
+      const texto = document.createTextNode(
+        `${tipo.casa.nombre} - Compra: ${tipo.casa.compra} - Venta: ${tipo.casa.venta}`
+      );
+      p.appendChild(texto);
+      li.appendChild(p);
       ul.appendChild(li);
     }
   });
