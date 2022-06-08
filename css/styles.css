@@ -96,6 +96,17 @@ body {
  text-decoration: line-through; 
 } */
 
+#dolar{
+    display: flex;
+    padding: 10px;
+    border-radius: 0.5rem;
+}
+
+#dolar ul{
+    display: flex;
+    flex-direction: column;
+}
+
 .titulo {
     display: flex;
     font-family: 'Source Code Pro', monospace;
