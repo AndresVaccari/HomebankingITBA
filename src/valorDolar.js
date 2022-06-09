@@ -16,8 +16,10 @@ const tiposDolar = ["Dolar Oficial", "Dolar Blue", "Dolar turista"];
       );
       p.appendChild(texto);
       li.appendChild(p);
+      li.className = "list-group-item";
       ul.appendChild(li);
     }
   });
+  ul.className = "list-group";
   HTMLResponse.appendChild(ul);
 })();
