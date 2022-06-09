@@ -1,76 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
 
-  <!--Fonts-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <!--Animaciones-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="css/animate.css" />
 
-  <!--Animaciones-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link rel="stylesheet" href="css/animate.css">
+    <!--Bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
 
-  <!--Bootstrap-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!--CSS-->
+    <link rel="stylesheet" href="css/custom.css" />
 
-  <!--CSS-->
-  <link rel="stylesheet" href="css/custom.css">
+    <!--Favicon-->
+    <link rel="shortcut icon" href="img/Logo reducido.svg" />
 
-  <!--Favicon-->
-  <link rel="shortcut icon" href="img/Logo reducido.svg">
+    <title>ITBA Bank</title>
+  </head>
 
-  <title>ITBA Bank</title>
-</head>
-
-<body class="fondo">
-  <header>
-    <nav class="navbar navbar-expand-md bg-light">
-      <div class="container-fluid">
-        <a href="index.html" class="navbar-brand">
-          <img src="img/Logo.svg" alt="ITBA Bank" height="35">
-        </a>
-    </nav>
-  </header>
-
-  <main class="container collumns">
-    <div class="row collumns justify-content-center align-items-center ">
-      <div class="col-12 col-md-9 colLeft"></div>
-
-      <div class="col-sm-12 col-md-3 panelLogin">
-        <p class="align-self-start titulo wow animate__animated animate__pulse">INGRESÁ DESDE ACÁ</p>
-        <div class="subrayado">
-          <img class="imgSubrayado rounded" width="100%" height="10px" src="img/Barrita colores.svg" alt="">
+  <body class="fondo">
+    <header>
+      <nav class="navbar navbar-expand-md bg-light">
+        <div class="container-fluid">
+          <a href="index.html" class="navbar-brand">
+            <img src="img/Logo.svg" alt="ITBA Bank" height="35" />
+          </a>
         </div>
-        <div class="d-flex flex-column justify-content-center align-items-center h-100">
-          <input type="text" placeholder="Email" class="form-control mb-4" />
-          <input type="text" placeholder="Usuario" class="form-control mb-4" />
-          <input type="password" placeholder="Contraseña" class="form-control mb-4" />
-          <button type="button" class="btn btn-secondary mb-4"><a href="homebanking.html" class="iniciarSesion">Iniciar
-              sesión</a></button>
-          <p class="texto">Si olvidaste tu contraseña, <a href="#">hacé click acá</a></p>
-          <p class="mb-5 texto">Si no tenés usuario, <a href="#">hacé click acá</a></p>
+      </nav>
+    </header>
+    <main class="container collumns">
+      <div class="row collumns justify-content-center align-items-center">
+        <div class="col-12 col-md-9 colLeft"></div>
+
+        <div class="col-sm-12 col-md-3 panelLogin">
+          <p
+            class="align-self-start titulo wow animate__animated animate__pulse"
+          >
+            INGRESÁ DESDE ACÁ
+          </p>
+          <div class="subrayado">
+            <img
+              class="imgSubrayado rounded"
+              width="100%"
+              height="10px"
+              src="img/Barrita colores.svg"
+              alt=""
+            />
+          </div>
+          <div
+            class="d-flex flex-column justify-content-center align-items-center h-100"
+          >
+            <input type="text" placeholder="Email" class="form-control mb-4" />
+            <input
+              type="text"
+              placeholder="Usuario"
+              class="form-control mb-4"
+            />
+            <input
+              type="password"
+              placeholder="Contraseña"
+              class="form-control mb-4"
+            />
+            <button type="button" class="btn btn-secondary mb-4">
+              <a href="homebanking.html" class="iniciarSesion"
+                >Iniciar sesión</a
+              >
+            </button>
+            <p class="texto">
+              Si olvidaste tu contraseña, <a href="#">hacé click acá</a>
+            </p>
+            <p class="mb-5 texto">
+              Si no tenés usuario, <a href="#">hacé click acá</a>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <!--JS bootstrap-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-    crossorigin="anonymous"></script>
+    <!--JS bootstrap-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
 
-  <!--JS Animaciones-->
-  <script src="/WOW-master/WOW-master/dist/wow.min.js"></script>
-  <script>
-    new WOW().init();
-  </script>
-</body>
-
+    <!--JS Animaciones-->
+    <script src="/WOW-master/WOW-master/dist/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+  </body>
 </html>
