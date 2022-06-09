@@ -3,7 +3,10 @@ header {
 }
 
 .collumns {
-  height: 90%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .colLeft {
@@ -73,6 +76,8 @@ header {
 }
 
 .fondo {
+  display: flex;
+  flex-direction: column;
   background: url(../img/fondo\ loging.svg);
   background-repeat: no-repeat;
   background-size: auto 85%;
@@ -82,6 +87,8 @@ header {
 
 .fondoIndex {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 footer {
@@ -109,6 +116,10 @@ footer #social img {
   }
   .panelLogin {
     max-width: 75%;
+    margin: 35% 0px;
+  }
+  .collumns {
+    height: auto;
   }
 }
 
