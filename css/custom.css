@@ -94,7 +94,7 @@ header {
 footer {
   width: 100%;
   margin: auto;
-  height: 120px;
+  min-height: 120px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -118,6 +118,8 @@ footer #social img {
     max-width: 75%;
     margin: 35% 0px;
   }
+}
+@media screen and (max-width: 991px) {
   .collumns {
     height: auto;
   }
