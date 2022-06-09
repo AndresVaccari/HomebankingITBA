@@ -1,153 +1,153 @@
 header {
-    box-shadow: 0 0 10px #686464;
+  box-shadow: 0 0 10px #686464;
 }
 
 .collumns {
-    height: 90%;
+  height: 90%;
 }
 
 .colLeft {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .colLeft img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background: #FAFAFA;
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 16px;
+  background: #fafafa;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 16px;
 }
 
 .wrap {
-    margin: auto;
-    max-width: 800px;
-    width: 90%;
+  margin: auto;
+  max-width: 800px;
+  width: 90%;
 }
 
 .principal {
-    border-radius: 1rem;
-    margin: 50px 230px;
-    /* background: #dad8d8; */
-    /* border-top: 20px solid #dad8d8; */
-    /* color: #fff; */
-    padding: 50px 0;
-    width: 50%;
-    box-shadow: 0 0 10px #686464;
+  border-radius: 1rem;
+  margin: 50px 230px;
+  /* background: #dad8d8; */
+  /* border-top: 20px solid #dad8d8; */
+  /* color: #fff; */
+  padding: 50px 0;
+  width: 50%;
+  box-shadow: 0 0 10px #686464;
 }
 
 .principal .formulario {
-    color: #212121;
-    text-align: center;
+  color: #212121;
+  text-align: center;
 }
 
-.principal .formulario input[type=text] {
-    margin-bottom: 20px;
-    padding: 10px;
-    width: 100%;
+.principal .formulario input[type="text"] {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
 }
 
-.principal .formulario input[type=text].error {
-    border: 5px solid #D32F2F;
-    color: red;
+.principal .formulario input[type="text"].error {
+  border: 5px solid #d32f2f;
+  color: red;
 }
 
 /* - Nombres - */
 .nombres {
-    width: 100%;
+  width: 100%;
 }
 
 .listaGastos {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    /* background: #c9c9c9; */
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 0.5rem; 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  /* background: #c9c9c9; */
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 0.5rem;
 }
 
 .nombres .lista {
-    list-style: none;
+  list-style: none;
 }
 
 .nombres .lista li {
-    border-bottom: 1px solid #B6B6B6;
+  border-bottom: 1px solid #b6b6b6;
 }
 
 .nombres .lista li a {
-    color: #212121;
-    text-decoration: none;
+  color: #212121;
+  text-decoration: none;
 }
 
 /* .nombres .lista li a:hover {
  text-decoration: line-through; 
 } */
 
-#dolar{
-    display: flex;
-    padding: 10px;
-    border-radius: 0.5rem;
+#dolar {
+  display: flex;
+  padding: 10px;
+  border-radius: 0.5rem;
 }
 
-#dolar ul{
-    display: flex;
-    flex-direction: column;
+#dolar ul {
+  display: flex;
+  flex-direction: column;
 }
 
 .titulo {
-    display: flex;
-    font-family: 'Source Code Pro', monospace;
-    color: black;
-    font-weight: medium;
-    font-size: 17pt;
-    margin-bottom: 0px;
-    margin-top: 15px;
-    align-items: flex-start;
+  display: flex;
+  font-family: "Source Code Pro", monospace;
+  color: black;
+  font-weight: medium;
+  font-size: 17pt;
+  margin-bottom: 0px;
+  margin-top: 15px;
+  align-items: flex-start;
 }
 
 .subrayado {
-    margin-top: 0;
-    margin-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .imgSubrayado {
-    object-fit: cover;
+  object-fit: cover;
 }
 
-main{
-    display:flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
+main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
-.list-group-item{
-    margin-bottom:1rem;
+.list-group-item {
+  margin-bottom: 1rem;
 }
 
-.list-group-item::before{
-    font-weight: bold;
+.list-group-item::before {
+  font-weight: bold;
 }
 
-#gastoDividido{
-    margin-top: 1rem;
+#gastoDividido {
+  margin-top: 1rem;
 }
 
 @media screen and (max-width: 770px) {
-    .principal {
-        width: 90%;
-    }
+  .principal {
+    width: 90%;
+  }
 }

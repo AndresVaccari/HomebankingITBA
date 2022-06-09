@@ -1,136 +1,131 @@
 header {
-    box-shadow: 0 0 10px #686464;
+  box-shadow: 0 0 10px #686464;
 }
 
 .collumns {
-    height: 90%;
+  height: 90%;
 }
 
 .colLeft {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .colLeft img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .links {
-    font-family: 'Fira Sans', sans-serif;
-    color: black;
-    font-weight: bold;
+  font-family: "Fira Sans", sans-serif;
+  color: black;
+  font-weight: bold;
 }
 
 .panelLogin {
-    border-radius: 1rem;
-    margin: 80px 0px;
-    background-color: rgb(234, 234, 234);
-    
+  border-radius: 1rem;
+  margin: 80px 0px;
+  background-color: rgb(234, 234, 234);
 }
 
 .titulo {
-    display: flex;
-    font-family: 'Source Code Pro', monospace;
-    color: black;
-    font-weight: bold;
-    font-size: 17pt;
-    margin-bottom: 0;
-    margin-top: 15px;
-    justify-content: center;
+  display: flex;
+  font-family: "Source Code Pro", monospace;
+  color: black;
+  font-weight: bold;
+  font-size: 17pt;
+  margin-bottom: 0;
+  margin-top: 15px;
+  justify-content: center;
 }
 
 .fraseTitulo {
-    font-family: 'Fira Sans', sans-serif;
-    color: black;
-    font-weight: bold;
-    font-size: 35pt;
-    line-height: 45pt;
+  font-family: "Fira Sans", sans-serif;
+  color: black;
+  font-weight: bold;
+  font-size: 35pt;
+  line-height: 45pt;
 }
 
 .fraseSubtitulo {
-    font-family: 'Fira Sans', sans-serif;
-    color: black;
-    font-weight: bold;
-    font-size: 17pt;
+  font-family: "Fira Sans", sans-serif;
+  color: black;
+  font-weight: bold;
+  font-size: 17pt;
 }
 
 .subrayado {
-    margin-top: 0;
-    margin-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 .imgSubrayado {
-    object-fit: cover;
+  object-fit: cover;
 }
 
 .registrate {
-    color: white;
+  color: white;
 }
 
-.conoceMas:hover{
-    color: blue;
+.conoceMas:hover {
+  color: blue;
 }
 
 .fondo {
-    background: url(../img/fondo\ loging.svg);
-    background-repeat: no-repeat;
-    background-size: auto 85%;
-    background-position: bottom left;
-    height: 100vh;
+  background: url(../img/fondo\ loging.svg);
+  background-repeat: no-repeat;
+  background-size: auto 85%;
+  background-position: bottom left;
+  height: 100vh;
 }
 
 .fondoIndex {
-    height: 100vh;
+  height: 100vh;
 }
 
 footer {
-    width: 100%;
-    margin: auto;
-    height: 120px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
+  width: 100%;
+  margin: auto;
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
 }
 
 footer #social a {
-    padding: 10px;
-    /*lo pongo aca porque quiero separar los a, no las img*/
+  padding: 10px;
+  /*lo pongo aca porque quiero separar los a, no las img*/
 }
 
 footer #social img {
-    width: 30px;
+  width: 30px;
 }
-
 
 @media screen and (max-width: 768px) {
-    .colLeft {
-        display: none;
-    }
-    .panelLogin {
-        max-width: 75%;
-        
-    }
+  .colLeft {
+    display: none;
+  }
+  .panelLogin {
+    max-width: 75%;
+  }
 }
-
-
 
 .imgRedes:hover {
-    transform: scale(1.1);
-    transition:0.6s;
+  transform: scale(1.1);
+  transition: 0.6s;
 }
 
-.texto{
-    font-size: smaller;
+.texto {
+  font-size: smaller;
 }
 
-.iniciarSesion{
-    text-decoration: none;
-    color:white;
+.iniciarSesion {
+  text-decoration: none;
+  color: white;
 }
 
-.iniciarSesion:hover{
-    color:white;
+.iniciarSesion:hover {
+  color: white;
 }
