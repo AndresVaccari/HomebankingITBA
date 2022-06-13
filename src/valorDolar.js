@@ -1,5 +1,4 @@
 const API_URL = "https://www.dolarsi.com/api/api.php?type=valoresprincipales";
-const xmlHttp = new XMLHttpRequest();
 const HTMLResponse = document.getElementById("dolar");
 const ul = document.createElement("ul");
 const tiposDolar = ["Dolar Oficial", "Dolar Blue", "Dolar turista"];
