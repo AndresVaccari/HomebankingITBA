@@ -4,8 +4,8 @@
     gastoInput = document.getElementById("gastoInput"),
     gastoTotal = document.getElementById("gastoTotal"),
     gastoDividido = document.getElementById("gastoDividido"),
-    total = 0;
-  contador = 0;
+    total = 0,
+    contador = 0;
   btnEnviar = document.getElementById("btn-enviar");
 
   let agregarNombre = function () {
