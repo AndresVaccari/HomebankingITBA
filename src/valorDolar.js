@@ -21,7 +21,7 @@ const imagenesDolar = [
       const img = document.createElement("img");
       let texto;
       img.src = imagenesDolar[cont];
-      img.height = '20'
+      img.height = "20";
       if (dolarSoloVenta.includes(tipo.casa.nombre)) {
         texto = document.createTextNode(
           `${tipo.casa.nombre} - Venta: ${tipo.casa.venta}  `
