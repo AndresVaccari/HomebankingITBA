@@ -46,7 +46,7 @@ main {
   border-radius: 0 2rem 2rem 0;
   border-left: 0.625rem black solid;
   box-shadow: 0 0 10px #686464;
-  border-image: linear-gradient(to bottom, darkblue, darkorchid) 1;
+  border-image: linear-gradient(to bottom, #9FC372, #8AC7DB, #8A7CB2, #C166A3, #EBC36B) 1;
 }
 
 main .left {
