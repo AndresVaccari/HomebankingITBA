@@ -146,7 +146,13 @@ footer #social img {
 #dolar {
   font-family: "Fira Sans", sans-serif;
   color: black;
-  font-weight: bold;
+  font-weight: medium;
   font-size: 12pt;
-  
+}
+
+.valorDolar {
+  font-family: "Fira Sans", sans-serif;
+  color: black;
+  font-weight: bolder;
+  font-size: 12pt;
 }
