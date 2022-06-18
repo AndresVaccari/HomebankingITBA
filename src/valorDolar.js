@@ -21,17 +21,23 @@ const imagenesDolar = [
       let texto;
       img.src = imagenesDolar[cont];
       img.height = "20";
+      let valorCompra = document.createElement("span");
+      let valorVenta = document.createElement("span");
+      valorCompra.innerHTML = `- Compra: ${tipo.casa.compra} `;
+      valorVenta.innerHTML = `- Venta: ${tipo.casa.venta} `;
+      valorCompra.className = "valorDolar";
+      valorVenta.className = "valorDolar";
       if (dolarSoloVenta.includes(tipo.casa.nombre)) {
-        texto = document.createTextNode(
-          `${tipo.casa.nombre} - Venta: ${tipo.casa.venta}  `
-        );
+        texto = document.createTextNode(`${tipo.casa.nombre} `);
+        p.appendChild(texto);
+        p.appendChild(valorVenta);
       } else {
-        texto = document.createTextNode(
-          `${tipo.casa.nombre} - Compra: ${tipo.casa.compra} - Venta: ${tipo.casa.venta}  `
-        );
+        texto = document.createTextNode(`${tipo.casa.nombre} `);
+        p.appendChild(texto);
+        p.appendChild(valorCompra);
+        p.appendChild(valorVenta);
       }
 
-      p.appendChild(texto);
       p.appendChild(img);
       cont++;
       li.appendChild(p);
