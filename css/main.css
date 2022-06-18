@@ -135,6 +135,8 @@ main .tarjetas {
   width: 100%;
   background: url(../img/fondo\ tarjeta.svg);
   background-size: cover;
+  aspect-ratio: 3.37 / 2.13;
+  max-height: 230px;
 }
 
 .delantera .logo-marca {
@@ -182,25 +184,6 @@ main .tarjetas {
   margin-top: 30px;
   /*30*/
   margin-right: 5px; /*150*/
-}
-
-footer {
-  width: 100%;
-  margin: auto;
-  height: 120px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: row;
-}
-
-footer #social a {
-  padding: 10px;
-  /*lo pongo aca porque quiero separar los a, no las img*/
-}
-
-footer #social img {
-  width: 30px;
 }
 
 /*Modificaciones*/
@@ -276,11 +259,29 @@ footer #social img {
     flex-direction: column;
   }
 
+  main {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  main .right {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
   .balanceContainer .account:not(:last-child) {
     margin-right: 0;
   }
 
   #principal nav {
     width: 0;
+  }
+
+  .tarjeta {
+    width: 100%;
+  }
+
+  .tarjeta .delantera {
+    aspect-ratio: initial;
   }
 }
