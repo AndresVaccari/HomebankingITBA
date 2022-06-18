@@ -262,11 +262,12 @@ main .tarjetas {
   main {
     flex-direction: column;
     margin: 0;
+    border-radius: 0;
+    border-left: 0;
   }
 
   main .right {
     margin-left: 0;
-    margin-top: 1rem;
   }
 
   .balanceContainer .account:not(:last-child) {
@@ -279,6 +280,15 @@ main .tarjetas {
 
   .tarjeta {
     width: 100%;
+  }
+
+  .tarjetas {
+    order: 0;
+  }
+
+  .saldo {
+    order: 1;
+    margin-top: 1rem;
   }
 
   .tarjeta .delantera {
