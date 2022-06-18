@@ -101,14 +101,14 @@ header {
   flex-direction: column;
   background: url(../img/fondo_loging.svg);
   background-repeat: no-repeat;
-  background-size: auto 85%;
+  background-size: auto 100%;
   background-position: bottom left;
 }
 
 .fondoBlanco {
   border-radius: 50px;
   background-color: white;
-  width: 95%;
+  width: 98%;
   height: 95%;
 }
 
