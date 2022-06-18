@@ -11,8 +11,16 @@ header {
 
 .colLeft {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.colLeft img {
+  position: absolute;
+  left: 75px;
+  top: 50px;
+  width: 200px;
 }
 
 .colLeft img {
@@ -75,14 +83,33 @@ header {
   color: blue;
 }
 
+.bodyLogin {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+}
+
 .fondo {
+  position: relative;
+  background-color: white;
+  border-radius: 50px;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   background: url(../img/fondo_loging.svg);
   background-repeat: no-repeat;
   background-size: auto 85%;
   background-position: bottom left;
-  height: 100vh;
+}
+
+.fondoBlanco {
+  border-radius: 50px;
+  background-color: white;
+  width: 95%;
+  height: 95%;
 }
 
 .fondoIndex {
@@ -108,21 +135,6 @@ footer #social a {
 
 footer #social img {
   width: 30px;
-}
-
-@media screen and (max-width: 768px) {
-  .colLeft {
-    display: none;
-  }
-  .panelLogin {
-    max-width: 75%;
-    margin: 35% 0px;
-  }
-}
-@media screen and (max-width: 991px) {
-  .collumns {
-    height: auto;
-  }
 }
 
 .imgRedes:hover {
@@ -155,4 +167,19 @@ footer #social img {
   color: black;
   font-weight: bolder;
   font-size: 12pt;
+}
+
+@media screen and (max-width: 768px) {
+  .colLeft {
+    display: none;
+  }
+  .panelLogin {
+    max-width: 90%;
+    margin: 35% 0px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .collumns {
+    height: auto;
+  }
 }

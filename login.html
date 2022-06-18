@@ -41,64 +41,66 @@
     <title>ITBA Bank</title>
   </head>
 
-  <body class="fondo">
-    <header>
-      <nav class="navbar navbar-expand-md bg-light">
-        <div class="container-fluid">
-          <a href="index.html" class="navbar-brand">
-            <img src="img/Logo.svg" alt="ITBA Bank" height="35" />
-          </a>
-        </div>
-      </nav>
-    </header>
-    <main class="container collumns justify-content-center">
-      <div class="row collumns justify-content-center align-items-center">
-        <div class="col-12 col-md-9 colLeft"></div>
-
-        <div class="col-sm-12 col-md-3 panelLogin">
-          <p
-            class="align-self-start titulo wow animate__animated animate__pulse"
-          >
-            INGRESÁ DESDE ACÁ
-          </p>
-          <div class="subrayado">
-            <img
-              class="imgSubrayado rounded"
-              width="100%"
-              height="10px"
-              src="img/Barrita colores.svg"
-              alt=""
-            />
-          </div>
-          <div
-            class="d-flex flex-column justify-content-center align-items-center h-100"
-          >
-            <input type="text" placeholder="Email" class="form-control mb-4" />
-            <input
-              type="text"
-              placeholder="Usuario"
-              class="form-control mb-4"
-            />
-            <input
-              type="password"
-              placeholder="Contraseña"
-              class="form-control mb-4"
-            />
-            <button type="button" class="btn btn-secondary mb-4">
-              <a href="homebanking.html" class="iniciarSesion"
-                >Iniciar sesión</a
+  <body class="bodyLogin">
+    <div class="fondoBlanco">
+      <div class="fondo">
+        <main class="container collumns justify-content-center">
+          <div class="row collumns justify-content-center align-items-center">
+            <div class="col-12 col-md-9 colLeft">
+              <a href="index.html" class="navbar-brand">
+                <img src="img/Logo.svg" alt="ITBA Bank" height="35" />
+              </a>
+            </div>
+            <div class="col-sm-12 col-md-3 panelLogin">
+              <p
+                class="align-self-start titulo wow animate__animated animate__pulse"
               >
-            </button>
-            <p class="texto">
-              Si olvidaste tu contraseña, <a href="#">hacé click acá</a>
-            </p>
-            <p class="mb-5 texto">
-              Si no tenés usuario, <a href="#">hacé click acá</a>
-            </p>
+                INGRESÁ DESDE ACÁ
+              </p>
+              <div class="subrayado">
+                <img
+                  class="imgSubrayado rounded"
+                  width="100%"
+                  height="10px"
+                  src="img/Barrita colores.svg"
+                  alt=""
+                />
+              </div>
+              <div
+                class="d-flex flex-column justify-content-center align-items-center h-100"
+              >
+                <input
+                  type="text"
+                  placeholder="Email"
+                  class="form-control mb-4"
+                />
+                <input
+                  type="text"
+                  placeholder="Usuario"
+                  class="form-control mb-4"
+                />
+                <input
+                  type="password"
+                  placeholder="Contraseña"
+                  class="form-control mb-4"
+                />
+                <button type="button" class="btn btn-secondary mb-4">
+                  <a href="homebanking.html" class="iniciarSesion"
+                    >Iniciar sesión</a
+                  >
+                </button>
+                <p class="texto">
+                  Si olvidaste tu contraseña, <a href="#">hacé click acá</a>
+                </p>
+                <p class="mb-5 texto">
+                  Si no tenés usuario, <a href="#">hacé click acá</a>
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
+        </main>
       </div>
-    </main>
+    </div>
 
     <!--JS bootstrap-->
     <script
