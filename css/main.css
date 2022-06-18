@@ -235,7 +235,20 @@ main .tarjetas {
   background: black;
   color: white;
 }
+.botonesTransf button {
+  background: transparent;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin: 0.5rem;
+  color: black;
+  font-size: medium;
+}
 
+.botonesTransf button:hover {
+  background: black;
+  color: white;
+}
 .tituloLista {
   margin: 0.5rem 0;
 }
