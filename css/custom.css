@@ -78,7 +78,7 @@ header {
 .fondo {
   display: flex;
   flex-direction: column;
-  background: url(../img/fondo\ loging.svg);
+  background: url(../img/fondo_loging.svg);
   background-repeat: no-repeat;
   background-size: auto 85%;
   background-position: bottom left;
