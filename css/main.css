@@ -57,7 +57,7 @@ main .left {
 
 main .right {
   display: flex;
-  flex: 1 1 0px;
+  flex: 0.6 1 0px;
   margin-left: 1rem;
 }
 
@@ -138,6 +138,7 @@ main .tarjetas {
   background-size: cover;
   aspect-ratio: 3.37 / 2.13;
   max-height: 230px;
+  object-fit:none;
 }
 
 .delantera .logo-marca {
