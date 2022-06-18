@@ -35,6 +35,13 @@ nav .logo {
   margin-top: 20px;
 }
 
+.contenedor {
+  display: flex;
+  overflow: auto;
+  width: 100%;
+  align-items: flex-start;
+}
+
 main {
   display: flex;
   flex-direction: row;
@@ -46,7 +53,15 @@ main {
   border-radius: 0 2rem 2rem 0;
   border-left: 0.625rem black solid;
   box-shadow: 0 0 10px #686464;
-  border-image: linear-gradient(to bottom, #9FC372, #8AC7DB, #8A7CB2, #C166A3, #EBC36B) 1;
+  border-image: linear-gradient(
+      to bottom,
+      #9fc372,
+      #8ac7db,
+      #8a7cb2,
+      #c166a3,
+      #ebc36b
+    )
+    1;
 }
 
 main .left {
@@ -106,6 +121,7 @@ main .tarjetas {
 }
 
 .tarjeta {
+  margin: 1rem 0.5rem;
   width: 85%;
   max-width: 550px;
   position: relative;
@@ -138,7 +154,7 @@ main .tarjetas {
   background-size: cover;
   aspect-ratio: 3.37 / 2.13;
   max-height: 230px;
-  object-fit:none;
+  object-fit: none;
 }
 
 .delantera .logo-marca {
@@ -229,6 +245,7 @@ main .tarjetas {
   margin: 0.5rem;
   color: black;
   font-size: medium;
+  text-decoration: none;
 }
 
 .botonesTransf a:hover {
@@ -304,9 +321,5 @@ main .tarjetas {
   .saldo {
     order: 1;
     margin-top: 1rem;
-  }
-
-  .tarjeta .delantera {
-    aspect-ratio: initial;
   }
 }
