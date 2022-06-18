@@ -142,3 +142,11 @@ footer #social img {
 .iniciarSesion:hover {
   color: white;
 }
+
+#dolar {
+  font-family: "Fira Sans", sans-serif;
+  color: black;
+  font-weight: bold;
+  font-size: 12pt;
+  
+}
