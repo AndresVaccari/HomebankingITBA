@@ -69,6 +69,17 @@ def obtener_fechas(rango_fecha):
     return fechasDate
 
 
+def salida(salida):
+    if (salida == 'PANTALLA'):
+        print(datos_cliente)
+    elif (salida == 'CSV'):
+        with open(f'{sys.argv[POSICION_ARGUMENTO_DNI]}{sys.argv[POSICION_ARGUMENTO_RANGO_FECHA]}.csv', 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(datos_cliente)
+    else:
+        print('Error: Salida no valida')
+
+
 if __name__ == '__main__':
     with open(sys.argv[POSICION_ARGUMENTO_NOMBRE_ARCHIVO]) as archivo:
         lector = csv.reader(archivo)
