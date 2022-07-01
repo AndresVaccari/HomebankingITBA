@@ -1,3 +1,4 @@
+from cmath import exp
 import sys
 import csv
 from datetime import datetime
@@ -27,6 +28,11 @@ class Error(Exception):
 
 class ErrorFechaInput(Error):
     """Fecha de input no valida"""
+    pass
+
+
+class ErrorNumeroDeChequeRepetido(Error):
+    """Numero de cheque repetido"""
     pass
 
 
@@ -69,18 +75,25 @@ def obtener_fechas(rango_fecha):
     return fechasDate
 
 
-def salida(salida, cabecera, datos_cliente):
-    if (salida == 'PANTALLA'):
-        print(','.join(cabecera))
+def salida(salida, cabecera, datos_cliente, posicion_numero):
+    try:
+        for element in datos_cliente:
+            if datos_cliente.count(element[posicion_numero]) > 1:
+                raise ErrorNumeroDeChequeRepetido
+        if (salida == 'PANTALLA'):
+            print(','.join(cabecera))
 
-        for dato in datos_cliente:
-            print(','.join(dato))
-    elif (salida == 'CSV'):
-        with open(f'{sys.argv[POSICION_ARGUMENTO_DNI]}{sys.argv[POSICION_ARGUMENTO_RANGO_FECHA]}.csv', 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow(datos_cliente)
-    else:
-        print('Error: Salida no valida')
+            for dato in datos_cliente:
+                print(','.join(dato))
+        elif (salida == 'CSV'):
+            with open(f'{sys.argv[POSICION_ARGUMENTO_DNI]}{sys.argv[POSICION_ARGUMENTO_RANGO_FECHA]}.csv', 'w', newline='') as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerow(datos_cliente)
+        else:
+            print('Error: Salida no valida')
+    except ErrorNumeroDeChequeRepetido:
+        print('Error: Numero de cheque repetido')
+        sys.exit(1)
 
 
 if __name__ == '__main__':
@@ -119,4 +132,5 @@ if __name__ == '__main__':
     datos_cliente = generar_datos_cliente(
         posicion_dni, posicion_estado, fechas[0], fechas[1], datos)
 
-    salida(sys.argv[POSICION_ARGUMENTO_SALIDA], cabecera, datos_cliente)
+    salida(sys.argv[POSICION_ARGUMENTO_SALIDA],
+           cabecera, datos_cliente, posicion_numero)
