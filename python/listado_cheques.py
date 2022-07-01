@@ -69,9 +69,12 @@ def obtener_fechas(rango_fecha):
     return fechasDate
 
 
-def salida(salida):
+def salida(salida, cabecera, datos_cliente):
     if (salida == 'PANTALLA'):
-        print(datos_cliente)
+        print(','.join(cabecera))
+
+        for dato in datos_cliente:
+            print(','.join(dato))
     elif (salida == 'CSV'):
         with open(f'{sys.argv[POSICION_ARGUMENTO_DNI]}{sys.argv[POSICION_ARGUMENTO_RANGO_FECHA]}.csv', 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
@@ -116,7 +119,4 @@ if __name__ == '__main__':
     datos_cliente = generar_datos_cliente(
         posicion_dni, posicion_estado, fechas[0], fechas[1], datos)
 
-    print(','.join(cabecera))
-
-    for dato in datos_cliente:
-        print(','.join(dato))
+    salida(sys.argv[POSICION_ARGUMENTO_SALIDA], cabecera, datos_cliente)
