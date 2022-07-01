@@ -39,26 +39,29 @@ class ErrorNumeroDeChequeRepetido(Error):
 def generar_datos_cliente(posicion_dni, posicion_estado, fecha_inicio, fecha_fin, datos):
     try:
         if sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE] != 'Todos':
-            if fecha_inicio == '':
+            if fecha_inicio == '' or fecha_fin == '':
+                datos_cliente = list(filter(
+                    lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_estado] == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE], datos[1:]))
+                return datos_cliente
+            else:
                 if fecha_inicio > fecha_fin:
                     raise ErrorFechaInput
                 else:
                     datos_cliente = list(filter(
-                        lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_estado] == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE], datos[1:]))
+                        lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_estado] == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE] & registro[posicion_fecha_origen] >= fecha_inicio & registro[posicion_fecha_pago] <= fecha_fin, datos[1:]))
                     return datos_cliente
-            else:
-                datos_cliente = list(filter(
-                    lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_estado] == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE] & registro[posicion_fecha_origen] >= fecha_inicio & registro[posicion_fecha_pago] <= fecha_fin, datos[1:]))
-                return datos_cliente
         else:
-            if fecha_inicio == '':
+            if fecha_inicio == '' or fecha_fin == '':
                 datos_cliente = list(filter(
                     lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI], datos[1:]))
                 return datos_cliente
             else:
-                datos_cliente = list(filter(
-                    lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_fecha_origen] >= fecha_inicio & registro[posicion_fecha_pago] <= fecha_fin, datos[1:]))
-                return datos_cliente
+                if fecha_inicio > fecha_fin:
+                    raise ErrorFechaInput
+                else:
+                    datos_cliente = list(filter(
+                        lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_fecha_origen] >= fecha_inicio & registro[posicion_fecha_pago] <= fecha_fin, datos[1:]))
+                    return datos_cliente
     except ErrorFechaInput:
         print('Fecha de input no valida')
         sys.exit(1)
