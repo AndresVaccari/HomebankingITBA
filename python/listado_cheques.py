@@ -78,7 +78,7 @@ def obtener_fechas(rango_fecha):
 def salida(salida, cabecera, datos_cliente, posicion_numero):
     try:
         for element in datos_cliente:
-            if datos_cliente.count(element[posicion_numero]) > 1:
+            if datos_cliente.count(datos_cliente[element[posicion_numero]]) > 1:
                 raise ErrorNumeroDeChequeRepetido
         if (salida == 'PANTALLA'):
             print(','.join(cabecera))
