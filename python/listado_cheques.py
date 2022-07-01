@@ -1,5 +1,6 @@
 import sys
 import csv
+from datetime import datetime
 
 POSICION_ARGUMENTO_NOMBRE_ARCHIVO = 1
 POSICION_ARGUMENTO_DNI = 2
@@ -19,23 +20,53 @@ ETIQUETA_CABEVERA_CSV_DNI = 'DNI'
 ETIQUETA_CABEVERA_CSV_ESTADO = 'Estado'
 
 
-def generar_datos_cliente(posicion_dni, posicion_estado, tipo_estado, fecha_inicio, fecha_fin):
-    datos_cliente = list(filter(
-        lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_estado] == tipo_estado, datos[1:]))
-    return datos_cliente
+class Error(Exception):
+    """Base class for other exceptions"""
+    pass
 
 
-def busqueda_por_tipo_cheque(tipo_cheque):
-    if tipo_cheque == 'Pendiente':
-        datos_cliente = list(filter(
-            lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_estado] == 'Pendiente', datos[1:]))
-    elif tipo_cheque == 'Aprobado':
-        datos_cliente = list(filter(
-            lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_estado] == 'Aprobado', datos[1:]))
-    elif tipo_cheque == 'Rechazado':
-        datos_cliente = list(filter(
-            lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_estado] == 'Rechazado', datos[1:]))
-    return datos_cliente
+class ErrorFechaInput(Error):
+    """Fecha de input no valida"""
+    pass
+
+
+def generar_datos_cliente(posicion_dni, posicion_estado, fecha_inicio, fecha_fin, datos):
+    try:
+        if sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE] != 'Todos':
+            if fecha_inicio == '':
+                if fecha_inicio > fecha_fin:
+                    raise ErrorFechaInput
+                else:
+                    datos_cliente = list(filter(
+                        lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_estado] == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE], datos[1:]))
+                    return datos_cliente
+            else:
+                datos_cliente = list(filter(
+                    lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_estado] == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE] & registro[posicion_fecha_origen] >= fecha_inicio & registro[posicion_fecha_pago] <= fecha_fin, datos[1:]))
+                return datos_cliente
+        else:
+            if fecha_inicio == '':
+                datos_cliente = list(filter(
+                    lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI], datos[1:]))
+                return datos_cliente
+            else:
+                datos_cliente = list(filter(
+                    lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_fecha_origen] >= fecha_inicio & registro[posicion_fecha_pago] <= fecha_fin, datos[1:]))
+                return datos_cliente
+    except ErrorFechaInput:
+        print('Fecha de input no valida')
+        sys.exit(1)
+
+
+def obtener_fechas(rango_fecha):
+    if rango_fecha != '':
+        fechas = rango_fecha.split(':')
+        fechasDate = []
+        for fecha in fechas:
+            fechasDate.append(datetime.strptime(fecha, '%Y-%m-%d'))
+    else:
+        fechasDate = ['', '']
+    return fechasDate
 
 
 if __name__ == '__main__':
@@ -69,12 +100,10 @@ if __name__ == '__main__':
         cabecera.index(ETIQUETA_CABEVERA_CSV_ESTADO)
     )
 
-    if sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE] != 'Todos':
-        datos_cliente = busqueda_por_tipo_cheque(
-            sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE])
+    fechas = obtener_fechas(sys.argv[POSICION_ARGUMENTO_RANGO_FECHA])
 
-    datos_cliente = list(filter(
-        lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI], datos[1:]))
+    datos_cliente = generar_datos_cliente(
+        posicion_dni, posicion_estado, fechas[0], fechas[1], datos)
 
     print(','.join(cabecera))
 
