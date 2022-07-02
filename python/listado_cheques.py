@@ -20,7 +20,7 @@ ETIQUETA_CABEVERA_CSV_FECHA_PAGO = 'FechaPago'
 ETIQUETA_CABEVERA_CSV_DNI = 'DNI'
 ETIQUETA_CABEVERA_CSV_ESTADO = 'Estado'
 
-
+#Definición de errores propios
 class Error(Exception):
     """Base class for other exceptions"""
     pass
@@ -35,7 +35,7 @@ class ErrorNumeroDeChequeRepetido(Error):
     """Numero de cheque repetido"""
     pass
 
-
+#Función de entrada, chequeo e ingreso de datos de cheque del cliente 
 def generar_datos_cliente(posicion_dni, posicion_estado, fecha_inicio, fecha_fin, datos):
     try:
         if sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE] != 'Todos':
@@ -66,7 +66,7 @@ def generar_datos_cliente(posicion_dni, posicion_estado, fecha_inicio, fecha_fin
         print('Fecha de input no valida')
         sys.exit(1)
 
-
+#Función de obtención de fechas segun rango 
 def obtener_fechas(rango_fecha):
     if rango_fecha != '':
         fechas = rango_fecha.split(':')
@@ -77,7 +77,7 @@ def obtener_fechas(rango_fecha):
         fechasDate = ['', '']
     return fechasDate
 
-
+#Función de salida, se muestran los datos del cheque solicitado al cliente
 def salida(salida, cabecera, datos_cliente, posicion_numero):
     try:
         for element in datos_cliente:
@@ -98,7 +98,7 @@ def salida(salida, cabecera, datos_cliente, posicion_numero):
         print('Error: Numero de cheque repetido')
         sys.exit(1)
 
-
+ 
 if __name__ == '__main__':
     with open(sys.argv[POSICION_ARGUMENTO_NOMBRE_ARCHIVO]) as archivo:
         lector = csv.reader(archivo)
