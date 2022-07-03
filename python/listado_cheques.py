@@ -35,32 +35,38 @@ class ErrorNumeroDeChequeRepetido(Error):
     """Numero de cheque repetido"""
     pass
 
+#Función de comparación de fechas
+def comparar_fechas(fecha_inicio, fecha_fin, fecha_pago):
+    fechadate_pago = datetime.strptime(fecha_pago, '%d-%m-%Y')
+    valido = (fecha_inicio <= fechadate_pago <= fecha_fin)
+    return valido
+
 #Función de entrada, chequeo e ingreso de datos de cheque del cliente 
 def generar_datos_cliente(posicion_dni, posicion_estado, fecha_inicio, fecha_fin, datos):
     try:
         if sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE] != 'Todos':
             if fecha_inicio == '' or fecha_fin == '':
                 datos_cliente = list(filter(
-                    lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_estado] == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE], datos[1:]))
+                    lambda registro: (registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI]) & (registro[posicion_estado] == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE]), datos))
                 return datos_cliente
             else:
                 if fecha_inicio > fecha_fin:
                     raise ErrorFechaInput
                 else:
                     datos_cliente = list(filter(
-                        lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_estado] == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE] & registro[posicion_fecha_origen] >= fecha_inicio & registro[posicion_fecha_pago] <= fecha_fin, datos[1:]))
+                        lambda registro: (registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI]) & (registro[posicion_estado] == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE]) & comparar_fechas(fecha_inicio, fecha_fin, registro[posicion_fecha_pago]), datos))
                     return datos_cliente
         else:
             if fecha_inicio == '' or fecha_fin == '':
                 datos_cliente = list(filter(
-                    lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI], datos[1:]))
+                    lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI], datos))
                 return datos_cliente
             else:
                 if fecha_inicio > fecha_fin:
                     raise ErrorFechaInput
                 else:
                     datos_cliente = list(filter(
-                        lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI] & registro[posicion_fecha_origen] >= fecha_inicio & registro[posicion_fecha_pago] <= fecha_fin, datos[1:]))
+                        lambda registro: (registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI]) & comparar_fechas(fecha_inicio, fecha_fin, registro[posicion_fecha_pago]), datos))
                     return datos_cliente
     except ErrorFechaInput:
         print('Fecha de input no valida')
@@ -72,7 +78,7 @@ def obtener_fechas(rango_fecha):
         fechas = rango_fecha.split(':')
         fechasDate = []
         for fecha in fechas:
-            fechasDate.append(datetime.strptime(fecha, '%Y-%m-%d'))
+            fechasDate.append(datetime.strptime(fecha, '%d-%m-%Y'))
     else:
         fechasDate = ['', '']
     return fechasDate
@@ -80,8 +86,11 @@ def obtener_fechas(rango_fecha):
 #Función de salida, se muestran los datos del cheque solicitado al cliente
 def salida(salida, cabecera, datos_cliente, posicion_numero):
     try:
-        for element in datos_cliente:
-            if datos_cliente.count(datos_cliente[element[posicion_numero]]) > 1:
+        contadorCheques = []
+        for dato in datos_cliente:
+            if dato[posicion_numero] not in contadorCheques:
+                contadorCheques.append(dato[posicion_numero])
+            else:
                 raise ErrorNumeroDeChequeRepetido
         if (salida == 'PANTALLA'):
             print(','.join(cabecera))
@@ -91,7 +100,9 @@ def salida(salida, cabecera, datos_cliente, posicion_numero):
         elif (salida == 'CSV'):
             with open(f'{sys.argv[POSICION_ARGUMENTO_DNI]}{sys.argv[POSICION_ARGUMENTO_RANGO_FECHA]}.csv', 'w', newline='') as csvfile:
                 writer = csv.writer(csvfile)
-                writer.writerow(datos_cliente)
+                writer.writerow(cabecera)
+                for dato in datos_cliente:
+                    writer.writerow(dato)
         else:
             print('Error: Salida no valida')
     except ErrorNumeroDeChequeRepetido:
@@ -133,7 +144,7 @@ if __name__ == '__main__':
     fechas = obtener_fechas(sys.argv[POSICION_ARGUMENTO_RANGO_FECHA])
 
     datos_cliente = generar_datos_cliente(
-        posicion_dni, posicion_estado, fechas[0], fechas[1], datos)
+        posicion_dni, posicion_estado, fechas[0], fechas[1], datos[1:])
 
     salida(sys.argv[POSICION_ARGUMENTO_SALIDA],
            cabecera, datos_cliente, posicion_numero)

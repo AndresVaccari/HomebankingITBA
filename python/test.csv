@@ -1,0 +1,4 @@
+NroCheque,CodigoBanco,CodigoSucursal,NroCuentaOrigen,NroCuentaDestino,Valor,FechaOrigen,FechaPago,DNI,Estado
+1,1,2,111,222,1000,06-12-2022,07-12-2022,1,APROBADO
+2,2,3,333,444,2000,08-12-2022,09-12-2022,1,PENDIENTE
+3,3,4,555,666,3000,10-12-2022,11-12-2022,2,APROBADO
