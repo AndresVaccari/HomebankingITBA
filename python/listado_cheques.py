@@ -147,10 +147,19 @@ def salida(salida, cabecera, datos_cliente, posicion_numero):
         sys.exit(1)
 
 
+def obtener_archivo(nombre_archivo):
+    try:
+        with open(nombre_archivo) as archivo:
+            lector = csv.reader(archivo)
+            datos = list(lector)
+            return datos
+    except FileNotFoundError:
+        print("Error: Archivo no encontrado")
+        sys.exit(1)
+
+
 if __name__ == "__main__":
-    with open(sys.argv[POSICION_ARGUMENTO_NOMBRE_ARCHIVO]) as archivo:
-        lector = csv.reader(archivo)
-        datos = list(lector)
+    datos = obtener_archivo(sys.argv[POSICION_ARGUMENTO_NOMBRE_ARCHIVO])
 
     cabecera = datos[0]
 
