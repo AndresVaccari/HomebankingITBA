@@ -147,6 +147,7 @@ def salida(salida, cabecera, datos_cliente, posicion_numero):
         sys.exit(1)
 
 
+# Funcion de obtencion del archivo
 def obtener_archivo(nombre_archivo):
     try:
         with open(nombre_archivo, 'r') as archivo:
