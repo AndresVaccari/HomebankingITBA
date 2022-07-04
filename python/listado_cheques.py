@@ -149,7 +149,7 @@ def salida(salida, cabecera, datos_cliente, posicion_numero):
 
 def obtener_archivo(nombre_archivo):
     try:
-        with open(nombre_archivo) as archivo:
+        with open(nombre_archivo, 'r') as archivo:
             lector = csv.reader(archivo)
             datos = list(lector)
             return datos
