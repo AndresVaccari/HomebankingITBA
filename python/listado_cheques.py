@@ -152,7 +152,7 @@ def obtener_archivo(nombre_archivo):
         with open(nombre_archivo, 'r') as archivo:
             lector = csv.reader(archivo)
             datos = list(lector)
-            return datos
+        return datos
     except FileNotFoundError:
         print("Error: Archivo no encontrado")
         sys.exit(1)
