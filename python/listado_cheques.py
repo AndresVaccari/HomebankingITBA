@@ -48,19 +48,24 @@ def comparar_fechas(fecha_inicio, fecha_fin, fecha_pago):
 
 
 # Función de entrada, chequeo e ingreso de datos de cheque del cliente
-def generar_datos_cliente(posicion_dni, posicion_estado, fecha_inicio,
-                          fecha_fin, datos):
+def generar_datos_cliente(
+    posicion_dni, posicion_estado, fecha_inicio, fecha_fin, datos
+):
     try:
         if sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE] != "Todos":
             if fecha_inicio == "" or fecha_fin == "":
                 datos_cliente = list(
                     filter(
-                        lambda registro: (registro[posicion_dni] == sys.argv[
-                            POSICION_ARGUMENTO_DNI])
-                        & (registro[posicion_estado] == sys.argv[
-                            POSICION_ARGUMENTO_TIPO_CHEQUE]),
+                        lambda registro: (
+                            registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI]
+                        )
+                        & (
+                            registro[posicion_estado]
+                            == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE]
+                        ),
                         datos,
-                    ))
+                    )
+                )
                 return datos_cliente
             else:
                 if fecha_inicio > fecha_fin:
@@ -68,23 +73,30 @@ def generar_datos_cliente(posicion_dni, posicion_estado, fecha_inicio,
                 else:
                     datos_cliente = list(
                         filter(
-                            lambda registro: (registro[posicion_dni] == sys.
-                                              argv[POSICION_ARGUMENTO_DNI])
-                            & (registro[posicion_estado] == sys.argv[
-                                POSICION_ARGUMENTO_TIPO_CHEQUE])
-                            & comparar_fechas(fecha_inicio, fecha_fin,
-                                              registro[posicion_fecha_pago]),
+                            lambda registro: (
+                                registro[posicion_dni]
+                                == sys.argv[POSICION_ARGUMENTO_DNI]
+                            )
+                            & (
+                                registro[posicion_estado]
+                                == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE]
+                            )
+                            & comparar_fechas(
+                                fecha_inicio, fecha_fin, registro[posicion_fecha_pago]
+                            ),
                             datos,
-                        ))
+                        )
+                    )
                     return datos_cliente
         else:
             if fecha_inicio == "" or fecha_fin == "":
                 datos_cliente = list(
                     filter(
-                        lambda registro: registro[posicion_dni] == sys.argv[
-                            POSICION_ARGUMENTO_DNI],
+                        lambda registro: registro[posicion_dni]
+                        == sys.argv[POSICION_ARGUMENTO_DNI],
                         datos,
-                    ))
+                    )
+                )
                 return datos_cliente
             else:
                 if fecha_inicio > fecha_fin:
@@ -92,12 +104,16 @@ def generar_datos_cliente(posicion_dni, posicion_estado, fecha_inicio,
                 else:
                     datos_cliente = list(
                         filter(
-                            lambda registro: (registro[posicion_dni] == sys.
-                                              argv[POSICION_ARGUMENTO_DNI])
-                            & comparar_fechas(fecha_inicio, fecha_fin,
-                                              registro[posicion_fecha_pago]),
+                            lambda registro: (
+                                registro[posicion_dni]
+                                == sys.argv[POSICION_ARGUMENTO_DNI]
+                            )
+                            & comparar_fechas(
+                                fecha_inicio, fecha_fin, registro[posicion_fecha_pago]
+                            ),
                             datos,
-                        ))
+                        )
+                    )
                     return datos_cliente
     except ErrorFechaInput:
         print("Fecha de input no valida")
@@ -132,9 +148,9 @@ def salida(salida, cabecera, datos_cliente, posicion_numero):
                 print(",".join(dato))
         elif salida == "CSV":
             with open(
-                    f"{sys.argv[POSICION_ARGUMENTO_DNI]}{sys.argv[POSICION_ARGUMENTO_RANGO_FECHA]}.csv",
-                    "w",
-                    newline="",
+                f"{sys.argv[POSICION_ARGUMENTO_DNI]}{sys.argv[POSICION_ARGUMENTO_RANGO_FECHA]}.csv",
+                "w",
+                newline="",
             ) as csvfile:
                 writer = csv.writer(csvfile)
                 writer.writerow(cabecera)
@@ -150,7 +166,7 @@ def salida(salida, cabecera, datos_cliente, posicion_numero):
 # Funcion de obtencion del archivo
 def obtener_archivo(nombre_archivo):
     try:
-        with open(nombre_archivo, 'r') as archivo:
+        with open(nombre_archivo, "r") as archivo:
             lector = csv.reader(archivo)
             datos = list(lector)
         return datos
@@ -190,8 +206,10 @@ if __name__ == "__main__":
 
     fechas = obtener_fechas(sys.argv[POSICION_ARGUMENTO_RANGO_FECHA])
 
-    datos_cliente = generar_datos_cliente(posicion_dni, posicion_estado,
-                                          fechas[0], fechas[1], datos[1:])
+    datos_cliente = generar_datos_cliente(
+        posicion_dni, posicion_estado, fechas[0], fechas[1], datos[1:]
+    )
 
-    salida(sys.argv[POSICION_ARGUMENTO_SALIDA], cabecera, datos_cliente,
-           posicion_numero)
+    salida(
+        sys.argv[POSICION_ARGUMENTO_SALIDA], cabecera, datos_cliente, posicion_numero
+    )
