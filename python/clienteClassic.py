@@ -9,6 +9,8 @@ class ClienteClassic(cliente.Cliente):
         self.__puedeComprarDolar = False
         self.__comisionTransferencia = 0.01
         self.__maximoTransferencia = 150000
+        self.__maximoExtraccion = 10000
+        self.__maximoNegativo = 0
 
     def transferencia(self, monto, cuentaDestino):
         if self.__saldo >= monto:
@@ -30,3 +32,9 @@ class ClienteClassic(cliente.Cliente):
 
     def getPuedeComprarDolar(self):
         return self.__puedeComprarDolar
+
+    def getMaximoExtraccion(self):
+        return self.__maximoExtraccion
+
+    def getMaximoNegativo(self):
+        return self.__maximoNegativo
