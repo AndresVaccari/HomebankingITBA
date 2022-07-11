@@ -1,7 +1,7 @@
 from cliente import Cliente
 
 
-class ClienteClassic(Cliente):
+class ClienteGold(Cliente):
     def __init__(self, nombre, apellido, dni, direccion, telefono, email):
         maximoExtraccion = 20000
         maximoNegativo = -10000
