@@ -1,4 +1,7 @@
-class Cliente:
+from abc import ABC, abstractmethod
+
+# Clase abstracta que representa a un cliente
+class Cliente(ABC):
     def __init__(
         self,
         nombre,
