@@ -7,6 +7,7 @@ class Cliente:
         self.__tipoCliente = tipoCliente
         self.__direccion = direccion
         self.__transacciones = []
+        self.__saldo = 0
 
     def agregarTransaccion(self, transaccion):
         self.__transacciones.append(transaccion)
