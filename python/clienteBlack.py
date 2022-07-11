@@ -21,10 +21,7 @@ class ClienteBlack(cliente.Cliente):
             return True
 
     def agregarSaldo(self, saldo):
-        if saldo > self.__maximoTransferencia:
-            raise Exception("El monto es mayor al máximo permitido")
-        else:
-            self.__saldo += saldo
+        self.__saldo += saldo
 
     def getPuedeCrearChequera(self):
         return self.__puedeCrearChequera
