@@ -18,7 +18,7 @@ class Cliente(ABC):
         cantMaxTarjetas,
         cantMaxChequeras,
         comisionTransferencia,
-        maximoTransferencia,
+        maximoRetirarCajero,
     ):
         self.__nombre = nombre
         self.__apellido = apellido
@@ -36,7 +36,7 @@ class Cliente(ABC):
         self.__cantMaxTarjetas = cantMaxTarjetas
         self.__cantMaxChequeras = cantMaxChequeras
         self.__comisionTransferencia = comisionTransferencia
-        self.__maximoTransferencia = maximoTransferencia
+        self.__maximoRetirarCajero = maximoRetirarCajero
         self.__totalTarjetasDeCretido = 0
         self.__totalChequeras = 0
 
@@ -50,10 +50,14 @@ class Cliente(ABC):
             return True
 
     def agregarSaldo(self, saldo):
-        if saldo > self.__maximoTransferencia:
+        self.__saldo += saldo
+
+    def retirarCajero(self, saldo):
+        if saldo > self.__maximoRetirarCajero:
             raise Exception("El monto es mayor al máximo permitido")
         else:
-            self.__saldo += saldo
+            self.__saldo -= saldo
+            return True
 
     def getPuedeCrearChequera(self):
         return self.__puedeCrearChequera

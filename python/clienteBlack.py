@@ -12,7 +12,7 @@ class ClienteBlack(Cliente):
         cantMaxTarjetas = 5
         cantMaxChequeras = 2
         comisionTransferencia = 0
-        maximoTransferencia = Infinity
+        maximoRetirarCajero = Infinity
         super().__init__(
             nombre,
             apellido,
@@ -28,5 +28,5 @@ class ClienteBlack(Cliente):
             cantMaxTarjetas,
             cantMaxChequeras,
             comisionTransferencia,
-            maximoTransferencia,
+            maximoRetirarCajero,
         )

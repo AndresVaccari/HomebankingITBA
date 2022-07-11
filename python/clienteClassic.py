@@ -9,7 +9,7 @@ class ClienteClassic(Cliente):
         puedeCrearTarjeta = False
         puedeComprarDolar = False
         comisionTransferencia = 0.01
-        maximoTransferencia = 150000
+        maximoRetirarCajero = 150000
         cantMaxTarjetas = 0
         cantMaxChequeras = 0
         super().__init__(
@@ -27,5 +27,5 @@ class ClienteClassic(Cliente):
             cantMaxTarjetas,
             cantMaxChequeras,
             comisionTransferencia,
-            maximoTransferencia,
+            maximoRetirarCajero,
         )
