@@ -8,7 +8,6 @@ class Cliente(ABC):
         apellido,
         numeroCliente,
         dni,
-        tipoCliente,
         direccion,
         maximoExtraccion,
         maximoNegativo,
@@ -24,7 +23,6 @@ class Cliente(ABC):
         self.__apellido = apellido
         self.__numeroCliente = numeroCliente
         self.__dni = dni
-        self.__tipoCliente = tipoCliente
         self.__direccion = direccion
         self.__transacciones = []
         self.__saldo = 0
