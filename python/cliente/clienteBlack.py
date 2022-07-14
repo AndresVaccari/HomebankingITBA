@@ -1,5 +1,3 @@
-from operator import truediv
-from numpy import Infinity
 from cliente import Cliente
 
 
