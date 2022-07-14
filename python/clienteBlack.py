@@ -1,3 +1,4 @@
+from operator import truediv
 from numpy import Infinity
 from cliente import Cliente
 
@@ -30,3 +31,18 @@ class ClienteBlack(Cliente):
             comisionTransferencia,
             maximoRetirarCajero,
         )
+
+    def pueder_crear_chequera(self):
+        if self.__totalChequeras < 2:
+            return True
+        else:
+            return False
+
+    def pueder_crear_tarjeta_credito(self):
+        if self.__totalTarjetasDeCretido < 5:
+            return True
+        else:
+            return False
+
+    def pueder_comprar_dolar(self):
+        return True
