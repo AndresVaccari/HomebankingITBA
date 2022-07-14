@@ -28,48 +28,17 @@ class Cliente(ABC):
         self.__cantMaxChequeras = cantMaxChequeras
         self.__comisionTransferencia = comisionTransferencia
 
-    def agregarTransaccion(self, transaccion):
-        self.__transacciones.append(transaccion)
-
-    def transferencia(self, monto, cuentaDestino):
-        if self.__saldo >= monto:
-            self.__saldo -= monto
-            cuentaDestino.agregarSaldo(monto - monto * self.__comisionTransferencia)
+    def pueder_crear_chequera(self, totalChequeras):
+        if totalChequeras < self.__cantMaxChequeras:
             return True
-
-    def agregarSaldo(self, saldo):
-        self.__saldo += saldo
-
-    def retirarCajero(self, saldo):
-        if saldo > self.__maximoRetirarCajero:
-            raise Exception("El monto es mayor al máximo permitido")
         else:
-            self.__saldo -= saldo
+            return False
+
+    def pueder_crear_tarjeta_credito(self, totalTarjetasDeCredito):
+        if totalTarjetasDeCredito < self.__cantMaxTarjetas:
             return True
+        else:
+            return False
 
-    def getPuedeCrearChequera(self):
-        return self.__puedeCrearChequera
-
-    def getPuedeCrearTarjeta(self):
-        return self.__puedeCrearTarjeta
-
-    def getPuedeComprarDolar(self):
-        return self.__puedeComprarDolar
-
-    def getMaximoExtraccion(self):
-        return self.__maximoExtraccion
-
-    def getMaximoNegativo(self):
-        return self.__maximoNegativo
-
-    def getSaldo(self):
-        return self.__saldo
-
-    def getNumeroCliente(self):
-        return self.__numeroCliente
-
-    def getTotalTarjetasDeCretido(self):
-        return self.__totalTarjetasDeCretido
-
-    def getTotalChequeras(self):
-        return self.__totalChequeras
+    def pueder_comprar_dolar(self):
+        return True
