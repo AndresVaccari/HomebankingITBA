@@ -19,13 +19,7 @@ class ClienteClassic(Cliente):
             direccion,
             telefono,
             email,
-            maximoExtraccion,
             maximoNegativo,
-            puedeCrearChequera,
-            puedeCrearTarjeta,
-            puedeComprarDolar,
-            cantMaxTarjetas,
-            cantMaxChequeras,
             comisionTransferencia,
             maximoRetirarCajero,
         )

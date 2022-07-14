@@ -19,15 +19,8 @@ class ClienteGold(Cliente):
             direccion,
             telefono,
             email,
-            maximoExtraccion,
             maximoNegativo,
-            puedeCrearChequera,
-            puedeCrearTarjeta,
-            puedeComprarDolar,
-            cantMaxTarjetas,
-            cantMaxChequeras,
             comisionTransferencia,
-            maximoRetirarCajero,
         )
 
     def pueder_crear_chequera(self):
