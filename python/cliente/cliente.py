@@ -13,6 +13,7 @@ class Cliente(ABC):
         cantMaxTarjetas,
         cantMaxChequeras,
         comisionTransferencia,
+        puedeComprarDolar,
     ):
         self.__nombre = nombre
         self.__apellido = apellido
@@ -24,6 +25,7 @@ class Cliente(ABC):
         self.__cantMaxTarjetas = cantMaxTarjetas
         self.__cantMaxChequeras = cantMaxChequeras
         self.__comisionTransferencia = comisionTransferencia
+        self.__puedeComprarDolar = puedeComprarDolar
 
     def pueder_crear_chequera(self, totalChequeras):
         if totalChequeras < self.__cantMaxChequeras:
@@ -38,4 +40,4 @@ class Cliente(ABC):
             return False
 
     def pueder_comprar_dolar(self):
-        return True
+        return self.__puedeComprarDolar

@@ -18,4 +18,5 @@ class ClienteBlack(Cliente):
             cantMaxTarjetas,
             cantMaxChequeras,
             comisionTransferencia,
+            puedeComprarDolar=True,
         )

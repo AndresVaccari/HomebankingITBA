@@ -18,4 +18,5 @@ class ClienteClassic(Cliente):
             cantMaxTarjetas,
             cantMaxChequeras,
             comisionTransferencia,
+            puedeComprarDolar=False,
         )

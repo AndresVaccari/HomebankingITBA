@@ -18,4 +18,5 @@ class ClienteGold(Cliente):
             cantMaxTarjetas,
             cantMaxChequeras,
             comisionTransferencia,
+            puedeComprarDolar=True,
         )
