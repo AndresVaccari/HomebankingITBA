@@ -29,3 +29,12 @@ class ClienteClassic(Cliente):
             comisionTransferencia,
             maximoRetirarCajero,
         )
+
+    def pueder_crear_chequera(self):
+        return False
+
+    def pueder_crear_tarjeta_credito(self):
+        return False
+
+    def pueder_comprar_dolar(self):
+        return False

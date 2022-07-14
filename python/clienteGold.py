@@ -29,3 +29,18 @@ class ClienteGold(Cliente):
             comisionTransferencia,
             maximoRetirarCajero,
         )
+
+    def pueder_crear_chequera(self):
+        if self.__totalChequeras < 1:
+            return True
+        else:
+            return False
+
+    def pueder_crear_tarjeta_credito(self):
+        if self.__totalTarjetasDeCretido < 1:
+            return True
+        else:
+            return False
+
+    def pueder_comprar_dolar(self):
+        return True
