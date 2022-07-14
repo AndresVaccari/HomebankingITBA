@@ -13,14 +13,11 @@ class Cliente(ABC):
         cantMaxTarjetas,
         cantMaxChequeras,
         comisionTransferencia,
-        maximoRetirarCajero,
-        tipoCliente,
     ):
         self.__nombre = nombre
         self.__apellido = apellido
         self.__numeroCliente = numeroCliente
         self.__dni = dni
-        self.__tipoCliente = tipoCliente
         self.__direccion = direccion
         self.__transacciones = []
         self.__maximoNegativo = maximoNegativo
