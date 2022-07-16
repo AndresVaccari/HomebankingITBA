@@ -2,7 +2,7 @@ from cliente import Cliente
 
 
 class ClienteClassic(Cliente):
-    def __init__(self, nombre, apellido, dni, direccion, telefono, email):
+    def __init__(self, dicc):
         maximoNegativo = 0
         cantMaxTarjetas = 1
         cantMaxChequeras = 1

@@ -2,7 +2,7 @@ from cliente import Cliente
 
 
 class ClienteBlack(Cliente):
-    def __init__(self, nombre, apellido, dni, direccion, telefono, email):
+    def __init__(self, dicc):
         maximoNegativo = -10000
         cantMaxTarjetas = 5
         cantMaxChequeras = 2
