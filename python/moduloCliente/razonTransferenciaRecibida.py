@@ -1,6 +1,9 @@
 class RazonTransferenciaRecibida:
     def __init__(cliente, monto):
         if cliente.puedeRecibirTransferencia(monto):
-            return "Puede recibir la transferencia"
+            self.__razon = "Puede recibir la transferencia"
         else:
-            return "Monto maximo de transferencia recibida superado"
+            self.__razon =  "Monto maximo de transferencia recibida superado"
+
+    def razon(self):
+        return self.__razon        
