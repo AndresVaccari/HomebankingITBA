@@ -48,21 +48,14 @@ def comparar_fechas(fecha_inicio, fecha_fin, fecha_pago):
 
 
 # Función de entrada, chequeo e ingreso de datos de cheque del cliente
-def generar_datos_cliente(
-    posicion_dni, posicion_estado, fecha_inicio, fecha_fin, datos
-):
+def generar_datos_cliente(posicion_dni, posicion_estado, fecha_inicio, fecha_fin, datos):
     try:
         if sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE] != "Todos":
             if fecha_inicio == "" or fecha_fin == "":
                 datos_cliente = list(
                     filter(
-                        lambda registro: (
-                            registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI]
-                        )
-                        & (
-                            registro[posicion_estado]
-                            == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE]
-                        ),
+                        lambda registro: (registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI])
+                        & (registro[posicion_estado] == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE]),
                         datos,
                     )
                 )
@@ -73,17 +66,9 @@ def generar_datos_cliente(
                 else:
                     datos_cliente = list(
                         filter(
-                            lambda registro: (
-                                registro[posicion_dni]
-                                == sys.argv[POSICION_ARGUMENTO_DNI]
-                            )
-                            & (
-                                registro[posicion_estado]
-                                == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE]
-                            )
-                            & comparar_fechas(
-                                fecha_inicio, fecha_fin, registro[posicion_fecha_pago]
-                            ),
+                            lambda registro: (registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI])
+                            & (registro[posicion_estado] == sys.argv[POSICION_ARGUMENTO_TIPO_CHEQUE])
+                            & comparar_fechas(fecha_inicio, fecha_fin, registro[posicion_fecha_pago]),
                             datos,
                         )
                     )
@@ -92,8 +77,7 @@ def generar_datos_cliente(
             if fecha_inicio == "" or fecha_fin == "":
                 datos_cliente = list(
                     filter(
-                        lambda registro: registro[posicion_dni]
-                        == sys.argv[POSICION_ARGUMENTO_DNI],
+                        lambda registro: registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI],
                         datos,
                     )
                 )
@@ -104,13 +88,8 @@ def generar_datos_cliente(
                 else:
                     datos_cliente = list(
                         filter(
-                            lambda registro: (
-                                registro[posicion_dni]
-                                == sys.argv[POSICION_ARGUMENTO_DNI]
-                            )
-                            & comparar_fechas(
-                                fecha_inicio, fecha_fin, registro[posicion_fecha_pago]
-                            ),
+                            lambda registro: (registro[posicion_dni] == sys.argv[POSICION_ARGUMENTO_DNI])
+                            & comparar_fechas(fecha_inicio, fecha_fin, registro[posicion_fecha_pago]),
                             datos,
                         )
                     )
@@ -206,10 +185,6 @@ if __name__ == "__main__":
 
     fechas = obtener_fechas(sys.argv[POSICION_ARGUMENTO_RANGO_FECHA])
 
-    datos_cliente = generar_datos_cliente(
-        posicion_dni, posicion_estado, fechas[0], fechas[1], datos[1:]
-    )
+    datos_cliente = generar_datos_cliente(posicion_dni, posicion_estado, fechas[0], fechas[1], datos[1:])
 
-    salida(
-        sys.argv[POSICION_ARGUMENTO_SALIDA], cabecera, datos_cliente, posicion_numero
-    )
+    salida(sys.argv[POSICION_ARGUMENTO_SALIDA], cabecera, datos_cliente, posicion_numero)
