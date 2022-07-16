@@ -27,4 +27,4 @@ class Razon:
                 pass
 
     def __str__(self):
-        return f"{self.__razon}"
+        return f"{self.__razon.razon()}"
