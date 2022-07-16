@@ -1,11 +1,11 @@
 {
 	"numero": 100001,
-	"nombre": "Nicolas",
-	"apellido": "Gaston",
+	"nombre": "NombreCliente1",
+	"apellido": "ApellidoCliente1",
 	"dni": "29494777",
 	"tipo": "BLACK",
 	"direccion" : {
-		"calle" : "Rivadavia",
+		"calle" : "DireccionCliente1",
 		"numero" : "7900",
 		"ciudad": "Capital Federal",
 		"provincia" : "Buenos Aires",

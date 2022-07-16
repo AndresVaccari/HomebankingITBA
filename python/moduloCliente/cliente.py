@@ -48,3 +48,18 @@ class Cliente(ABC):
             return True
         else:
             return False
+
+    def getNombre(self):
+        return self.__nombre
+
+    def getApellido(self):
+        return self.__apellido
+
+    def getNumeroCliente(self):
+        return self.__numeroCliente
+
+    def getDni(self):
+        return self.__dni
+
+    def getDireccion(self, valor):
+        return self.__direccion[valor]

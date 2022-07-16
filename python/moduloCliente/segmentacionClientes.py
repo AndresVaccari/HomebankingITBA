@@ -5,18 +5,17 @@ from clienteGold import ClienteGold
 from razon import Razon
 
 ARCHIVOS = (
-    "ejemplosJson/eventos_black.json",
-    "ejemplosJson/eventos_classic.json",
-    "ejemplosJson/eventos_gold.json",
+    "ejemplosJson/eventosBlack.json",
+    "ejemplosJson/eventosClassic.json",
+    "ejemplosJson/eventosGold.json",
 )
 
 
 def generarClientes(*args):
     clientes = []
     for direccion in args:
-        arch = open(direccion, "r")
-        datos = json.load(arch)
-        for cliente in datos:
+        with open(direccion, "r") as archivo:
+            cliente = json.load(archivo)
             if cliente["tipo"] == "BLACK":
                 clientes.append(ClienteBlack(cliente))
             elif cliente["tipo"] == "GOLD":
@@ -25,31 +24,10 @@ def generarClientes(*args):
                 clientes.append(ClienteClassic(cliente))
             print("Cliente creado")
     return clientes
-    # for direccion in args:
-    #     with open(direccion, "r") as archivo:
-    #         clientes_json = json.load(archivo)
-    #         for cliente in clientes_json:
-    #             if cliente["tipo"] == "BLACK":
-    #                 clientes.append(ClienteBlack(cliente))
-    #             elif cliente["tipo"] == "GOLD":
-    #                 clientes.append(ClienteGold(cliente))
-    #             else:
-    #                 clientes.append(ClienteClassic(cliente))
-    #             print("Cliente creado")
-    # return clientes
 
 
 def crearHTML():
     archivoHtml = open("transaccion.html", "w")
-    return archivoHtml
-
-
-if __name__ == "__main__":
-    print("Iniciando segmentacion de clientes")
-    clientes = generarClientes(*ARCHIVOS)
-    print("Se generaron los clientes")
-    archivoHtml = crearHTML()
-    print("Se creo el archivo HTML")
     archivoHtml.write(
         f"""
             <!DOCTYPE html>
@@ -64,13 +42,13 @@ if __name__ == "__main__":
         """
     )
     for cliente in clientes:
-        print("test1")
+        print(cliente)
         archivoHtml.write(
             f"""
-                <h1>{cliente['nombre']} {cliente['apellido']}</h1>
-                <h1>{cliente['numero']}</h1>
-                <h1>{cliente['dni']}</h1>
-                <h1>{cliente['direccion']['calle']} {cliente['direccion']['numero']} ({cliente['direccion']['ciudad']}/{cliente['direccion']['provincia']}/{cliente['direccion']['pais']})</h1>
+                <h1>{cliente.getNombre()} {cliente.getApellido()}</h1>
+                <h1>{cliente.getNumeroCliente()}</h1>
+                <h1>{cliente.getDni()}</h1>
+                <h1>{cliente.getDireccion('calle')} {cliente.getDireccion('numero')} ({cliente.getDireccion('ciudad')}/{cliente.getDireccion('provincia')}/{cliente.getDireccion('pais')})</h1>
 
                 <h2>Transacciones</h2>
                 <ul class="list-group">
@@ -78,32 +56,37 @@ if __name__ == "__main__":
         )
         diccTransacciones = cliente.getTransacciones()
         for transaccion in diccTransacciones:
-            archivoHtml.write(
-                f"""
-                    <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <p>{transaccion["fecha"]}</p>
-                            </div>
-                            <div class="col-md-2">
-                            <p>{transaccion["tipo"]}</p>
-                            </div>
-                            <div class="col-md-2">
-                            <p>{transaccion["estado"]}</p>
-                            </div>
-                            <div class="col-md-2">
-                            <p>{transaccion["monto"]}</p>
-                            </div>
-                """
-            )
             razon = Razon(transaccion, cliente)
-            if razon != "Realizada correctamente":
+            if razon.getRazon() != "OK":
                 archivoHtml.write(
-                    f"""<div class="col-md-2">
-                        <p>{razon}</p>
-                        </div>"""
+                    f"""
+                        <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p>{transaccion["fecha"]}</p>
+                                </div>
+                                <div class="col-md-2">
+                                <p>{transaccion["tipo"]}</p>
+                                </div>
+                                <div class="col-md-2">
+                                <p>{transaccion["estado"]}</p>
+                                </div>
+                                <div class="col-md-2">
+                                <p>{transaccion["monto"]}</p>
+                                </div>
+                                <div class="col-md-2">
+                                <p>{razon.getRazon()}</p>
+                                </div>
+                        </div>
+                    """
                 )
-            archivoHtml.write("</div>")
     archivoHtml.write("""</body>""")
     print("Se genero el archivo transaccion.html")
     archivoHtml.close()
+
+
+if __name__ == "__main__":
+    print("Iniciando segmentacion de clientes")
+    clientes = generarClientes(*ARCHIVOS)
+    print("Se generaron los clientes")
+    archivoHtml = crearHTML()
