@@ -152,5 +152,46 @@ else:
 
 diccTransacciones = clienteTest.getTransacciones()
 
+archivoHtml = open("transaccion.html", "w")
+archivoHtml.write(f'''<!DOCTYPE html>
+<head>
+<html lang="en">
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+</head>
+<body>
+<h1>{dicc['nombre']} {dicc['apellido']}</h1>
+<h1>{dicc['numero']}</h1>
+<h1>{dicc['dni']}</h1>
+<h1>{dicc['direccion']['calle']} {dicc['direccion']['numero']} ({dicc['direccion']['ciudad']}/{dicc['direccion']['provincia']}/{dicc['direccion']['pais']})</h1>
+
+<h2>Transacciones</h2>
+<ul class="list-group">
+''')
+
 for transaccion in diccTransacciones:
-    print(Razon(transaccion, clienteTest))
+    archivoHtml.write(f'''<li class="list-group-item">
+        <div class="row">
+            <div class="col-md-2">
+                <p>{transaccion["fecha"]}</p>
+                </div>
+                <div class="col-md-2">
+                <p>{transaccion["tipo"]}</p>
+                </div>
+                <div class="col-md-2">
+                <p>{transaccion["estado"]}</p>
+                </div>
+                <div class="col-md-2">
+                <p>{transaccion["monto"]}</p>
+                </div>''')
+    razon = Razon(transaccion, clienteTest)
+    if (razon != 'Realizada correctamente'):
+        archivoHtml.write(f'''<div class="col-md-2">
+                <p>{razon}</p>
+                </div>''')
+    archivoHtml.write('</div>')
+
+archivoHtml.write('''</body>''')
+archivoHtml.close()
