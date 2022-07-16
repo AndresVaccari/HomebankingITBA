@@ -16,7 +16,7 @@ def generarClientes(*args):
     for direccion in args:
         arch = open(direccion, "r")
         datos = json.load(arch)
-        for cliente in clientes_json:
+        for cliente in datos:
             if cliente["tipo"] == "BLACK":
                 clientes.append(ClienteBlack(cliente))
             elif cliente["tipo"] == "GOLD":
