@@ -1,14 +1,18 @@
 import json
+import os
+
 from clienteBlack import ClienteBlack
 from clienteClassic import ClienteClassic
 from clienteGold import ClienteGold
 from razon import Razon
 
 ARCHIVOS = (
-    "ejemplosJson/eventosBlack.json",
-    "ejemplosJson/eventosClassic.json",
-    "ejemplosJson/eventosGold.json",
+    os.path.join(os.path.dirname(os.path.realpath(__file__)), "ejemplosJson\eventosBlack.json"),
+    os.path.join(os.path.dirname(os.path.realpath(__file__)), "ejemplosJson\eventosClassic.json"),
+    os.path.join(os.path.dirname(os.path.realpath(__file__)), "ejemplosJson\eventosGold.json"),
 )
+
+DIRECCION_HTML = os.path.join(os.path.dirname(os.path.realpath(__file__)), "transaccion.html")
 
 
 def generarClientes(*args):
@@ -27,7 +31,7 @@ def generarClientes(*args):
 
 
 def crearHTML():
-    archivoHtml = open("transaccion.html", "w")
+    archivoHtml = open(DIRECCION_HTML, "w")
     archivoHtml.write(
         f"""
             <!DOCTYPE html>
