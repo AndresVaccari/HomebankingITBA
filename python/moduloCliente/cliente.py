@@ -37,3 +37,6 @@ class Cliente(ABC):
 
     def pueder_comprar_dolar(self):
         return self.__puedeComprarDolar
+
+    def getTransacciones(self):
+        return self.__transacciones
