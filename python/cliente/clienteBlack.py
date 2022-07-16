@@ -8,12 +8,7 @@ class ClienteBlack(Cliente):
         cantMaxChequeras = 2
         comisionTransferencia = 0
         super().__init__(
-            nombre,
-            apellido,
-            dni,
-            direccion,
-            telefono,
-            email,
+            dicc,
             maximoNegativo,
             cantMaxTarjetas,
             cantMaxChequeras,

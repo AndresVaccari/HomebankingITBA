@@ -8,12 +8,7 @@ class ClienteClassic(Cliente):
         cantMaxChequeras = 1
         comisionTransferencia = 0.01
         super().__init__(
-            nombre,
-            apellido,
-            dni,
-            direccion,
-            telefono,
-            email,
+            dicc,
             maximoNegativo,
             cantMaxTarjetas,
             cantMaxChequeras,
