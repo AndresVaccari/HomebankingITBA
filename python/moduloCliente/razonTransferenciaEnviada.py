@@ -1,5 +1,5 @@
 class RazonTransferenciaEnviada:
-    def resolver(self, SaldoEnCuenta, MontoEnviado):
+    def __init__(self, SaldoEnCuenta, MontoEnviado):
         if SaldoEnCuenta > MontoEnviado:
             return "Puede realizar la transferencia"
         else:

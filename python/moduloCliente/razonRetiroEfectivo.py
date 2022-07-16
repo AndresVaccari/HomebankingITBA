@@ -1,5 +1,5 @@
 class RazonRetiroEfectivo:
-    def resolver(self, cantidadARetirar, MontoMaximo):
+    def __init__(self, cantidadARetirar, MontoMaximo):
         if cantidadARetirar < MontoMaximo:
             return "Puede retirar efectivo"
         else:
