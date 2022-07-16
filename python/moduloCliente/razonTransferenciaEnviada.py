@@ -3,7 +3,7 @@ class RazonTransferenciaEnviada:
         if SaldoEnCuenta > MontoEnviado:
             self.__razon = "Puede realizar la transferencia"
         else:
-            self.__razon =  "No puede realizar la transferencia, el monto enviado supera el saldo"
+            self.__razon = "No puede realizar la transferencia, el monto enviado supera el saldo"
 
     def razon(self):
-        return self.__razon        
+        return self.__razon

@@ -8,7 +8,6 @@ from razonTransferenciaEnviada import RazonTransferenciaEnviada
 
 class Razon:
     def __init__(self, dicc, cliente):
-        self.__razon = ""
         if dicc["estado"] == "RECHAZADA":
             if dicc["tipo"] == "ALTA_CHEQUERA":
                 self.__razon = RazonAltaChequera(cliente, dicc["totalChequerasActualmente"])
@@ -20,11 +19,16 @@ class Razon:
             elif dicc["tipo"] == "COMPRA_DOLAR":
                 self.__razon = RazonCompraDolar(cliente)
             elif dicc["tipo"] == "TRANSFERENCIA_ENVIADA":
-                self.__razon = RazonTransferenciaEnviada(dicc["monto"], dicc["saldoEnCuenta"])
+                self.__razon = RazonTransferenciaEnviada(dicc["saldoEnCuenta"], dicc["monto"])
                 pass
             elif dicc["tipo"] == "TRANSFERENCIA_RECIBIDA":
                 self.__razon = RazonTransferenciaRecibida(cliente, dicc["monto"])
                 pass
+        else:
+            self.__razon = "No se puede realizar la operacion"
 
     def __str__(self):
-        return f"{self.__razon.razon()}"
+        if isinstance(self.__razon, str):
+            return "Realizada correctamente"
+        else:
+            return f"{self.__razon.razon()}"

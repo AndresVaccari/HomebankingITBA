@@ -93,7 +93,7 @@ dicc = {
             "totalChequerasActualmente": 2,
         },
         {
-            "estado": "RECHAZADA",
+            "estado": "ACEPTADA",
             "tipo": "COMPRA_DOLAR",
             "cuentaNumero": 190,
             "cupoDiarioRestante": 3000,
