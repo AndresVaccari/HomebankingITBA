@@ -1,7 +1,9 @@
 from razonAltaChequera import RazonAltaChequera
 from razonAltaTarjetaCredito import RazonAltaTarjetaCredito
 from razonCompraDolar import RazonCompraDolar
-
+from razonRetiroEfectivo import RazonRetiroEfectivo
+from razonTransferenciaRecibida import RazonTransferenciaRecibida 
+from razonTransferenciaEnviada import RazonTransferenciaEnviada
 
 class Razon:
     def __init__(self, dicc, cliente):
