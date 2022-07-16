@@ -1,5 +1,5 @@
 class RazonAltaTarjetaCredito:
-    def resolver(self, cliente, cantidadTarjetas):
+    def __init__(self, cliente, cantidadTarjetas):
         if cliente.pueder_crear_chequera(cantidadTarjetas):
             return "Puede crear chequera"
         else:
