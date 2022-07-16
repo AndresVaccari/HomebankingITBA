@@ -1,7 +1,9 @@
+from traceback import print_tb
 from cliente import Cliente
 from clienteBlack import ClienteBlack
 from clienteClassic import ClienteClassic
 from clienteGold import ClienteGold
+from razon import Razon
 
 dicc = {
     "numero": 100001,
@@ -151,4 +153,4 @@ else:
 diccTransacciones = clienteTest.getTransacciones()
 
 for transaccion in diccTransacciones:
-    print(dict.keys(transaccion))
+    print(Razon(transaccion, clienteTest))

@@ -1,5 +1,5 @@
 class RazonCompraDolar:
-    def resolver(self, cliente):
+    def __init__(self, cliente):
         if cliente.puede_comprar_dolar():
             return "Puede comprar dolar"
         else:
