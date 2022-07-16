@@ -1,6 +1,9 @@
 class RazonAltaTarjetaCredito:
     def __init__(self, cliente, cantidadTarjetas):
         if cliente.pueder_crear_chequera(cantidadTarjetas):
-            return "Puede crear chequera"
+            self.__razon = "Puede crear chequera"
         else:
-            return "Cantidad maxima de chequeras alcanzada"
+            self.__razon = "Cantidad maxima de chequeras alcanzada"
+
+    def razon(self):
+        return self.__razon
