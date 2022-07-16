@@ -9,6 +9,7 @@ class Cliente(ABC):
         cantMaxTarjetas,
         cantMaxChequeras,
         comisionTransferencia,
+        maximoTransferenciaRecibida,
         puedeComprarDolar,
     ):
         self.__nombre = dicc["nombre"]
@@ -22,6 +23,7 @@ class Cliente(ABC):
         self.__cantMaxChequeras = cantMaxChequeras
         self.__comisionTransferencia = comisionTransferencia
         self.__puedeComprarDolar = puedeComprarDolar
+        self.__maximoTransferenciaRecibida = maximoTransferenciaRecibida
 
     def pueder_crear_chequera(self, totalChequeras):
         if totalChequeras < self.__cantMaxChequeras:
@@ -40,3 +42,9 @@ class Cliente(ABC):
 
     def getTransacciones(self):
         return self.__transacciones
+
+    def puedeRecibirTransferencia(self, monto):
+        if monto <= self.__maximoTransferenciaRecibida:
+            return True
+        else:
+            return False

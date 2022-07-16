@@ -7,11 +7,13 @@ class ClienteGold(Cliente):
         cantMaxTarjetas = 0
         cantMaxChequeras = 0
         comisionTransferencia = 0.005
+        maximoTransferenciaRecibida = 500000
         super().__init__(
             dicc,
             maximoNegativo,
             cantMaxTarjetas,
             cantMaxChequeras,
             comisionTransferencia,
+            maximoTransferenciaRecibida,
             puedeComprarDolar=True,
         )
