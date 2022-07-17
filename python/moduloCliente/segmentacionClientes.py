@@ -51,7 +51,17 @@ def crearHTML():
                 <p>Direccion: <strong>{cliente.getDireccion('calle')} {cliente.getDireccion('numero')} ({cliente.getDireccion('ciudad')}/{cliente.getDireccion('provincia')}/{cliente.getDireccion('pais')})</strong></p>
 
                 <h3>Transacciones</h3>
-                <ul class="list-group">
+                <table class="table table-light">
+                    <thead>
+                        <tr>
+                          <th scope="col">Fecha</th>
+                          <th scope="col">Operacion</th>
+                          <th scope="col">Estado</th>
+                          <th scope="col">Monto</th>
+                          <th scope="col">Razon</th>
+                        </tr>
+                    </thead>
+                    <tbody>
             """
         )
         diccTransacciones = cliente.getTransacciones()
@@ -59,31 +69,19 @@ def crearHTML():
             razon = Razon(transaccion, cliente)
             archivoHtml.write(
                 f"""
-                    <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <p>{transaccion["fecha"]}</p>
-                            </div>
-                            <div class="col-md-2">
-                            <p>{transaccion["tipo"]}</p>
-                            </div>
-                            <div class="col-md-2">
-                            <p>{transaccion["estado"]}</p>
-                            </div>
-                            <div class="col-md-2">
-                            <p>{transaccion["monto"]}</p>
-                            </div>
+                    <tr>
+                        <td>{transaccion["fecha"]}</td>
+                        <td>{transaccion["tipo"]}</td>
+                        <td>{transaccion["estado"]}</td>
+                        <td>{transaccion["monto"]}</td>
                 """
             )
             if razon.getRazon() != "OK":
-                archivoHtml.write(
-                    f"""
-                        <div class="col-md-2">
-                        <p>{razon.getRazon()}</p>
-                        </div>
-                    """
-                )
-        archivoHtml.write("</div></ul>")
+                archivoHtml.write(f"<td>{razon.getRazon()}</td>")
+            else:
+                archivoHtml.write("<td></td>")
+            archivoHtml.write("</tr></tbody>")
+        archivoHtml.write("</table>")
     archivoHtml.write("</body>")
     print("Se genero el archivo transaccion.html")
     archivoHtml.close()
