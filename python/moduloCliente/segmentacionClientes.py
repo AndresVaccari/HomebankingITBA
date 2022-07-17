@@ -38,19 +38,19 @@ def crearHTML():
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
             </head>
-            <body>
+            <body class="container">
         """
     )
     for cliente in clientes:
         print(cliente)
         archivoHtml.write(
             f"""
-                <h1>{cliente.getNombre()} {cliente.getApellido()}</h1>
-                <h1>{cliente.getNumeroCliente()}</h1>
-                <h1>{cliente.getDni()}</h1>
-                <h1>{cliente.getDireccion('calle')} {cliente.getDireccion('numero')} ({cliente.getDireccion('ciudad')}/{cliente.getDireccion('provincia')}/{cliente.getDireccion('pais')})</h1>
+                <h2 class="mt-5">{cliente.getNombre()} {cliente.getApellido()}</h2>
+                <p>Numero de cliente: <strong>{cliente.getNumeroCliente()}</strong></p>
+                <p>DNI: <strong>{cliente.getDni()}</strong></p>
+                <p>Direccion: <strong>{cliente.getDireccion('calle')} {cliente.getDireccion('numero')} ({cliente.getDireccion('ciudad')}/{cliente.getDireccion('provincia')}/{cliente.getDireccion('pais')})</strong></p>
 
-                <h2>Transacciones</h2>
+                <h3>Transacciones</h3>
                 <ul class="list-group">
             """
         )
@@ -80,7 +80,8 @@ def crearHTML():
                         </div>
                     """
                 )
-    archivoHtml.write("""</body>""")
+        archivoHtml.write("</ul>")
+    archivoHtml.write("</body>")
     print("Se genero el archivo transaccion.html")
     archivoHtml.close()
 
