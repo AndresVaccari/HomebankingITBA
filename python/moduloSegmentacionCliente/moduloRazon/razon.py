@@ -14,10 +14,10 @@ class Razon:
             elif dicc["tipo"] == "ALTA_TARJETA_CREDITO":
                 self.__razon = RazonAltaTarjetaCredito(cliente, dicc["totalTarjetasDeCreditoActualmente"])
             elif dicc["tipo"] == "RETIRO_EFECTIVO_CAJERO_AUTOMATICO":
-                self.__razon = RazonRetiroEfectivo(dicc["monto"], dicc["cupoDiarioRestante"])
+                self.__razon = RazonRetiroEfectivo(dicc["monto"], dicc["cupoDiarioRestante"], dicc["saldoEnCuenta"])
                 pass
             elif dicc["tipo"] == "COMPRA_DOLAR":
-                self.__razon = RazonCompraDolar(cliente)
+                self.__razon = RazonCompraDolar(cliente, dicc["monto"], dicc["saldoEnCuenta"])
             elif dicc["tipo"] == "TRANSFERENCIA_ENVIADA":
                 self.__razon = RazonTransferenciaEnviada(dicc["saldoEnCuenta"], dicc["monto"])
                 pass

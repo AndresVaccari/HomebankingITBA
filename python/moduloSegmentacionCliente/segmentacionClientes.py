@@ -6,12 +6,6 @@ from .moduloCliente.clienteClassic import ClienteClassic
 from .moduloCliente.clienteGold import ClienteGold
 from .moduloRazon.razon import Razon
 
-ARCHIVOS = (
-    os.path.join(os.path.dirname(os.path.realpath(__file__)), "ejemplosJson\eventosBlack.json"),
-    os.path.join(os.path.dirname(os.path.realpath(__file__)), "ejemplosJson\eventosClassic.json"),
-    os.path.join(os.path.dirname(os.path.realpath(__file__)), "ejemplosJson\eventosGold.json"),
-)
-
 DIRECCION_HTML = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../transaccion.html")
 
 
@@ -88,13 +82,9 @@ def crearHTML(clientes):
     archivoHtml.close()
 
 
-def main():
+def main(archivos):
     print("Iniciando segmentacion de clientes")
-    clientes = generarClientes(*ARCHIVOS)
+    clientes = generarClientes(*archivos)
     print("Se generaron los clientes")
     crearHTML(clientes)
     print(f"Se genero el archivo transaccion.html en {DIRECCION_HTML}")
-
-
-if __name__ == "__main__":
-    main()
