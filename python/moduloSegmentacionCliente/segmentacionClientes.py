@@ -85,7 +85,6 @@ def crearHTML(clientes):
             archivoHtml.write("</tr></tbody>")
         archivoHtml.write("</table>")
     archivoHtml.write("</body>")
-    print(f"Se genero el archivo transaccion.html en {DIRECCION_HTML}")
     archivoHtml.close()
 
 
@@ -94,6 +93,7 @@ def main():
     clientes = generarClientes(*ARCHIVOS)
     print("Se generaron los clientes")
     crearHTML(clientes)
+    print(f"Se genero el archivo transaccion.html en {DIRECCION_HTML}")
 
 
 if __name__ == "__main__":
