@@ -12,7 +12,7 @@ ARCHIVOS = (
     os.path.join(os.path.dirname(os.path.realpath(__file__)), "ejemplosJson\eventosGold.json"),
 )
 
-DIRECCION_HTML = os.path.join(os.path.dirname(os.path.realpath(__file__)), "transaccion.html")
+DIRECCION_HTML = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../transaccion.html")
 
 
 def generarClientes(*args):
