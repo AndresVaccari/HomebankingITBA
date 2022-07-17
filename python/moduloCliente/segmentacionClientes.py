@@ -57,30 +57,33 @@ def crearHTML():
         diccTransacciones = cliente.getTransacciones()
         for transaccion in diccTransacciones:
             razon = Razon(transaccion, cliente)
+            archivoHtml.write(
+                f"""
+                    <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p>{transaccion["fecha"]}</p>
+                            </div>
+                            <div class="col-md-2">
+                            <p>{transaccion["tipo"]}</p>
+                            </div>
+                            <div class="col-md-2">
+                            <p>{transaccion["estado"]}</p>
+                            </div>
+                            <div class="col-md-2">
+                            <p>{transaccion["monto"]}</p>
+                            </div>
+                """
+            )
             if razon.getRazon() != "OK":
                 archivoHtml.write(
                     f"""
-                        <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <p>{transaccion["fecha"]}</p>
-                                </div>
-                                <div class="col-md-2">
-                                <p>{transaccion["tipo"]}</p>
-                                </div>
-                                <div class="col-md-2">
-                                <p>{transaccion["estado"]}</p>
-                                </div>
-                                <div class="col-md-2">
-                                <p>{transaccion["monto"]}</p>
-                                </div>
-                                <div class="col-md-2">
-                                <p>{razon.getRazon()}</p>
-                                </div>
+                        <div class="col-md-2">
+                        <p>{razon.getRazon()}</p>
                         </div>
                     """
                 )
-        archivoHtml.write("</ul>")
+        archivoHtml.write("</div></ul>")
     archivoHtml.write("</body>")
     print("Se genero el archivo transaccion.html")
     archivoHtml.close()
