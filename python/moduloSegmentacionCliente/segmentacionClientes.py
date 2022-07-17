@@ -1,14 +1,24 @@
 import json
 import os
+import requests
 
 from .moduloCliente.clienteBlack import ClienteBlack
 from .moduloCliente.clienteClassic import ClienteClassic
 from .moduloCliente.clienteGold import ClienteGold
 from .moduloRazon.razon import Razon
 
+# Declaracion de constantes
 DIRECCION_HTML = os.path.join(os.path.dirname(os.path.realpath(__file__)), "../transaccion.html")
 
+RESULTADO = requests.get("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+VALORES_DOLAR = json.loads(RESULTADO.text)
+VALOR_DOLAR_TURISTA = float(
+    (list(filter(lambda valor: valor["casa"]["nombre"] == "Dolar turista", VALORES_DOLAR))[0]["casa"]["venta"]).replace(
+        ",", "."
+    )
+)
 
+# Genera una lista de clientes a partir de los jsons
 def generarClientes(*args):
     clientes = []
     for direccion in args:
@@ -23,6 +33,7 @@ def generarClientes(*args):
     return clientes
 
 
+# Crea un archivo html con los eventos de los clientes
 def crearHTML(clientes):
     archivoHtml = open(DIRECCION_HTML, "w")
     archivoHtml.write(
@@ -62,7 +73,7 @@ def crearHTML(clientes):
         )
         diccTransacciones = cliente.getTransacciones()
         for transaccion in diccTransacciones:
-            razon = Razon(transaccion, cliente)
+            razon = Razon(transaccion, cliente, VALOR_DOLAR_TURISTA)
             archivoHtml.write(
                 f"""
                     <tr>

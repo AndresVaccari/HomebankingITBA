@@ -1,19 +1,7 @@
-import requests
-import json
-
-RESULTADO = requests.get("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
-VALORES_DOLAR = json.loads(RESULTADO.text)
-VALOR_DOLAR_TURISTA = float(
-    (list(filter(lambda valor: valor["casa"]["nombre"] == "Dolar turista", VALORES_DOLAR))[0]["casa"]["venta"]).replace(
-        ",", "."
-    )
-)
-
-
 class RazonCompraDolar:
-    def __init__(self, cliente, monto, saldoEnCuenta):
+    def __init__(self, cliente, monto, saldoEnCuenta, valorDolarTurista):
         if cliente.pueder_comprar_dolar():
-            if monto * VALOR_DOLAR_TURISTA > saldoEnCuenta:
+            if monto * valorDolarTurista > saldoEnCuenta:
                 self.__razon = "No tiene suficiente saldo"
             else:
                 self.__razon = "Puede comprar dolar"

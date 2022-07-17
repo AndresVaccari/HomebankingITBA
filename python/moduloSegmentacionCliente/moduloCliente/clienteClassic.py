@@ -1,6 +1,6 @@
 from .cliente.cliente import Cliente
 
-
+# Definicion de la clase ClienteClassic
 class ClienteClassic(Cliente):
     def __init__(self, dicc):
         maximoNegativo = 0

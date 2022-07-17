@@ -5,9 +5,9 @@ from .tiposRazones.razonRetiroEfectivo import RazonRetiroEfectivo
 from .tiposRazones.razonTransferenciaRecibida import RazonTransferenciaRecibida
 from .tiposRazones.razonTransferenciaEnviada import RazonTransferenciaEnviada
 
-
+# Clase razon que se encarga de determinar la razon de una transaccion y devuelve por que motivo no se puede realizar
 class Razon:
-    def __init__(self, dicc, cliente):
+    def __init__(self, dicc, cliente, valorDolarTurista):
         if dicc["estado"] == "RECHAZADA":
             if dicc["tipo"] == "ALTA_CHEQUERA":
                 self.__razon = RazonAltaChequera(cliente, dicc["totalChequerasActualmente"])
@@ -17,7 +17,7 @@ class Razon:
                 self.__razon = RazonRetiroEfectivo(dicc["monto"], dicc["cupoDiarioRestante"], dicc["saldoEnCuenta"])
                 pass
             elif dicc["tipo"] == "COMPRA_DOLAR":
-                self.__razon = RazonCompraDolar(cliente, dicc["monto"], dicc["saldoEnCuenta"])
+                self.__razon = RazonCompraDolar(cliente, dicc["monto"], dicc["saldoEnCuenta"], valorDolarTurista)
             elif dicc["tipo"] == "TRANSFERENCIA_ENVIADA":
                 self.__razon = RazonTransferenciaEnviada(dicc["saldoEnCuenta"], dicc["monto"])
                 pass

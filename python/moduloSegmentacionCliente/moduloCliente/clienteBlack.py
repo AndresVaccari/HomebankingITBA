@@ -1,7 +1,7 @@
 from numpy import Infinity
 from .cliente.cliente import Cliente
 
-
+# Definicion de la clase ClienteBlack
 class ClienteBlack(Cliente):
     def __init__(self, dicc):
         maximoNegativo = -10000
