@@ -1,11 +1,9 @@
-from xml.dom.minidom import Element
-from numpy import double
 import requests
 import json
 
 RESULTADO = requests.get("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
 VALORES_DOLAR = json.loads(RESULTADO.text)
-VALOR_DOLAR_TURISTA = double(
+VALOR_DOLAR_TURISTA = float(
     (list(filter(lambda valor: valor["casa"]["nombre"] == "Dolar turista", VALORES_DOLAR))[0]["casa"]["venta"]).replace(
         ",", "."
     )
