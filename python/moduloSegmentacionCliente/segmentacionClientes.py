@@ -1,10 +1,10 @@
 import json
 import os
 
-from clienteBlack import ClienteBlack
-from clienteClassic import ClienteClassic
-from clienteGold import ClienteGold
-from razon import Razon
+from .moduloCliente.clienteBlack import ClienteBlack
+from .moduloCliente.clienteClassic import ClienteClassic
+from .moduloCliente.clienteGold import ClienteGold
+from .moduloRazon.razon import Razon
 
 ARCHIVOS = (
     os.path.join(os.path.dirname(os.path.realpath(__file__)), "ejemplosJson\eventosBlack.json"),
@@ -26,11 +26,10 @@ def generarClientes(*args):
                 clientes.append(ClienteGold(cliente))
             else:
                 clientes.append(ClienteClassic(cliente))
-            print("Cliente creado")
     return clientes
 
 
-def crearHTML():
+def crearHTML(clientes):
     archivoHtml = open(DIRECCION_HTML, "w")
     archivoHtml.write(
         f"""
@@ -46,7 +45,6 @@ def crearHTML():
         """
     )
     for cliente in clientes:
-        print(cliente)
         archivoHtml.write(
             f"""
                 <h2 class="mt-5">{cliente.getNombre()} {cliente.getApellido()}</h2>
@@ -87,12 +85,16 @@ def crearHTML():
             archivoHtml.write("</tr></tbody>")
         archivoHtml.write("</table>")
     archivoHtml.write("</body>")
-    print("Se genero el archivo transaccion.html")
+    print(f"Se genero el archivo transaccion.html en {DIRECCION_HTML}")
     archivoHtml.close()
 
 
-if __name__ == "__main__":
+def main():
     print("Iniciando segmentacion de clientes")
     clientes = generarClientes(*ARCHIVOS)
     print("Se generaron los clientes")
-    archivoHtml = crearHTML()
+    crearHTML(clientes)
+
+
+if __name__ == "__main__":
+    main()

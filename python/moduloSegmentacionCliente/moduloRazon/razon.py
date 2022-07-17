@@ -1,9 +1,9 @@
-from razonAltaChequera import RazonAltaChequera
-from razonAltaTarjetaCredito import RazonAltaTarjetaCredito
-from razonCompraDolar import RazonCompraDolar
-from razonRetiroEfectivo import RazonRetiroEfectivo
-from razonTransferenciaRecibida import RazonTransferenciaRecibida
-from razonTransferenciaEnviada import RazonTransferenciaEnviada
+from .tiposRazones.razonAltaChequera import RazonAltaChequera
+from .tiposRazones.razonAltaTarjetaCredito import RazonAltaTarjetaCredito
+from .tiposRazones.razonCompraDolar import RazonCompraDolar
+from .tiposRazones.razonRetiroEfectivo import RazonRetiroEfectivo
+from .tiposRazones.razonTransferenciaRecibida import RazonTransferenciaRecibida
+from .tiposRazones.razonTransferenciaEnviada import RazonTransferenciaEnviada
 
 
 class Razon:

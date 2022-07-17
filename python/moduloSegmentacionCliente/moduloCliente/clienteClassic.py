@@ -1,4 +1,4 @@
-from cliente import Cliente
+from .cliente.cliente import Cliente
 
 
 class ClienteClassic(Cliente):

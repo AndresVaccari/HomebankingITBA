@@ -1,13 +1,14 @@
-from cliente import Cliente
+from numpy import Infinity
+from .cliente.cliente import Cliente
 
 
-class ClienteGold(Cliente):
+class ClienteBlack(Cliente):
     def __init__(self, dicc):
         maximoNegativo = -10000
-        cantMaxTarjetas = 0
-        cantMaxChequeras = 0
-        comisionTransferencia = 0.005
-        maximoTransferenciaRecibida = 500000
+        cantMaxTarjetas = 5
+        cantMaxChequeras = 2
+        comisionTransferencia = 0
+        maximoTransferenciaRecibida = Infinity
         super().__init__(
             dicc,
             maximoNegativo,
