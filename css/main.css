@@ -307,6 +307,12 @@ main .tarjetas {
   font-size: 12pt;
 }
 
+@media screen and (max-width: 1400px) {
+  .contenedor {
+    flex-direction: column;
+  }
+}
+
 @media screen and (max-width: 800px) {
   main .saldo .balanceContainer {
     flex-direction: column;
@@ -321,6 +327,10 @@ main .tarjetas {
 
   main .right {
     margin-left: 0;
+  }
+
+  .contenedor {
+    flex-direction: row;
   }
 
   .balanceContainer .account:not(:last-child) {
