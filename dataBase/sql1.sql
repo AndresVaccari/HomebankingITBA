@@ -87,4 +87,13 @@ SELECT
 	FORMAT (employee_hire_date, 'dd-MM-yy') as date
 FROM empleado
 
+UPDATE empleado
+SET employee_hire_date = substr(employee_hire_date,7,4)||'-'||substr(employee_hire_date,4,2)||'-'||substr(employee_hire_date,1,2)
+
+UPDATE tarjeta
+SET fechaOtorgamiento = substr(fechaOtorgamiento,7,4)||'-'||substr(fechaOtorgamiento,4,2)||'-'||substr(fechaOtorgamiento,1,2),
+
+UPDATE tarjeta
+SET fechaExpiracion = substr(fechaExpiracion,7,4)||'-'||substr(fechaExpiracion,4,2)||'-'||substr(fechaExpiracion,1,2);
+
 
