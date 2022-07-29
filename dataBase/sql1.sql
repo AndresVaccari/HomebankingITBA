@@ -26,6 +26,18 @@ CREATE TABLE marcasTarjeta (
 	 nombreMarca TEXT NOT NULL
 )
 
+INSERT INTO marcasTarjeta (nombreMarca)
+VALUES
+	('Visa'),
+	('MasterCard'),
+	('AmericanExpress'),
+	('Cabal');
+	
+INSERT INTO tipoTarjeta (nombreTipo)
+VALUES
+	('Debito'),
+	('Credito');
+
 CREATE TABLE tarjeta (
 	 tarjetaID INTEGER PRIMARY KEY,
 	 marcaID INTEGER NOT NULL,
@@ -51,3 +63,28 @@ CREATE TABLE tipoTarjeta (
 	 tipoTarjetaID INTEGER PRIMARY KEY,
 	 nombreTipo TEXT NOT NULL
 )
+
+CREATE TABLE direcciones (
+	idDireccion INT PRIMARY KEY,
+	calle TEXT NOT NULL,
+	numero TEXT NOT NULL,
+	ciudad TEXT NOT NULL,
+	provincia TEXT NOT NULL,
+	pais TEXT NOT NULL,
+	idDirecciones INT NOT NULL,
+	FOREIGN KEY (idDirecciones)
+	REFERENCES sujetoDireccion(idDirecciones)
+)
+
+CREATE TABLE sujetoDireccion (
+	idDirecciones INT PRIMARY KEY
+)
+
+ALTER TABLE cuenta
+ADD tipoCuenta TEXT;
+
+SELECT 
+	FORMAT (employee_hire_date, 'dd-MM-yy') as date
+FROM empleado
+
+
