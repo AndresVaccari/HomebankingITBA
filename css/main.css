@@ -307,9 +307,16 @@ main .tarjetas {
   font-size: 12pt;
 }
 
-@media screen and (max-width: 1400px) {
+
+
+@media screen and (max-width: 1500px) {
   .contenedor {
     flex-direction: column;
+  }
+
+  .botonesTransf {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
