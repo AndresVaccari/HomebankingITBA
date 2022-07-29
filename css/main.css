@@ -13,13 +13,18 @@
 
 nav {
   min-height: 100vh;
-  width: 300px;
+  width: 250px;
+  flex-shrink: 0;
 }
 
 nav ul {
-  max-width: 175px;
-  margin: auto;
+  /* max-width: 175px; */
+  /* margin: auto; */
   margin-top: 3rem;
+}
+
+nav ul a {
+  text-decoration: none;
 }
 
 nav ul li {
@@ -53,15 +58,12 @@ main {
   border-radius: 0 2rem 2rem 0;
   border-left: 0.625rem black solid;
   box-shadow: 0 0 10px #686464;
-  border-image: linear-gradient(
-      to bottom,
+  border-image: linear-gradient(to bottom,
       #9fc372,
       #8ac7db,
       #8a7cb2,
       #c166a3,
-      #ebc36b
-    )
-    1;
+      #ebc36b) 1;
 }
 
 main .left {
@@ -137,7 +139,7 @@ main .tarjetas {
 	transform: rotateY(180deg);
 } */
 
-.tarjeta > div {
+.tarjeta>div {
   padding: 25px;
   border-radius: 15px;
   min-height: 280px;
@@ -169,12 +171,14 @@ main .tarjetas {
   object-fit: cover;
   max-width: 50px;
 }
+
 .delantera .logo-visa {
   position: relative;
   object-position: right;
   text-align: right;
   min-height: 5px;
 }
+
 .delantera .logo-visa img {
   width: 100%;
   height: 100%;
@@ -201,7 +205,8 @@ main .tarjetas {
   justify-content: space-between;
   margin-top: 30px;
   /*30*/
-  margin-right: 5px; /*150*/
+  margin-right: 5px;
+  /*150*/
 }
 
 /*Modificaciones*/
@@ -252,6 +257,7 @@ main .tarjetas {
   background: black;
   color: white;
 }
+
 .botonesTransf button {
   background: transparent;
   border: 1px solid black;
@@ -266,6 +272,7 @@ main .tarjetas {
   background: black;
   color: white;
 }
+
 .tituloLista {
   margin: 0.5rem 0;
 }
