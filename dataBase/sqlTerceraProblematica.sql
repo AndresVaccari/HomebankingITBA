@@ -11,9 +11,9 @@ WHERE Apellido LIKE '%z%'
 -- Seleccionar el nombre, apellido, edad y nombre de sucursal de las personas con nombre “Brendan” y ordenar el resultado por nombre de sucursal
 SELECT Nombre, Apellido, Edad, sucursal.branch_name as 'Nombre Sucursal'
 FROM vCliente
-WHERE Nombre LIKE 'Brendan' 
-ORDER BY sucursal
 INNER JOIN sucursal ON SucursalID = sucursal.branch_id
+WHERE Nombre LIKE 'Brendan' 
+ORDER BY sucursal.branch_name
 
 -- Seleccionar de tabla de préstamos los préstamos con un importe mayor a $80.000 y los préstamos prendarios
 SELECT *
