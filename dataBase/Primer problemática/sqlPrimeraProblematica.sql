@@ -1,5 +1,8 @@
 DROP TABLE tiposCliente
 
+/*Crear en la base de datos los tipos de cliente, de cuenta y marcas de
+tarjeta. Insertar los valores según la información provista en el Sprint
+5*/
 CREATE TABLE tiposCliente (
 	 tipoID INTEGER PRIMARY KEY,
 	 cantidadMaxChequeras INTEGER NOT NULL,
@@ -38,6 +41,7 @@ VALUES
 	('Debito'),
 	('Credito');
 
+/*Agregar la entidad tarjeta*/
 CREATE TABLE tarjeta (
 	 tarjetaID INTEGER PRIMARY KEY,
 	 marcaID INTEGER NOT NULL,
@@ -49,12 +53,14 @@ CREATE TABLE tarjeta (
 	 FOREIGN KEY (tipoTarjetaID)
 	 REFERENCES tipoTarjeta(tipoTarjetaID),
 	 FOREIGN KEY (marcaID)
-	 REFERENCES marcasTarjeta(marcaID)
+	 REFERENCES marcasTarjeta(marcaID) /*Relacionar las tarjetas con la tabla donde se guardan las marcas de
+tarjeta*/
 );
 
 ALTER TABLE tarjeta
 ADD customer_id INTEGER NOT NULL;
 
+/*Relacionar las tarjetas con el cliente al que pertenecen*/
 ALTER TABLE tarjeta
 ADD FOREIGN KEY (customer_id)
 REFERENCES cliente(customer_id);
@@ -64,6 +70,7 @@ CREATE TABLE tipoTarjeta (
 	 nombreTipo TEXT NOT NULL
 )
 
+/*Agregar la entidad direcciones*/
 CREATE TABLE direcciones (
 	idDireccion INT PRIMARY KEY,
 	calle TEXT NOT NULL,
@@ -80,9 +87,13 @@ CREATE TABLE sujetoDireccion (
 	idDirecciones INT PRIMARY KEY
 )
 
+/*Ampliar el alcance de la entidad cuenta para que identifique el tipo de
+la misma*/
 ALTER TABLE cuenta
 ADD tipoCuenta TEXT;
 
+/*Corregir el campo employee_hire_date de la tabla empleado con la
+fecha en formato YYYY-MM-DD*/
 SELECT 
 	FORMAT (employee_hire_date, 'dd-MM-yy') as date
 FROM empleado
