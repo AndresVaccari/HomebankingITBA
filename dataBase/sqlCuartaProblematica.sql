@@ -50,9 +50,41 @@ CREATE TRIGGER actualizarCuenta
 AFTER UPDATE OF balance, iban, tipoCuenta ON cuenta
 BEGIN
 	INSERT INTO auditoria_cuenta (old_id, new_id, old_balance, new_balance, old_iban, new_iban, old_type, new_type, user_action, created_at)
-	VALUES (OLD.id, NEW.id, OLD.balance, NEW.balance, OLD.iban, NEW.iban, OLD.tipoCuenta, NEW.tipoCuenta, 'Actualizar Cuenta', CURRENT_TIMESTAMP);
+	VALUES (OLD.account_id, NEW.account_id, OLD.balance, NEW.balance, OLD.iban, NEW.iban, OLD.tipoCuenta, NEW.tipoCuenta, 'Actualizar Cuenta', CURRENT_TIMESTAMP);
 END
+
+DROP TRIGGER IF EXISTS actualizarCuenta
+
+DELETE FROM auditoria_cuenta
 
 UPDATE cuenta
 SET balance = balance - 10000
 WHERE account_id BETWEEN 10 AND 14
+
+CREATE UNIQUE INDEX idx_cuenta_dni 
+ON cliente (customer_DNI)
+
+CREATE TABLE movimientos (
+	movimientoID INTEGER PRIMARY KEY,
+	account_id INTEGER NOT NULL,
+	monto INTEGER NOT NULL,
+	tipoMovimiento TEXT NOT NULL,
+	created_at TEXT NOT NULL
+)
+
+BEGIN TRANSACTION;
+
+UPDATE cuenta
+SET balance = balance - 100000
+WHERE account_id = 200;
+
+UPDATE cuenta
+SET balance = balance + 100000
+WHERE account_id = 400;
+
+INSERT INTO movimientos (account_id, monto, tipoMovimiento, created_at)
+VALUES
+	(200, -100000, 'Envio_Dinero', CURRENT_TIMESTAMP),
+	(400, 100000, 'Recibo_Dinero', CURRENT_TIMESTAMP);
+
+COMMIT;
