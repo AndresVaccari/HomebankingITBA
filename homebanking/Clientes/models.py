@@ -9,5 +9,5 @@ class Cliente(models.Model):
     customer_surname = models.CharField(max_length=255)
     customer_DNI = models.CharField(max_length=9)
     dob = models.CharField(max_length=10)
-    branch_id = models.ForeignKey("Branch", on_delete=models.CASCADE)
-    idDirecciones = models.ForeignKey("Direccion", on_delete=models.CASCADE)
+    branch_id = models.ForeignKey("Sucursal", on_delete=models.CASCADE)
+    idDirecciones = models.ForeignKey("SujetoDireccion", on_delete=models.CASCADE)

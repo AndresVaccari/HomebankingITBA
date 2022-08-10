@@ -13,3 +13,13 @@ class Cuenta(models.Model):
     costorTransferenciaRecibida = models.DecimalField(max_digits=5, decimal_places=2)
     saldoDescubiertoDisponible = models.DecimalField(max_digits=5, decimal_places=2)
     tipoCuenta = models.CharField(max_length=255)
+
+
+class Empleado(models.Model):
+    employee_id = models.AutoField(primary_key=True)
+    employee_name = models.CharField(max_length=255)
+    employee_surname = models.CharField(max_length=255)
+    employee_hire_date = models.CharField(max_length=10)
+    employee_DNI = models.CharField(max_length=9)
+    branch_id = models.ForeignKey("Sucursal", on_delete=models.CASCADE)
+    idDirecciones = models.ForeignKey("SujetoDireccion", on_delete=models.CASCADE)
