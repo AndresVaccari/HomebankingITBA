@@ -1,0 +1,84 @@
+{% extends 'base.html' %} {% block content %}
+  <body class="bodyLogin">
+    <div class="fondoBlanco">
+      <div class="fondo">
+        <main class="container collumnsLogin justify-content-center">
+          <div
+            class="row collumnsLogin justify-content-center align-items-center"
+          >
+            <a href="index.html" class="imagenLogo">
+              <img
+                src="img/Logo.svg"
+                width="200px"
+                height="auto"
+                alt="ITBA Bank"
+                height="35"
+              />
+            </a>
+            <div class="col-12 col-md-8 colLeft"></div>
+            <div class="col-sm-12 col-md-4 panelLogin">
+              <p
+                class="align-self-start titulo wow animate__animated animate__pulse"
+              >
+                INGRESÁ DESDE ACÁ
+              </p>
+              <div class="subrayado">
+                <img
+                  class="imgSubrayado rounded"
+                  width="100%"
+                  height="10px"
+                  src="img/Barrita colores.svg"
+                  alt=""
+                />
+              </div>
+              <div
+                class="d-flex flex-column justify-content-center align-items-center h-100"
+              >
+                <input
+                  type="text"
+                  placeholder="Email"
+                  class="form-control mb-4"
+                />
+                <input
+                  type="text"
+                  placeholder="Usuario"
+                  class="form-control mb-4"
+                />
+                <input
+                  type="password"
+                  placeholder="Contraseña"
+                  class="form-control mb-4"
+                />
+                <button type="button" class="btn btn-secondary mb-4">
+                  <a href="homebanking.html" class="iniciarSesion"
+                    >Iniciar sesión</a
+                  >
+                </button>
+                <p class="texto">
+                  Si olvidaste tu contraseña, <a href="#">hacé click acá</a>
+                </p>
+                <p class="mb-5 texto">
+                  Si no tenés usuario, <a href="#">hacé click acá</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!--JS bootstrap-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--JS Animaciones-->
+    <script src="/WOW-master/WOW-master/dist/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+  </body>
+</html>
+{% endblock %}

@@ -6,4 +6,4 @@ class Prestamos(models.Model):
     loan_type = models.CharField(max_length=11)
     loan_date = models.CharField(max_length=10)
     loan_total = models.DecimalField(max_digits=30, decimal_places=2)
-    customer_id = models.ForeignKey("Cliente", on_delete=models.CASCADE)
+    customer_id = models.ForeignKey("Clientes.Cliente", on_delete=models.CASCADE)
