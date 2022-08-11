@@ -78,6 +78,7 @@ WSGI_APPLICATION = "homebanking.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+import os
 
 DATABASES = {
     "default": {
