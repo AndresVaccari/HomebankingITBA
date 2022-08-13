@@ -94,7 +94,7 @@ class AuthUserUserPermissions(models.Model):
 
 
 class Cliente(models.Model):
-    usuario = models.OneToOneField(User, models.DO_NOTHING, db_column="usuario")
+    usuario = models.OneToOneField(User, models.DO_NOTHING, db_column="usuario", null=True, blank=True)
     customer_id = models.AutoField(primary_key=True)
     customer_name = models.TextField()
     customer_surname = models.TextField()  # This field type is a guess.
