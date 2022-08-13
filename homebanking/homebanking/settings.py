@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-b%l73n28)d)x_d_*&feufu8&bo^e%w0e@ppc(xcrb5rk8)9yr("
+SECRET_KEY = "django-insecure-^ugbi$oqloti5-f=724_6x62q^i8wy@-_*s7y7c^6wa9r%27zt"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     "Cuentas.apps.CuentasConfig",
     "Login.apps.LoginConfig",
     "Prestamos.apps.PrestamosConfig",
-    "Sucursales.apps.SucursalesConfig",
     "Tarjetas.apps.TarjetasConfig",
 ]
 
@@ -78,16 +77,11 @@ WSGI_APPLICATION = "homebanking.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-import os
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    },
-    "itbank": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "itbank.sqlite3",
+        "NAME": BASE_DIR / "itbank.db",
     },
 }
 
