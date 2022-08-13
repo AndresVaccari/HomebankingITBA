@@ -81,7 +81,7 @@ WSGI_APPLICATION = "homebanking.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "itbank.db",
+        "NAME": BASE_DIR / "itbank.sqlite3",
     },
 }
 
