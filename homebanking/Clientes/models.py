@@ -94,7 +94,8 @@ class AuthUserUserPermissions(models.Model):
 
 
 class Cliente(models.Model):
-    customer_id = models.OneToOneField(User, on_delete=models.CASCADE, db_column="usuario", primary_key=True)
+    usuario = models.OneToOneField(User, models.DO_NOTHING, db_column="usuario")
+    customer_id = models.AutoField(primary_key=True)
     customer_name = models.TextField()
     customer_surname = models.TextField()  # This field type is a guess.
     customer_dni = models.TextField(db_column="customer_DNI", unique=True)  # Field name made lowercase.
@@ -105,7 +106,7 @@ class Cliente(models.Model):
     )  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "cliente"
 
 
