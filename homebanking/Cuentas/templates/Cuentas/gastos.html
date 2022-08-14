@@ -3,9 +3,20 @@
   <header>
     <nav class="navbar navbar-expand-md bg-light">
       <div class="container-fluid">
-        <a href="{% url 'index' %}" class="navbar-brand">
+        <a href="{% url 'homebanking' %}" class="navbar-brand">
           <img src="{% static 'img/Logo.svg'%}" alt="ITBA Bank" height="35" />
         </a>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="nav">
+          <li class="nav-item">
+            <a
+              href="{% url 'homebanking' %}"
+              class="nav-link links btn btn-dark me-4 text-white"
+              >Volver</a
+            >
+          </li>
+        </ul>
       </div>
     </nav>
   </header>
