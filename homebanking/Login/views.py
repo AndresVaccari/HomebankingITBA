@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .forms import validacionUsuario
+from django.contrib.auth.forms import UserCreationForm
+from Clientes.models import Cliente
 
 # Create your views here.
 
