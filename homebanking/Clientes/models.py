@@ -104,6 +104,9 @@ class Cliente(models.Model):
     iddirecciones = models.ForeignKey(
         "Sujetodireccion", models.DO_NOTHING, db_column="idDirecciones", blank=True, null=True
     )  # Field name made lowercase.
+    tipoCliente = models.ForeignKey(
+        "tiposCliente", models.DO_NOTHING, db_column="tipoCliente", null=True, blank=True
+    )  # Field name made lowercase.
 
     class Meta:
         db_table = "cliente"
