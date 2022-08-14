@@ -1,7 +1,5 @@
-from pydoc import cli
 from django.shortcuts import render
 from .forms import validacionUsuario
-from Clientes.models import Cliente
 
 # Create your views here.
 
@@ -28,3 +26,8 @@ def register(request):
                     request.session["userid"] = cliente[0].customer_id
     form = validacionUsuario()
     return render(request, "Login/register.html", {"form": form})
+
+
+def signup_view(request):
+    form = UserCreationForm()
+    return render(request, "Login/continueRegister.html", {"form": form})
