@@ -281,11 +281,7 @@ class Tipotarjeta(models.Model):
 
 class Tiposcliente(models.Model):
     tipoid = models.AutoField(db_column="tipoID", primary_key=True)  # Field name made lowercase.
-    cantidadmaxchequeras = models.IntegerField(db_column="cantidadMaxChequeras")  # Field name made lowercase.
-    cantidadmaxtarjetas = models.IntegerField(db_column="cantidadMaxTarjetas")  # Field name made lowercase.
-    puedecrearchequera = models.IntegerField(db_column="puedeCrearChequera")  # Field name made lowercase.
-    puedecreartarjetacredito = models.IntegerField(db_column="puedeCrearTarjetaCredito")  # Field name made lowercase.
-    puedecomprardolar = models.IntegerField(db_column="puedeComprarDolar")  # Field name made lowercase.
+    nombretipo = models.TextField(db_column="nombreTipo")  # Field name made lowercase.
 
     class Meta:
         managed = False
