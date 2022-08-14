@@ -4,7 +4,10 @@ from django.shortcuts import render
 
 
 def homebanking(request):
-    return render(request, "Cuentas/homebanking.html")
+    customer_name = request.session["customer_name"]
+    customer_surname = request.session["customer_surname"]
+    context = {"customer_name": customer_name, "customer_surname": customer_surname}
+    return render(request, "Cuentas/homebanking.html", context=context)
 
 
 def gastos(request):

@@ -36,26 +36,14 @@
               <div
                 class="d-flex flex-column justify-content-center align-items-center h-100"
               >
-                <input
-                  type="text"
-                  placeholder="Email"
-                  class="form-control mb-4"
-                />
-                <input
-                  type="text"
-                  placeholder="Usuario"
-                  class="form-control mb-4"
-                />
-                <input
-                  type="password"
-                  placeholder="Contraseña"
-                  class="form-control mb-4"
-                />
-                <button type="button" class="btn btn-secondary mb-4">
-                  <a href="{% url 'homebanking' %}" class="iniciarSesion"
-                    >Iniciar sesión</a
-                  >
-                </button>
+                <form action="" method="post">
+                  {{ form }} {% csrf_token %}
+                  <input
+                    type="submit"
+                    value="login"
+                    class="btn btn-secondary mb-4"
+                  />
+                </form>
                 <p class="texto">
                   Si olvidaste tu contraseña, <a href="#">hacé click acá</a>
                 </p>

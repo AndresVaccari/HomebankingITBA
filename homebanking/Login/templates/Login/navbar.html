@@ -1,7 +1,7 @@
 {% load static %}
 <nav class="navbar navbar-expand-md bg-light">
   <div class="container-fluid">
-    <a href="#" class="navbar-brand">
+    <a href="{% url 'index' %}" class="navbar-brand">
       <img src="{% static 'img/Logo.svg' %}" alt="ITBA Bank" height="35" />
     </a>
     <button
@@ -34,7 +34,9 @@
           <a href="{% url 'login' %}" class="nav-link links">Ingresá</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link links btn btn-dark registrate"
+          <a
+            href="{% url 'register'%}"
+            class="nav-link links btn btn-dark registrate"
             >Registrate</a
           >
         </li>

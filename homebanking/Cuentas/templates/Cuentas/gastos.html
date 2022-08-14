@@ -1,129 +1,81 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
-
-    <!--Fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
-      rel="stylesheet"
-    />
-
-    <!--Animaciones-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <link rel="stylesheet" href="{% static 'css/animate.css'%}" />
-
-    <!--Bootstrap-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-
-    <!--CSS-->
-    <link rel="stylesheet" href="{% static 'css/styles.css'%}" />
-
-    <!-- <link rel="stylesheet" href="https://necolas.github.io/normalize.css/3.0.2/normalize.css"> -->
-
-    <!--Favicon-->
-    <link rel="shortcut icon" href="{% static 'img/Logo reducido.svg'%}" />
-
-    <title>Dividir gastos</title>
-  </head>
-
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-md bg-light">
-        <div class="container-fluid">
-          <a href="{% url 'index' %}" class="navbar-brand">
-            <img src="{% static 'img/Logo.svg'%}" alt="ITBA Bank" height="35" />
-          </a>
-        </div>
-      </nav>
-    </header>
-
-    <main class="d-flex flex-column align-items-center justify-content-center">
-      <div class="principal alert-secondary rounded-50">
-        <div class="wrap">
-          <p
-            class="align-self-start titulo wow animate__animated animate__fadeIn"
-          >
-            APP DE GASTOS
-          </p>
-          <div class="subrayado">
-            <img
-              class="imgSubrayado rounded"
-              width="100%"
-              height="10px"
-              src="{% static 'img/Barrita colores.svg'%}"
-              alt=""
-            />
-          </div>
-          <form class="formulario" action="">
-            <input
-              type="text"
-              id="nombreInput"
-              class="form-control"
-              placeholder="Nombre"
-            />
-            <input
-              type="text"
-              id="gastoInput"
-              class="form-control"
-              placeholder="Gasto"
-            />
-            <input
-              type="button"
-              class="boton btn btn-secondary"
-              id="btn-enviar"
-              value="Enviar"
-            />
-          </form>
-        </div>
+{% extends 'Cuentas/baseGastos.html' %}{% load static %} {% block content %}
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md bg-light">
+      <div class="container-fluid">
+        <a href="{% url 'index' %}" class="navbar-brand">
+          <img src="{% static 'img/Logo.svg'%}" alt="ITBA Bank" height="35" />
+        </a>
       </div>
-      <div class="nombres">
-        <div class="wrap listaGastos alert-secondary rounded-50">
-          <ol class="list-group list-group-numbered lista" id="lista"></ol>
+    </nav>
+  </header>
 
-          <section id="gastoTotal"><b>Total:</b> $0</section>
-          <section id="gastoDividido"><b>No hay nadie</b></section>
+  <main class="d-flex flex-column align-items-center justify-content-center">
+    <div class="principal alert-secondary rounded-50">
+      <div class="wrap">
+        <p
+          class="align-self-start titulo wow animate__animated animate__fadeIn"
+        >
+          APP DE GASTOS
+        </p>
+        <div class="subrayado">
+          <img
+            class="imgSubrayado rounded"
+            width="100%"
+            height="10px"
+            src="{% static 'img/Barrita colores.svg'%}"
+            alt=""
+          />
         </div>
+        <form class="formulario" action="">
+          <input
+            type="text"
+            id="nombreInput"
+            class="form-control"
+            placeholder="Nombre"
+          />
+          <input
+            type="text"
+            id="gastoInput"
+            class="form-control"
+            placeholder="Gasto"
+          />
+          <input
+            type="button"
+            class="boton btn btn-secondary"
+            id="btn-enviar"
+            value="Enviar"
+          />
+        </form>
       </div>
-      <br /><br />
-      <div id="dolar" class="alert-secondary rounded-60 wrap"></div>
-    </main>
+    </div>
+    <div class="nombres">
+      <div class="wrap listaGastos alert-secondary rounded-50">
+        <ol class="list-group list-group-numbered lista" id="lista"></ol>
 
-    <!--JS-->
-    <script src="{% static 'src/main.js'%}"></script>
-    <script src="{% static 'src/valorDolar.js'%}"></script>
+        <section id="gastoTotal"><b>Total:</b> $0</section>
+        <section id="gastoDividido"><b>No hay nadie</b></section>
+      </div>
+    </div>
+    <br /><br />
+    <div id="dolar" class="alert-secondary rounded-60 wrap"></div>
+  </main>
 
-    <!--Bootstrap-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
+  <!--JS-->
+  <script src="{% static 'src/main.js'%}"></script>
+  <script src="{% static 'src/valorDolar.js'%}"></script>
 
-    <!--JS Animaciones-->
-    <script src="{% static '/WOW-master/WOW-master/dist/wow.min.js'%}"></script>
-    <script>
-      new WOW().init();
-    </script>
-  </body>
-</html>
+  <!--Bootstrap-->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"
+  ></script>
+
+  <!--JS Animaciones-->
+  <script src="{% static '/WOW-master/WOW-master/dist/wow.min.js'%}"></script>
+  <script>
+    new WOW().init();
+  </script>
+</body>
+{% endblock %}
