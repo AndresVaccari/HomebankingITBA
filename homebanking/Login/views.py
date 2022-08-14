@@ -1,5 +1,7 @@
+from urllib import request
 from django.shortcuts import render
-from .forms import validacionUsuario
+from .forms import validacionUsuario 
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
@@ -23,3 +25,7 @@ def register(request):
 
     form = validacionUsuario()
     return render(request, "Login/register.html", {"form": form})
+
+def signup_view(request):
+    form = UserCreationForm()
+    return render(request, "Login/continueRegister.html", {"form":form})

@@ -1,0 +1,32 @@
+{% extends 'Login/base.html' %} {% load static %} {% block content %}
+
+<body class="fondoIndex">
+    <header>{% include 'Login/navbar.html' %}</header>
+    <section class="d-flex justify-content-center align-item-center">
+      <div class="col-sm-12 col-md-3 panelLogin">
+        <p class="align-self-start titulo wow animate__animated animate__pulse">
+          REGISTRATE
+        </p>
+        <div class="subrayado">
+          <img
+            class="imgSubrayado rounded"
+            width="100%"
+            height="10px"
+            src="{% static 'img/Barrita colores.svg' %}"
+            alt=""
+          />
+        </div>
+        <div
+          class="d-flex flex-column justify-content-center align-items-center h-130"
+        >
+        <form class="site-form" action="" method="post">
+            {{form}}
+            <input type="Submit" value="Signup" class="btn btn-secondary mb-4">
+        </form>
+        </div>
+      </div>
+    </section>
+  </body>
+
+{% endblock%}
+
