@@ -1,16 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h2>Prestamo</h2>
-    <form method="POST" class="post-form">
-      {% csrf_token %} {{ form.as_p }}
-      <button type="submit" class="save btn btn-default">Save</button>
-    </form>
-  </body>
-</html>
+{% extends 'Prestamos/base.html' %}{% load static %} {% block content %}
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md bg-light">
+      <div class="container-fluid">
+        <a href="{% url 'homebanking' %}" class="navbar-brand">
+          <img src="{% static 'img/Logo.svg'%}" alt="ITBA Bank" height="35" />
+        </a>
+      </div>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="nav">
+          <li class="nav-item">
+            <a
+              href="{% url 'homebanking' %}"
+              class="nav-link links btn btn-dark me-4 text-white"
+              >Volver</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="d-flex flex-column align-items-center justify-content-center">
+    <div class="principal alert-secondary rounded-50">
+      <div class="wrap">
+        <p
+          class="align-self-start titulo wow animate__animated animate__fadeIn"
+        >
+          APP DE PRESTAMOS
+        </p>
+        <div class="subrayado">
+          <img
+            class="imgSubrayado rounded"
+            width="100%"
+            height="10px"
+            src="{% static 'img/Barrita colores.svg'%}"
+            alt=""
+          />
+        </div>
+        {{error}}
+        <form action="" method="post">
+          {{ form }} {% csrf_token %}
+          <button type="submit">Pedir Prestamo</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!--JS-->
+  <script src="{% static 'src/main.js'%}"></script>
+  <script src="{% static 'src/valorDolar.js'%}"></script>
+
+  <!--Bootstrap-->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"
+  ></script>
+
+  <!--JS Animaciones-->
+  <script src="{% static '/WOW-master/WOW-master/dist/wow.min.js'%}"></script>
+  <script>
+    new WOW().init();
+  </script>
+</body>
+{% endblock %}

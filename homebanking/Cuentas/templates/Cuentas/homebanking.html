@@ -18,7 +18,9 @@
         <li><a href="#" class="menu">Perfil</a></li>
         <li><a href="#" class="menu">Inversiones</a></li>
         <li><a href="#" class="menu">Contactos</a></li>
-        <li><a href="#" class="menu">Ayuda</a></li>
+        {% if cantidadCuentas > 0 %}
+        <li><a href="{% url 'prestamos' %}" class="menu">Prestamos</a></li>
+        {% endif %}
         <li>
           <a href="{% url 'logout' %}" class="btn btn-dark">Cerrar Sesion</a>
         </li>
@@ -29,19 +31,16 @@
       <div class="left">
         <section class="saldo boxContainer">
           <h2>Mis saldos</h2>
-          <div class="balanceContainer">
-            <div class="account">
-              <p class="mainBalance">$7.893</p>
-              <p>Cuenta corriente</p>
+          <div class="balanceContainer d-flex justify-content-center">
+            {% for cuenta in cuentasCliente %}
+            <div
+              class="account border border-dark rounded-3"
+              style="max-width: 40%"
+            >
+              <p class="mainBalance">{{cuenta.tipocuenta}}</p>
+              <p>Saldo: ${{cuenta.balance}}</p>
             </div>
-            <div class="account">
-              <p class="mainBalance">$1.237</p>
-              <p>Caja de ahorro en pesos</p>
-            </div>
-            <div class="account">
-              <p class="mainBalance">$5.230</p>
-              <p>Caja de ahorro en pesos</p>
-            </div>
+            {% endfor %}
           </div>
         </section>
 

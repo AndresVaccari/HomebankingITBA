@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.sessions.models import Session
+from Clientes.models import Cuenta
 
 # Create your views here.
 
@@ -7,9 +8,17 @@ from django.contrib.sessions.models import Session
 def homebanking(request):
     try:
         request.session["usuario"]
+        cuentasCliente = Cuenta.objects.filter(customer_id=request.session["customer_id"])
+        cantidadCuentas = len(list(cuentasCliente))
         customer_name = request.session["customer_name"]
         customer_surname = request.session["customer_surname"]
-        context = {"customer_name": customer_name, "customer_surname": customer_surname}
+
+        context = {
+            "customer_name": customer_name,
+            "customer_surname": customer_surname,
+            "cuentasCliente": cuentasCliente,
+            "cantidadCuentas": cantidadCuentas,
+        }
         return render(request, "Cuentas/homebanking.html", context=context)
     except (Session.DoesNotExist, KeyError):
         return redirect("/")

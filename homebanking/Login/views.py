@@ -1,7 +1,8 @@
+from os import curdir
 from django.shortcuts import render, redirect
 from .forms import validacionUsuario
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from Clientes.models import Cliente
+from Clientes.models import Cliente, Cuenta
 from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
 
@@ -34,6 +35,7 @@ def login(request):
                 request.session["customer_name"] = cliente.customer_name
                 request.session["customer_surname"] = cliente.customer_surname
                 request.session["usuario"] = username.username
+                request.session["tipoCliente"] = cliente.tipoCliente.nombretipo
                 return redirect("/homebanking/inicio")
         else:
             form = AuthenticationForm()
@@ -54,7 +56,9 @@ def register(request):
                 cliente = Cliente.objects.filter(customer_dni=dni, dob=dob)
                 if cliente:
                     if cliente[0].usuario != None:
-                        print("Usuario registrado")
+                        return render(
+                            request, "Login/register.html", {"form": form, "error": "El cliente ya tiene un usuario"}
+                        )
                     else:
                         request.session["customer_id"] = cliente[0].customer_id
                         return redirect("/continueRegister")

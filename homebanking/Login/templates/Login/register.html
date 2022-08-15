@@ -4,7 +4,7 @@
   <section class="d-flex justify-content-center align-item-center">
     <div class="col-sm-12 col-md-3 panelLogin">
       <p class="align-self-start titulo wow animate__animated animate__pulse">
-        INGRESÁ DESDE ACÁ
+        REGISTRATE
       </p>
       <div class="subrayado">
         <img
@@ -18,12 +18,13 @@
       <div
         class="d-flex flex-column justify-content-center align-items-center h-130"
       >
+        {{error}}
         <form action="" method="post">
           {{ form }} {% csrf_token %}
           <input
             type="submit"
-            value="validacionUsuario"
-            class="btn btn-secondary mb-4"
+            value="Validar Usuario"
+            class="btn btn-secondary mb-4 mt-3"
           />
         </form>
         <p class="texto">

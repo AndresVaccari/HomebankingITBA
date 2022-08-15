@@ -114,7 +114,7 @@ class Cliente(models.Model):
 
 class Cuenta(models.Model):
     account_id = models.AutoField(primary_key=True)
-    customer_id = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    customer_id = models.ForeignKey(Cliente, on_delete=models.CASCADE, db_column="customer_id")
     balance = models.IntegerField()
     iban = models.TextField()
     limiteextracciondiario = models.TextField(
