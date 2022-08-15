@@ -1,7 +1,7 @@
 from os import curdir
 from django.shortcuts import render, redirect
-from .forms import validacionUsuario
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from .forms import validacionUsuario, registroForm, loginForm
+from django.contrib.auth.forms import AuthenticationForm
 from Clientes.models import Cliente, Cuenta
 from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
@@ -26,7 +26,7 @@ def login(request):
     except (Session.DoesNotExist, KeyError):
         request.session["customer_id"] = None
         if request.method == "POST":
-            form = AuthenticationForm(data=request.POST)
+            form = loginForm(data=request.POST)
             if form.is_valid():
                 cliente = Cliente.objects.get(usuario=form.get_user())
                 username = User.objects.get(username=form.get_user())
@@ -38,7 +38,7 @@ def login(request):
                 request.session["tipoCliente"] = cliente.tipoCliente.nombretipo
                 return redirect("/homebanking/inicio")
         else:
-            form = AuthenticationForm()
+            form = loginForm()
         return render(request, "Login/login.html", {"form": form})
 
 
@@ -53,16 +53,19 @@ def register(request):
             if form.is_valid():
                 dni = request.POST.get("dni")
                 dob = request.POST.get("dob")
-                cliente = Cliente.objects.filter(customer_dni=dni, dob=dob)
-                if cliente:
-                    if cliente[0].usuario != None:
-                        return render(
-                            request, "Login/register.html", {"form": form, "error": "El cliente ya tiene un usuario"}
-                        )
-                    else:
-                        request.session["customer_id"] = cliente[0].customer_id
-                        return redirect("/continueRegister")
-        form = validacionUsuario()
+                try:
+                    cliente = Cliente.objects.get(customer_dni=dni, dob=dob)
+                except Cliente.DoesNotExist:
+                    return render(request, "Login/register.html", {"form": form, "error": "El cliente no existe"})
+                if cliente.usuario != None:
+                    return render(
+                        request, "Login/register.html", {"form": form, "error": "El cliente ya tiene un usuario"}
+                    )
+                else:
+                    request.session["customer_id"] = cliente.customer_id
+                    return redirect("/continueRegister")
+        else:
+            form = validacionUsuario()
         return render(request, "Login/register.html", {"form": form})
 
 
@@ -74,7 +77,7 @@ def signup_view(request):
         if request.session["customer_id"] != None:
             id = request.session["customer_id"]
             if request.method == "POST":
-                form = UserCreationForm(request.POST)
+                form = registroForm(request.POST)
                 if form.is_valid():
                     form.save()
                     usuario = request.POST.get("username")
@@ -85,7 +88,7 @@ def signup_view(request):
                     request.session["customer_id"] = None
                     return redirect("login")
             else:
-                form = UserCreationForm()
+                form = registroForm()
             return render(request, "Login/continueRegister.html", {"form": form})
         else:
             return redirect("/")

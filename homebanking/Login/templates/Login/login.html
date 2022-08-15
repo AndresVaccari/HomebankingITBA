@@ -1,74 +1,82 @@
-{% extends 'Login/base.html' %}
-{% load static %}
-{% block content %}
-  <body class="bodyLogin">
-    <div class="fondoBlanco">
-      <div class="fondo">
-        <main class="container collumnsLogin justify-content-center">
-          <div
-            class="row collumnsLogin justify-content-center align-items-center"
-          >
-            <a href="{% url 'index' %}" class="imagenLogo">
+{% extends 'Login/base.html' %} {% load static %} {% block content %}
+<body class="bodyLogin">
+  <div class="fondoBlanco">
+    <div class="fondo">
+      <main class="container collumnsLogin justify-content-center">
+        <div
+          class="row collumnsLogin justify-content-center align-items-center"
+        >
+          <a href="{% url 'index' %}" class="imagenLogo">
+            <img
+              src="{% static 'img/Logo.svg' %}"
+              width="200px"
+              height="auto"
+              alt="ITBA Bank"
+              height="35"
+            />
+          </a>
+          <div class="col-12 col-md-8 colLeft"></div>
+          <div class="col-sm-12 col-md-4 panelLogin">
+            <p
+              class="align-self-start titulo wow animate__animated animate__pulse"
+            >
+              INGRESÁ DESDE ACÁ
+            </p>
+            <div class="subrayado">
               <img
-                src="{% static 'img/Logo.svg' %}"
-                width="200px"
-                height="auto"
-                alt="ITBA Bank"
-                height="35"
+                class="imgSubrayado rounded"
+                width="100%"
+                height="10px"
+                src="{% static 'img/Barrita colores.svg' %}"
+                alt=""
               />
-            </a>
-            <div class="col-12 col-md-8 colLeft"></div>
-            <div class="col-sm-12 col-md-4 panelLogin">
-              <p
-                class="align-self-start titulo wow animate__animated animate__pulse"
-              >
-                INGRESÁ DESDE ACÁ
-              </p>
-              <div class="subrayado">
-                <img
-                  class="imgSubrayado rounded"
-                  width="100%"
-                  height="10px"
-                  src="{% static 'img/Barrita colores.svg' %}"
-                  alt=""
-                />
-              </div>
-              <div
+            </div>
+            <div
+              class="d-flex flex-column justify-content-center align-items-center h-100"
+            >
+              <form
+                action=""
+                method="post"
                 class="d-flex flex-column justify-content-center align-items-center h-100"
               >
-                <form action="" method="post">
-                  {{ form }} {% csrf_token %}
-                  <input
-                    type="submit"
-                    value="login"
-                    class="btn btn-secondary mb-4"
-                  />
-                </form>
-                <p class="texto">
-                  Si olvidaste tu contraseña, <a href="#">hacé click acá</a>
-                </p>
-                <p class="mb-5 texto">
-                  Si no tenés usuario, <a href="#">hacé click acá</a>
-                </p>
-              </div>
+                {% csrf_token %}
+                <p class="textoLogin">Usuario</p>
+                {{ form.username }}
+                <p class="textoLogin">Contraseña</p>
+                {{ form.password }} {% if form.errors %}
+                <div class="alert alert-danger mt-2">{{ form.errors }}</div>
+                {% endif %}
+                <input
+                  type="submit"
+                  value="Login"
+                  class="btn btn-secondary mb-4"
+                />
+              </form>
+              <p class="texto">
+                Si olvidaste tu contraseña, <a href="#">hacé click acá</a>
+              </p>
+              <p class="mb-5 texto">
+                Si no tenés usuario,
+                <a href="{% url 'register' %}">hacé click acá</a>
+              </p>
             </div>
           </div>
-        </main>
-      </div>
+        </div>
+      </main>
     </div>
+  </div>
 
-    <!--JS bootstrap-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-      crossorigin="anonymous"
-    ></script>
+  <!--JS bootstrap-->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"
+  ></script>
 
-    <!--JS Animaciones-->
-    <script src="{% static '/WOW-master/WOW-master/dist/wow.min.js' %}"></script>
-    <script>
-      new WOW().init();
-    </script>
-  </body>
-</html>
+  <!--JS Animaciones-->
+  <script src="{% static '/WOW-master/WOW-master/dist/wow.min.js' %}"></script>
+  <script>
+    new WOW().init();
+  </script>
+</body>
 {% endblock %}

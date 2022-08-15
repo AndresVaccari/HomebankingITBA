@@ -18,9 +18,17 @@
       <div
         class="d-flex flex-column justify-content-center align-items-center h-130"
       >
-        {{error}}
         <form action="" method="post">
-          {{ form }} {% csrf_token %}
+          {% csrf_token %}
+          <p>Documento</p>
+          {{ form.dni }}
+          <p>Fecha de nacimiento</p>
+          {{ form.dob }} {% if form.errors %}
+          <div class="alert alert-danger mt-2">{{ form.errors }}</div>
+          {% endif %} {% if error %}
+          <div class="alert alert-danger mt-2">{{ error }}</div>
+          {% endif %}
+
           <input
             type="submit"
             value="Validar Usuario"

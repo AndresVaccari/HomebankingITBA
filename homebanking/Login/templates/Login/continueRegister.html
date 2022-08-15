@@ -19,8 +19,20 @@
       <div
         class="d-flex flex-column justify-content-center align-items-center h-130"
       >
-        <form class="site-form" action="" method="post">
-          {{form}} {% csrf_token %}
+        <form
+          class="site-form d-flex justify-content-center flex-column align-items-center"
+          action=""
+          method="post"
+        >
+          {% csrf_token %}
+          <p>Usuario</p>
+          {{form.username}}
+          <p>Contraseña</p>
+          {{form.password1}}
+          <p>Repetir Contraseña</p>
+          {{form.password2}} {% if form.errors %}
+          <div class="alert alert-danger mt-2">{{form.errors}}</div>
+          {% endif %}
           <input
             type="submit"
             value="Registrarse"
