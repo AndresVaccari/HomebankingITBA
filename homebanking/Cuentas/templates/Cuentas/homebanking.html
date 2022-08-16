@@ -47,6 +47,7 @@
         <section class="tarjetas boxContainer">
           <h2>Mis tarjetas</h2>
           <div class="contenedor">
+            {% for tarjeta in tarjetas %}
             <section class="tarjeta" id="tarjeta">
               <div class="delantera">
                 <div class="logo-marca" id="logo-marca">
@@ -56,20 +57,19 @@
                 <div class="datos">
                   <div class="grupo" id="numero">
                     <p class="label">Número Tarjeta</p>
-                    <p class="numero">4050 5802 2314 7845</p>
+                    <p class="numero">{{tarjeta.numerotarjeta}}</p>
                   </div>
                   <div class="flexbox">
                     <div class="grupo" id="nombre">
                       <p class="label">Nombre Tarjeta</p>
-                      <p class="nombre">Roberto Carlos</p>
+                      <p class="nombre">
+                        {{customer_name}} {{customer_surname}}
+                      </p>
                     </div>
 
                     <div class="grupo" id="expiracion">
                       <p class="label">Expiración</p>
-                      <p class="expiracion">
-                        <span class="mes">08</span> /
-                        <span class="year">25</span>
-                      </p>
+                      <p class="expiracion">{{tarjeta.fechaexpiracion}}</p>
                     </div>
                     <div class="logo-visa">
                       <img src="{% static 'img\visa.svg' %}" alt="" />
@@ -78,38 +78,7 @@
                 </div>
               </div>
             </section>
-
-            <section class="tarjeta" id="tarjeta">
-              <div class="delantera">
-                <div class="logo-marca" id="logo-marca">
-                  <img src="{% static 'img/Logo reducido.svg' %}" alt="" />
-                </div>
-
-                <div class="datos">
-                  <div class="grupo" id="numero">
-                    <p class="label">Número Tarjeta</p>
-                    <p class="numero">4050 5802 2314 7845</p>
-                  </div>
-                  <div class="flexbox">
-                    <div class="grupo" id="nombre">
-                      <p class="label">Nombre Tarjeta</p>
-                      <p class="nombre">Roberto Carlos</p>
-                    </div>
-
-                    <div class="grupo" id="expiracion">
-                      <p class="label">Expiración</p>
-                      <p class="expiracion">
-                        <span class="mes">08</span> /
-                        <span class="year">25</span>
-                      </p>
-                    </div>
-                    <div class="logo-visa">
-                      <img src="{% static 'img\visa.svg' %}" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+            {% endfor %}
           </div>
         </section>
       </div>

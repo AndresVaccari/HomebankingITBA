@@ -13,7 +13,7 @@
 
 nav {
   min-height: 100vh;
-  width: 250px;
+  width: 15%;
   flex-shrink: 0;
 }
 
@@ -42,7 +42,7 @@ nav .logo {
 
 .contenedor {
   display: flex;
-  overflow: auto;
+  overflow: hidden;
   width: 100%;
   align-items: flex-start;
 }
@@ -50,7 +50,7 @@ nav .logo {
 main {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 85%;
   background-color: white;
   /* gap: 1rem; */
   margin: 1.5rem 1.5rem 1.5rem 0;
@@ -58,24 +58,29 @@ main {
   border-radius: 0 2rem 2rem 0;
   border-left: 0.625rem black solid;
   box-shadow: 0 0 10px #686464;
-  border-image: linear-gradient(to bottom,
+  border-image: linear-gradient(
+      to bottom,
       #9fc372,
       #8ac7db,
       #8a7cb2,
       #c166a3,
-      #ebc36b) 1;
+      #ebc36b
+    )
+    1;
 }
 
 main .left {
   display: flex;
   flex-direction: column;
   flex: 1 1 0px;
+  max-width: 70%;
 }
 
 main .right {
   display: flex;
   flex: 0.6 1 0px;
   margin-left: 1rem;
+  max-width: 30%;
 }
 
 main .boxContainer {
@@ -100,6 +105,7 @@ main .transferencias {
 main .tarjetas {
   /* background-color: chartreuse; */
   width: 100%;
+  overflow: hidden;
 }
 
 .balanceContainer {
@@ -139,7 +145,7 @@ main .tarjetas {
 	transform: rotateY(180deg);
 } */
 
-.tarjeta>div {
+.tarjeta > div {
   padding: 25px;
   border-radius: 15px;
   min-height: 280px;
@@ -307,8 +313,6 @@ main .tarjetas {
   font-size: 12pt;
 }
 
-
-
 @media screen and (max-width: 1500px) {
   .contenedor {
     flex-direction: column;
@@ -330,10 +334,16 @@ main .tarjetas {
     margin: 0;
     border-radius: 0;
     border-left: 0;
+    width: 100%;
+  }
+
+  main .left {
+    max-width: 100%;
   }
 
   main .right {
     margin-left: 0;
+    max-width: 100%;
   }
 
   .contenedor {

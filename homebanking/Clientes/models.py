@@ -256,7 +256,7 @@ class Sujetodireccion(models.Model):
 
 
 class Tarjeta(models.Model):
-    numerotarjeta = models.TextField(db_column="numeroTarjeta")  # Field name made lowercase.
+    numerotarjeta = models.TextField(db_column="numeroTarjeta", primary_key=True)  # Field name made lowercase.
     marcaid = models.ForeignKey(
         Marcastarjeta, on_delete=models.CASCADE, db_column="marcaID"
     )  # Field name made lowercase.
@@ -266,7 +266,7 @@ class Tarjeta(models.Model):
     tipotarjetaid = models.ForeignKey(
         "Tipotarjeta", on_delete=models.CASCADE, db_column="tipoTarjetaID"
     )  # Field name made lowercase.
-    customer_id = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    customer_id = models.ForeignKey(Cliente, on_delete=models.CASCADE, db_column="customer_id")
 
     class Meta:
         managed = False
