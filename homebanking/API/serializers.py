@@ -1,6 +1,8 @@
 from rest_framework import serializers
+
 from Clientes.models import Cliente, Cuenta, Tarjeta, Direcciones, Sucursal, Sujetodireccion, Tiposcliente
 from Prestamos.models import Prestamo
+
 from django.contrib.auth.models import User
 
 # from homebanking.Clientes.models import Sujetodireccion
