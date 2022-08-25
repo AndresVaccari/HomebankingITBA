@@ -10,18 +10,12 @@ from Clientes.models import Cliente, Sujetodireccion, Tiposcliente
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
+from django.contrib.sessions.models import Session
 
 
 # Create your views here.
 
 # Create your views here.
-@api_view(["GET"])
-def api_root(request, format=None):
-    return Response(
-        {
-            "clientes": reverse("clientes-list", request=request, format=format),
-        }
-    )
 
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
@@ -30,32 +24,13 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-# class ClienteDetail(APIView):
-#     def get(self, request, pk=None):
-#         # user = User.objects.filter(pk=pk).first()
-#         cliente = Cliente.objects.filter(usuario=pk)
-#         serializer = ClienteSerializer(cliente)
-#         if cliente:
-#             return Response(serializer.data, status=status.HTTP_200_OK)
-#         return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
-
-
 class ClienteViewSet(viewsets.ReadOnlyModelViewSet):
-    # queryset = Cliente.objects.all()
-    # serializer_class = ClienteSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-    def get_queryset(self):
-        return Cliente.objects.all()
+    permission_classes = [permissions.IsAuthenticated]
 
     def list(self, request):
-        queryset = Cliente.objects.all()
-        serializer = ClienteSerializer(queryset, many=True, context={"request": request})
-        return Response(serializer.data)
-
-    def retrieve(self, request, pk=None):
-        queryset = Cliente.objects.all()
-        user = get_object_or_404(queryset, pk=pk)
-        serializer = ClienteSerializer(user, context={"request": request})
+        usuario = User.objects.get(username=request.user)
+        queryset = Cliente.objects.get(usuario=usuario.id)
+        serializer = ClienteSerializer(queryset, many=False, context={"request": request})
         return Response(serializer.data)
 
 
