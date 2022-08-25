@@ -1,17 +1,12 @@
-from msilib.schema import ServiceInstall
-from typing_extensions import Self
-from django.shortcuts import render
-from rest_framework import status, generics, permissions, viewsets
-from rest_framework.decorators import api_view
-from rest_framework.reverse import reverse
+from django.shortcuts import render, get_object_or_404
+
+from rest_framework import permissions, viewsets
 from rest_framework.response import Response
+
 from .serializers import ClienteSerializer, UserSerializer, SujetoDireccionSerializer, TiposclienteSerializer
 from Clientes.models import Cliente, Sujetodireccion, Tiposcliente
-from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404
-from rest_framework.views import APIView
-from django.contrib.sessions.models import Session
 
+from django.contrib.auth.models import User
 
 # Create your views here.
 
