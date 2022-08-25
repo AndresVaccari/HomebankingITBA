@@ -10,8 +10,6 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 
-# Create your views here.
-
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = User.objects.all()
