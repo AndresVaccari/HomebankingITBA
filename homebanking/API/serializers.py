@@ -1,14 +1,35 @@
 from rest_framework import serializers
-from Clientes.models import Cliente, Cuenta, Tarjeta, Direcciones, Sucursal
+from Clientes.models import Cliente, Cuenta, Tarjeta, Direcciones, Sucursal, Sujetodireccion, Tiposcliente
 from Prestamos.models import Prestamo
 from django.contrib.auth.models import User
 
+# from homebanking.Clientes.models import Sujetodireccion
+
 
 class ClienteSerializer(serializers.HyperlinkedModelSerializer):
-    # usuario = serializers.HyperlinkedRelatedField(many=True, view_name="user-detail", read_only=True)
+    # usuario = serializers.HyperlinkedRelatedField(many=True, view_name="user-list", read_only=True)
+    # iddirecciones = serializers.HyperlinkedRelatedField(many=True, view_name="Sujetodireccion-list", read_only=True)
 
     class Meta:
         model = Cliente
+        fields = "__all__"
+
+
+class SujetoDireccionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Sujetodireccion
+        fields = "__all__"
+
+
+class TiposclienteSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Tiposcliente
+        fields = "__all__"
+
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
         fields = "__all__"
 
 

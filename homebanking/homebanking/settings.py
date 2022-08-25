@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "Login.apps.LoginConfig",
     "Prestamos.apps.PrestamosConfig",
     "Tarjetas.apps.TarjetasConfig",
+    "rest_framework",
     "API",
 ]
 
