@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.sessions.models import Session
-from Clientes.models import Cuenta, Tarjeta
+from Clientes.models import Cuenta, Tarjeta, Cliente
+
 
 # Create your views here.
 
