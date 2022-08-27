@@ -1,15 +1,31 @@
+from cgitb import lookup
 from rest_framework import serializers
 
-from Clientes.models import Cliente, Cuenta, Tarjeta, Direcciones, Sucursal, Sujetodireccion, Tiposcliente
+from Clientes.models import (
+    Cliente,
+    Cuenta,
+    Tarjeta,
+    Direcciones,
+    Sucursal,
+    Sujetodireccion,
+    Tiposcliente,
+    Tipotarjeta,
+    Marcastarjeta,
+)
 from Prestamos.models import Prestamo
 
 from django.contrib.auth.models import User
+from django.db.models import Sum
 
 # from homebanking.Clientes.models import Sujetodireccion
 
 
 class ClienteSerializer(serializers.HyperlinkedModelSerializer):
-    # usuario = serializers.HyperlinkedRelatedField(many=True, view_name="user-list", read_only=True)
+    usuario = serializers.HyperlinkedRelatedField(
+        many=False,
+        view_name="usuarios-detail",
+        read_only=True,
+    )
     # iddirecciones = serializers.HyperlinkedRelatedField(many=True, view_name="Sujetodireccion-list", read_only=True)
 
     class Meta:
@@ -32,24 +48,48 @@ class TiposclienteSerializer(serializers.HyperlinkedModelSerializer):
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = "__all__"
+        fields = ["id", "username"]
 
 
 class CuentaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Cuenta
-        fields = "__all__"
+        fields = ["customer_id", "balance", "tipocuenta"]
 
 
 class PrestamosSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Prestamo
+        fields = ["customer_id", "loan_type", "loan_total"]
+
+
+class GestionPrestamosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Prestamo
         fields = "__all__"
+
+
+class TotalPrestamosSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Prestamo
+        fields = ["branch_id", "loan_total"]
 
 
 class TarjetaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Tarjeta
+        fields = ["numerotarjeta", "cvv", "customer_id", "tipotarjetaid", "marcaid"]
+
+
+class TipoTarjetaSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Tipotarjeta
+        fields = "__all__"
+
+
+class MarcasTarjetaSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Marcastarjeta
         fields = "__all__"
 
 
