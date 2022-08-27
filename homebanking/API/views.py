@@ -187,6 +187,7 @@ class GestionPrestamosViewSet(viewsets.ModelViewSet):
     def create(self, request):
         usuario = User.objects.get(username=request.user)
         if usuario.is_staff:
+            # Modificacion del saldo de la cuenta definido en el serializer
             serializer = GestionPrestamosSerializer(data=request.data, partial=True)
             if serializer.is_valid():
                 serializer.save()
