@@ -17,6 +17,8 @@ from Prestamos.models import Prestamo
 from django.contrib.auth.models import User
 from django.http import Http404
 
+from datetime import datetime
+
 
 # from homebanking.Clientes.models import Sujetodireccion
 
@@ -77,6 +79,7 @@ class GestionPrestamosSerializer(serializers.ModelSerializer):
             cuentaCliente.save()
         else:
             raise Http404
+        validated_data["loan_date"] = datetime.now().strftime("%Y-%m-%d")
         return Prestamo.objects.create(**validated_data)
 
 

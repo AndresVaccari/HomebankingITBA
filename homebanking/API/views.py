@@ -1,5 +1,4 @@
-from ast import Return
-from multiprocessing import context
+from functools import partial
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404
 
@@ -188,7 +187,7 @@ class GestionPrestamosViewSet(viewsets.ModelViewSet):
     def create(self, request):
         usuario = User.objects.get(username=request.user)
         if usuario.is_staff:
-            serializer = GestionPrestamosSerializer(data=request.data)
+            serializer = GestionPrestamosSerializer(data=request.data, partial=True)
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
