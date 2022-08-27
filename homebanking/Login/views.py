@@ -1,8 +1,8 @@
 from os import curdir
 from django.shortcuts import render, redirect
-from .forms import validacionUsuario, registroForm, loginForm
+from .forms import validacionUsuario, registroForm, loginForm, validacionUsuarioEmpleado, registroFormEmpleado
 from django.contrib.auth.forms import AuthenticationForm
-from Clientes.models import Cliente, Cuenta
+from Clientes.models import Cliente, Cuenta, Empleado
 from django.contrib.auth.models import User
 from django.contrib.sessions.models import Session
 
@@ -89,6 +89,59 @@ def signup_view(request):
                     return redirect("login")
             else:
                 form = registroForm()
+            return render(request, "Login/continueRegister.html", {"form": form})
+        else:
+            return redirect("/")
+
+
+def registerEmpleado(request):
+    try:
+        request.session["usuario"]
+        return redirect("/homebanking/inicio")
+    except (Session.DoesNotExist, KeyError):
+        request.session["customer_id"] = None
+        if request.method == "POST":
+            form = validacionUsuarioEmpleado(request.POST)
+            if form.is_valid():
+                dni = request.POST.get("dni")
+                dob = request.POST.get("dob")
+                try:
+                    empleado = Empleado.objects.get(employee_dni=dni, employee_hire_date=dob)
+                except Cliente.DoesNotExist:
+                    return render(request, "Login/register.html", {"form": form, "error": "El empleado no existe"})
+                if empleado.usuario != None:
+                    return render(
+                        request, "Login/register.html", {"form": form, "error": "El empleado ya tiene un usuario"}
+                    )
+                else:
+                    request.session["employee_id"] = empleado.employee_id
+                    return redirect("/continueRegisterEmpleado")
+        else:
+            form = validacionUsuarioEmpleado()
+        return render(request, "Login/register.html", {"form": form})
+
+
+def signup_viewEmpleado(request):
+    try:
+        request.session["usuario"]
+        return redirect("/homebanking/inicio")
+    except (Session.DoesNotExist, KeyError):
+        if request.session["employee_id"] != None:
+            id = request.session["employee_id"]
+            if request.method == "POST":
+                form = registroFormEmpleado(request.POST)
+                if form.is_valid():
+                    form.instance.is_staff = True
+                    form.save()
+                    usuario = request.POST.get("username")
+                    user = User.objects.get(username=usuario)
+                    empleado = Empleado.objects.get(employee_id=id)
+                    empleado.usuario = user
+                    empleado.save()
+                    request.session["employee_id"] = None
+                    return redirect("login")
+            else:
+                form = registroFormEmpleado()
             return render(request, "Login/continueRegister.html", {"form": form})
         else:
             return redirect("/")

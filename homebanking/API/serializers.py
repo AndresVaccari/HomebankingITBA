@@ -15,7 +15,8 @@ from Clientes.models import (
 from Prestamos.models import Prestamo
 
 from django.contrib.auth.models import User
-from django.db.models import Sum
+from django.http import Http404
+
 
 # from homebanking.Clientes.models import Sujetodireccion
 
@@ -67,6 +68,16 @@ class GestionPrestamosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Prestamo
         fields = "__all__"
+
+    def create(self, validated_data):
+        cuentaCliente = Cuenta.objects.filter(customer_id=validated_data["customer_id"])
+        if cuentaCliente.count() > 0:
+            cuentaCliente = cuentaCliente.first()
+            cuentaCliente.balance = cuentaCliente.balance + int(validated_data["loan_total"]) * 10
+            cuentaCliente.save()
+        else:
+            raise Http404
+        return Prestamo.objects.create(**validated_data)
 
 
 class TotalPrestamosSerializer(serializers.HyperlinkedModelSerializer):

@@ -197,6 +197,7 @@ class DjangoSession(models.Model):
 
 
 class Empleado(models.Model):
+    usuario = models.OneToOneField(User, models.DO_NOTHING, db_column="usuario", null=True, blank=True)
     employee_id = models.AutoField(primary_key=True)
     employee_name = models.TextField()
     employee_surname = models.TextField()
@@ -208,7 +209,7 @@ class Empleado(models.Model):
     )  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "empleado"
 
 
